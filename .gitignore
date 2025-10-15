@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Node
+node_modules/
+dist/
+.vite/
+*.local
+
+# Rust
+target/
+Cargo.lock
+
+# Tauri
+gui/src-tauri/target/
+gui/src-tauri/Cargo.lock
+
+# Logs
+logs/
+*.log
+
+# State files
+state/
+*.db
+*.sqlite
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+build/
+*.dmg
+*.app
+*.exe
+*.msi
+*.deb
+*.rpm
+
+# EvoAgentX specific
+*.jsonl
+memory_snapshot_*.json
+test_metrics.json
+evolution.jsonl
+budget.jsonl

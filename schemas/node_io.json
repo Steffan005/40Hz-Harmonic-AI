@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Node I/O Contract",
+  "description": "Input/Output contract for EvoAgentX workflow nodes",
+  "type": "object",
+  "required": ["node_id", "node_type", "inputs", "outputs"],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "description": "Unique identifier for the node"
+    },
+    "node_type": {
+      "type": "string",
+      "enum": [
+        "evaluator",
+        "mutator",
+        "bandit",
+        "memory",
+        "workflow",
+        "telemetry",
+        "textgrad",
+        "aflow",
+        "mipro"
+      ],
+      "description": "Type of node in the workflow"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Input data contract",
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow": {
+          "type": "object"
+        },
+        "context": {
+          "type": "object"
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Output data contract",
+      "properties": {
+        "quality_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "delta_score": {
+          "type": "number"
+        },
+        "novelty": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "robust_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "cache_hit": {
+          "type": "boolean"
+        },
+        "time_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "tokens_used": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "number"
+        },
+        "version": {
+          "type": "string"
+        },
+        "agent_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

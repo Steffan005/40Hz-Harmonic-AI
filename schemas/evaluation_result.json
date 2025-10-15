@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EvaluationResult",
+  "description": "Schema for evaluation result output",
+  "type": "object",
+  "required": ["task_id", "quality_score", "decision"],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "quality_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["accept", "reject", "hitl_required"]
+    },
+    "score_breakdown": {
+      "type": "object",
+      "properties": {
+        "correctness": {"type": "number", "minimum": 0, "maximum": 100},
+        "faithfulness": {"type": "number", "minimum": 0, "maximum": 100},
+        "completeness": {"type": "number", "minimum": 0, "maximum": 100},
+        "safety": {"type": "number", "minimum": 0, "maximum": 100},
+        "efficiency": {"type": "number", "minimum": 0, "maximum": 100}
+      }
+    },
+    "violations": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "used_cache": {
+      "type": "boolean"
+    },
+    "evaluation_time_ms": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

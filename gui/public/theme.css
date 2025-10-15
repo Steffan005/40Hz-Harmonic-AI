@@ -1,0 +1,512 @@
+/* EvoAgentX Quantum-Psychedelic Theme */
+/* Fractal geometry, complementary colors (amber/red), 40Hz breathing animations */
+
+:root {
+  /* Quantum Color Palette */
+  --quantum-amber: #FFA500;
+  --quantum-red: #FF1744;
+  --quantum-purple: #9C27B0;
+  --quantum-cyan: #00BCD4;
+  --quantum-green: #00E676;
+
+  /* Fractal Depths */
+  --depth-0: 0;
+  --depth-1: 10px;
+  --depth-2: 20px;
+  --depth-3: 40px;
+
+  /* Neural Entrainment - 40Hz */
+  --breathing-duration: 25ms;  /* 40Hz = 1/0.025s */
+  --pulse-duration: 2s;
+
+  /* Gradients */
+  --fractal-bg: linear-gradient(135deg,
+    #1a0033 0%,
+    #2d0047 25%,
+    #4a0082 50%,
+    #2d0047 75%,
+    #1a0033 100%
+  );
+
+  --amber-red-gradient: linear-gradient(90deg,
+    var(--quantum-amber) 0%,
+    var(--quantum-red) 100%
+  );
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--fractal-bg);
+  background-size: 400% 400%;
+  color: #E0E0E0;
+  overflow: hidden;
+  animation: fractalShift 20s ease infinite;
+}
+
+/* Fractal Background Animation */
+@keyframes fractalShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Deep Space Fractal Wallpaper */
+.app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  background-image:
+    radial-gradient(circle at 20% 50%, var(--quantum-purple) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, var(--quantum-cyan) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, var(--quantum-green) 0%, transparent 50%);
+  filter: blur(60px);
+  animation: cosmicSwirl 30s linear infinite;
+}
+
+@keyframes cosmicSwirl {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Main App Container */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Header with Fractal Logo */
+.app-header {
+  height: 80px;
+  background: rgba(26, 0, 51, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--quantum-amber);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 4px 30px rgba(255, 165, 0, 0.3);
+  position: relative;
+  z-index: 100;
+}
+
+.app-logo {
+  font-size: 28px;
+  font-weight: 800;
+  background: var(--amber-red-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  animation: logoPulse var(--pulse-duration) ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.status-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--quantum-cyan);
+  opacity: 0.7;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--quantum-amber);
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+/* Main Dashboard */
+.dashboard {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  grid-template-rows: 1fr auto;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+/* Control Panel (Left) */
+.control-panel {
+  grid-row: 1 / 3;
+  background: rgba(45, 0, 71, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.control-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--quantum-amber);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 165, 0, 0.3);
+}
+
+/* Buttons */
+.control-button {
+  width: 100%;
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 23, 68, 0.2));
+  border: 2px solid var(--quantum-amber);
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.control-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 165, 0, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.control-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.control-button:hover {
+  border-color: var(--quantum-red);
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.control-button:active {
+  transform: translateY(0);
+}
+
+.control-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #666;
+}
+
+.control-button:disabled::after {
+  content: attr(data-disabled-reason);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--quantum-red);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.control-button:disabled:hover::after {
+  opacity: 1;
+}
+
+/* Canvas (Center) */
+.canvas-container {
+  background: rgba(26, 0, 51, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fractal-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fractal Task Visualizer Placeholder */
+.fractal-viz {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle,
+    rgba(255, 165, 0, 0.3) 0%,
+    rgba(255, 23, 68, 0.2) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: fractalPulse 3s ease-in-out infinite, fractalRotate 20s linear infinite;
+  position: relative;
+}
+
+.fractal-viz::before,
+.fractal-viz::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: fractalPulse 3s ease-in-out infinite;
+}
+
+.fractal-viz::before {
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle,
+    rgba(0, 188, 212, 0.3) 0%,
+    transparent 70%
+  );
+  animation-delay: 1s;
+}
+
+.fractal-viz::after {
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle,
+    rgba(156, 39, 176, 0.4) 0%,
+    transparent 70%
+  );
+  animation-delay: 2s;
+}
+
+@keyframes fractalPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+}
+
+@keyframes fractalRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Telemetry Panel (Right) */
+.telemetry-panel {
+  grid-row: 1 / 2;
+  background: rgba(45, 0, 71, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.telemetry-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--quantum-green);
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+.telemetry-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.telemetry-item {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid var(--quantum-cyan);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.telemetry-item-label {
+  font-size: 12px;
+  color: var(--quantum-cyan);
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.telemetry-item-value {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #FFFFFF;
+}
+
+/* Console (Bottom Right) */
+.console-panel {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.console-title {
+  color: var(--quantum-amber);
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.console-line {
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.console-line.error {
+  color: var(--quantum-red);
+}
+
+.console-line.warning {
+  color: var(--quantum-amber);
+}
+
+.console-line.info {
+  color: var(--quantum-cyan);
+}
+
+.console-line.success {
+  color: var(--quantum-green);
+}
+
+/* 40Hz Breathing Animation for Neural Entrainment */
+@keyframes breathing {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neural-entrainment {
+  animation: breathing var(--breathing-duration) ease-in-out infinite;
+}
+
+/* Calm Mode */
+body.calm-mode {
+  animation: none;
+}
+
+body.calm-mode .app-background,
+body.calm-mode .fractal-viz,
+body.calm-mode .app-logo {
+  animation: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--quantum-amber);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--quantum-red);
+}
+
+/* Tooltips */
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.95);
+  color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 1000;
+  border: 1px solid var(--quantum-amber);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid rgba(255, 165, 0, 0.2);
+  border-top: 3px solid var(--quantum-amber);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dashboard {
+    grid-template-columns: 280px 1fr 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  .control-panel,
+  .telemetry-panel {
+    grid-row: auto;
+  }
+}

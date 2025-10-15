@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TaskContract",
+  "description": "Schema for task contract between agents",
+  "type": "object",
+  "required": ["task_id", "description", "assigned_agent"],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1000
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "assigned_agent": {
+      "type": "string",
+      "enum": ["lead_planner", "research", "code", "evaluator", "optimizer", "adversary"]
+    },
+    "deadline": {
+      "type": "number",
+      "minimum": 0
+    },
+    "output_schema": {
+      "type": "object"
+    }
+  }
+}
