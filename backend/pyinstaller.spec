@@ -14,18 +14,37 @@ a = Analysis(
     pathex=['.'],
     binaries=[],
     datas=[
-        # Include Python modules if needed as data files
-        # Example: ('../evaluator_v2.py', '.'),
+        # Bundle all EvoAgentX core modules
+        ('../evaluator_v2.py', '.'),
+        ('../bandit_controller.py', '.'),
+        ('../budget_manager.py', '.'),
+        ('../memory_store.py', '.'),
+        ('../telemetry.py', '.'),
+        ('../heuristics.py', '.'),
+        ('../stop_rules.py', '.'),
+        # Bundle config files (CRITICAL for runtime)
+        ('../configs', 'configs'),
     ],
     hiddenimports=[
+        # Flask web framework
         'flask',
         'flask_cors',
+        # System utilities
         'psutil',
+        # LLM integration (CRITICAL)
+        'litellm',
+        # YAML config parsing (CRITICAL)
+        'yaml',
+        'pyyaml',
+        # HTTP requests (used by litellm)
+        'requests',
+        'urllib3',
+        # Hashing and crypto
+        'hashlib',
+        # Standard library (redundant but safe)
+        'pathlib',
         'json',
-        'sys',
-        'os',
-        'threading',
-        'logging',
+        'time',
     ],
     hookspath=[],
     hooksconfig={},
@@ -59,7 +78,7 @@ exe = EXE(
     upx=False,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,  # No console window on macOS
+    console=True,  # Enable console for debugging (set to False for production)
     disable_windowed_traceback=False,
     target_arch=None,
     codesign_identity=None,
