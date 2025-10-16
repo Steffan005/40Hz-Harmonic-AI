@@ -44,10 +44,21 @@ echo ""
 echo "[Unity] Step 2/7: Freezing Python backend with PyInstaller..."
 cd "${BACKEND_DIR}"
 
-# Ensure PyInstaller is installed
-if ! python3 -c "import PyInstaller" 2>/dev/null; then
-    echo "   Installing PyInstaller..."
-    python3 -m pip install --upgrade pip pyinstaller
+# Activate virtual environment (exists at ../venv)
+VENV_PATH="${REPO_ROOT}/../venv"
+if [ ! -d "$VENV_PATH" ]; then
+    echo "   ⚠️  Virtual environment not found at $VENV_PATH"
+    echo "   Creating new venv..."
+    python3 -m venv "$VENV_PATH"
+fi
+
+echo "   Activating venv: $VENV_PATH"
+source "$VENV_PATH/bin/activate"
+
+# Ensure PyInstaller is installed in venv
+if ! python -c "import PyInstaller" 2>/dev/null; then
+    echo "   Installing PyInstaller in venv..."
+    pip install --upgrade pip pyinstaller flask flask-cors psutil
 fi
 
 # Freeze backend using spec file
