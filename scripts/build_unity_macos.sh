@@ -122,6 +122,8 @@ else
 fi
 
 echo "   Found Ollama at: ${OLLAMA_BIN}"
+# Remove old file to avoid permission errors
+rm -f "${BINARIES_DIR}/ollama-${TARGET_ARCH}"
 cp "${OLLAMA_BIN}" "${BINARIES_DIR}/ollama-${TARGET_ARCH}"
 chmod +x "${BINARIES_DIR}/ollama-${TARGET_ARCH}"
 echo "   ✅ Copied to: ${BINARIES_DIR}/ollama-${TARGET_ARCH}"
