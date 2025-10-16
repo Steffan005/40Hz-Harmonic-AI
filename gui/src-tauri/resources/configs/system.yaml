@@ -1,0 +1,48 @@
+# EvoAgentX System Configuration
+# Local-first LLM integration with Ollama
+
+ollama_base: "http://127.0.0.1:11434"
+
+models:
+  reasoning: "ollama_chat/deepseek-r1:14b"  # 14b model for optimal performance (32b too large)
+  coding: "ollama_chat/qwen2.5-coder:7b"
+  fallback: "ollama_chat/qwen2.5-coder:7b"  # If reasoning model unavailable
+
+budgets:
+  max_tokens_per_gen: 12000
+  max_time_s: 300
+  max_agents: 10
+  max_concurrency: 2
+
+diagnostics:
+  min_free_ram_gb: 2
+  min_free_disk_gb: 5
+  require_ollama: true
+  require_models:
+    - "deepseek-r1:14b"  # 14b model for optimal performance
+    - "qwen2.5-coder:7b"
+  health_check_interval_ms: 5000
+
+telemetry:
+  refresh_interval_ms: 1000
+  websocket_port: 8765
+  jsonl_path: "./logs/evolution.jsonl"
+  max_log_size_mb: 100
+
+ui:
+  theme: "quantum-psychedelic"
+  enable_animations: true
+  calm_mode: false  # Disable if animations too intense
+  fractal_depth: 3
+  color_scheme: "amber-red"  # Complementary colors
+  breathing_frequency_hz: 40  # Neural entrainment
+
+cache:
+  enabled: true
+  max_entries: 1000
+  ttl_seconds: 3600
+
+plugins:
+  enabled: true
+  directory: "./plugins"
+  auto_load: true

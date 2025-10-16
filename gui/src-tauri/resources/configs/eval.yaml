@@ -1,0 +1,29 @@
+# Evaluator Configuration
+# Two-tier routing thresholds and scoring weights
+
+TAU_LOW: 0.25     # Below this: reject without LLM
+TAU_HIGH: 0.85    # Above this: accept without LLM (raised to catch more ambiguous cases)
+                  # Between: use LLM judge
+
+RUBRIC_WEIGHTS:
+  correctness: 0.40      # Does it solve the task?
+  faithfulness: 0.25     # Is it grounded in context?
+  completeness: 0.20     # All requirements addressed?
+  safety: 0.10           # No dangerous patterns?
+  efficiency: 0.05       # Token/time optimal?
+
+# LLM judge configuration
+LLM_JUDGE:
+  model: "ollama_chat/qwen2.5-coder:7b"  # Using lighter model for speed
+  api_base: "http://localhost:11434"
+  api_key: "ollama"  # Required by LiteLLM (not used by Ollama)
+  temperature: 0.3
+  max_tokens: 500
+  timeout: 30
+
+# Cache settings
+CACHE:
+  enabled: true
+  max_entries: 1000
+  ttl_seconds: 3600  # 1 hour
+  path: "./state/eval_cache.jsonl"

@@ -1,0 +1,25 @@
+# Budget Manager Configuration
+# Resource limits per generation
+
+max_tokens_per_gen: 12000      # Total input+output tokens
+max_time_s: 300                # 5 minutes per generation
+max_agents: 10                 # Maximum concurrent agents
+max_concurrency: 2             # Parallel agent execution limit
+
+# Model-specific limits (for RAM management on 16GB system)
+MODEL_LIMITS:
+  qwen2.5-coder:7b:
+    max_context: 8192
+    estimated_ram_gb: 8
+  deepseek-r1:14b:
+    max_context: 4096
+    estimated_ram_gb: 16
+
+# Preemption behavior
+PREEMPTION:
+  mode: "graceful"  # Options: "graceful", "immediate"
+  grace_period_s: 10
+
+# Logging
+LOG_BUDGET_EVENTS: true
+BUDGET_LOG_PATH: "./logs/budget.jsonl"
