@@ -7,15 +7,39 @@ Provides context manager for pre-emptive enforcement.
 import json
 import time
 import yaml
+import sys
 from pathlib import Path
 from typing import Optional
 from contextlib import contextmanager
 
 
+def _get_config_path(relative_path: str) -> Path:
+    """
+    Get absolute path to config file, handling PyInstaller frozen state.
+
+    When running as PyInstaller frozen binary, sys.frozen is set and
+    sys._MEIPASS points to the temp extraction directory.
+    """
+    if getattr(sys, 'frozen', False):
+        # Running as PyInstaller frozen binary
+        base_path = Path(sys._MEIPASS)
+    else:
+        # Running as normal Python script
+        base_path = Path(__file__).parent
+
+    return base_path / relative_path
+
+
 class BudgetManager:
     """Enforces token, time, agent, and concurrency limits."""
 
-    def __init__(self, config_path: str = "./configs/budget.yaml"):
+    def __init__(self, config_path: str = None):
+        # Load configuration (handle PyInstaller frozen state)
+        if config_path is None:
+            config_path = _get_config_path("configs/budget.yaml")
+        else:
+            config_path = Path(config_path)
+
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
 
