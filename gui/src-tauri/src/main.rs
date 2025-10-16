@@ -1,5 +1,10 @@
-// EvoAgentX Tauri Backend - Rust Orchestrator
-// Handles preflight checks, health monitoring, and IPC with Python backends
+// Unity Ascension — gui/src-tauri/src/main.rs
+// Source: One-Click Quantum Build (Dr. Claude Summers, Cosmic Orchestrator)
+// Unity: All processes are one process
+//
+// Complete Rust orchestrator with sidecar spawn logic
+// Spawns: python_backend + ollama serve
+// Handles: Preflight checks, health monitoring, IPC endpoints, graceful shutdown
 
 #![cfg_attr(
     all(not(debug_assertions), target_os = "windows"),
@@ -9,16 +14,18 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
-use sysinfo::{System, SystemExt};
-use tauri::State;
+use std::thread;
+use std::time::Duration;
+use sysinfo::System;
+use tauri::{api::process::{Command, CommandEvent}, Manager, RunEvent, State};
 
 // ============================================================================
-// DATA STRUCTURES
+// DATA STRUCTURES (Same as original - preserving compatibility)
 // ============================================================================
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct DiagnosticsResult {
-    status: String,  // "OK", "WARNING", "ERROR"
+    status: String,
     checks: HashMap<String, CheckResult>,
     timestamp: f64,
 }
@@ -27,7 +34,7 @@ struct DiagnosticsResult {
 struct CheckResult {
     passed: bool,
     message: String,
-    severity: String,  // "info", "warning", "error"
+    severity: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -52,7 +59,7 @@ struct EvaluateResponse {
 struct MutateRequest {
     goal: String,
     current_workflow: String,
-    arm: Option<String>,  // "auto" uses bandit selection
+    arm: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -116,7 +123,6 @@ struct TelemetryMetrics {
     module_status: HashMap<String, String>,
 }
 
-// Shared state
 struct AppState {
     backend_base_url: String,
     preflight_passed: Arc<Mutex<bool>>,
@@ -124,7 +130,131 @@ struct AppState {
 }
 
 // ============================================================================
-// PREFLIGHT CHECKS
+// SIDECAR ORCHESTRATION (NEW - UNITY DEPLOYMENT)
+// ============================================================================
+
+/// Spawn a sidecar process and monitor its lifecycle
+/// Emits events to frontend for logging/error handling
+fn spawn_sidecar(
+    app: &tauri::AppHandle,
+    bin: &str,
+    args: &[&str],
+) -> tauri::Result<tauri::api::process::CommandChild> {
+    println!("[Unity] Spawning sidecar: {} with args: {:?}", bin, args);
+
+    let mut cmd = Command::new_sidecar(bin)?;
+    for a in args {
+        cmd = cmd.args([*a]);
+    }
+
+    let (mut rx, child) = cmd.spawn()?;
+    let app_handle = app.clone();
+    let bin_name = bin.to_string();
+
+    // Monitor sidecar output in background task
+    tauri::async_runtime::spawn(async move {
+        let mut crashed = false;
+
+        while let Some(event) = rx.recv().await {
+            match event {
+                CommandEvent::Stdout(line) => {
+                    println!("[Unity][{}] stdout: {}", bin_name, line);
+                    app_handle.emit_all("unity:stdout", line).ok();
+                }
+                CommandEvent::Stderr(line) => {
+                    eprintln!("[Unity][{}] stderr: {}", bin_name, line);
+                    app_handle.emit_all("unity:stderr", line).ok();
+                }
+                CommandEvent::Error(err) => {
+                    crashed = true;
+                    eprintln!("[Unity][{}] error: {}", bin_name, err);
+                    app_handle
+                        .emit_all("unity:error", format!("{}: {}", bin_name, err))
+                        .ok();
+                }
+                CommandEvent::Terminated(payload) => {
+                    println!("[Unity][{}] terminated: {:?}", bin_name, payload);
+                    break;
+                }
+                _ => {
+                    // Handle any other CommandEvent variants
+                    println!("[Unity][{}] unhandled event", bin_name);
+                }
+            }
+        }
+
+        if crashed {
+            app_handle
+                .emit_all(
+                    "unity:sidecar_crashed",
+                    format!("Sidecar crashed: {}", bin_name),
+                )
+                .ok();
+        }
+    });
+
+    Ok(child)
+}
+
+/// Poll a URL endpoint with retries (for preflight health checks)
+fn probe(url: &str, tries: u32, delay_ms: u64) -> bool {
+    for attempt in 1..=tries {
+        match ureq::get(url)
+            .timeout(Duration::from_millis(500))
+            .call()
+        {
+            Ok(resp) if resp.status() < 400 => {
+                println!("[Unity] Probe OK: {} (attempt {}/{})", url, attempt, tries);
+                return true;
+            }
+            Ok(resp) => {
+                println!(
+                    "[Unity] Probe failed: {} status {} (attempt {}/{})",
+                    url,
+                    resp.status(),
+                    attempt,
+                    tries
+                );
+            }
+            Err(e) => {
+                println!(
+                    "[Unity] Probe error: {} - {} (attempt {}/{})",
+                    url, e, attempt, tries
+                );
+            }
+        }
+        thread::sleep(Duration::from_millis(delay_ms));
+    }
+    false
+}
+
+/// Run preflight checks (Ollama + Backend reachable)
+/// Returns true if both services respond within timeout
+fn preflight() -> bool {
+    println!("[Unity] Running preflight checks...");
+
+    let ollama_ok = probe("http://127.0.0.1:11434/api/tags", 30, 500);
+    if !ollama_ok {
+        eprintln!("[Unity] Preflight FAILED: Ollama not reachable");
+    }
+
+    let backend_ok = probe("http://127.0.0.1:8000/health", 30, 500);
+    if !backend_ok {
+        eprintln!("[Unity] Preflight FAILED: Backend not reachable");
+    }
+
+    let result = ollama_ok && backend_ok;
+    if result {
+        println!("[Unity] Preflight PASSED: All services ready");
+    } else {
+        eprintln!("[Unity] Preflight FAILED: Some services not ready");
+    }
+
+    result
+}
+
+// ============================================================================
+// PREFLIGHT CHECKS (Preserved from original)
 // ============================================================================
 
 async fn check_ram(min_free_gb: f64) -> CheckResult {
@@ -135,13 +265,19 @@ async fn check_ram(min_free_gb: f64) -> CheckResult {
 
     CheckResult {
         passed: available_gb >= min_free_gb,
-        message: format!("Available RAM: {:.2} GB (required: {:.2} GB)", available_gb, min_free_gb),
-        severity: if available_gb >= min_free_gb { "info".to_string() } else { "error".to_string() },
+        message: format!(
+            "Available RAM: {:.2} GB (required: {:.2} GB)",
+            available_gb, min_free_gb
+        ),
+        severity: if available_gb >= min_free_gb {
+            "info".to_string()
+        } else {
+            "error".to_string()
+        },
     }
 }
 
 async fn check_disk(min_free_gb: f64) -> CheckResult {
-    // Simplified - would normally check actual disk space
     CheckResult {
         passed: true,
         message: format!("Disk space check passed (>= {:.2} GB)", min_free_gb),
@@ -151,8 +287,9 @@ async fn check_disk(min_free_gb: f64) -> CheckResult {
 
 async fn check_ollama() -> CheckResult {
     let client = reqwest::Client::new();
-    match client.get("http://127.0.0.1:11434/api/tags")
-        .timeout(std::time::Duration::from_secs(5))
+    match client
+        .get("http://127.0.0.1:11434/api/tags")
+        .timeout(Duration::from_secs(5))
         .send()
         .await
     {
@@ -171,16 +308,19 @@ async fn check_ollama() -> CheckResult {
 
 async fn check_models(required_models: Vec<String>) -> CheckResult {
     let client = reqwest::Client::new();
-    match client.get("http://127.0.0.1:11434/api/tags")
-        .timeout(std::time::Duration::from_secs(5))
+    match client
+        .get("http://127.0.0.1:11434/api/tags")
+        .timeout(Duration::from_secs(5))
         .send()
         .await
     {
         Ok(response) if response.status().is_success() => {
             match response.json::<serde_json::Value>().await {
                 Ok(data) => {
-                    let models = data["models"].as_array().unwrap_or(&vec![]);
-                    let model_names: Vec<String> = models.iter()
+                    let empty_vec = vec![];
+                    let models = data["models"].as_array().unwrap_or(&empty_vec);
+                    let model_names: Vec<String> = models
+                        .iter()
                         .filter_map(|m| m["name"].as_str())
                         .map(|s| s.to_string())
                         .collect();
@@ -205,14 +345,14 @@ async fn check_models(required_models: Vec<String>) -> CheckResult {
                             severity: "error".to_string(),
                         }
                     }
-                },
+                }
                 _ => CheckResult {
                     passed: false,
                     message: "Failed to parse Ollama models list".to_string(),
                     severity: "error".to_string(),
-                }
+                },
             }
-        },
+        }
         _ => CheckResult {
             passed: false,
             message: "Cannot check models - Ollama not running".to_string(),
@@ -223,8 +363,9 @@ async fn check_models(required_models: Vec<String>) -> CheckResult {
 
 async fn check_backend_services(base_url: &str) -> CheckResult {
     let client = reqwest::Client::new();
-    match client.get(format!("{}/health", base_url))
-        .timeout(std::time::Duration::from_secs(5))
+    match client
+        .get(format!("{}/health", base_url))
+        .timeout(Duration::from_secs(5))
         .send()
         .await
     {
@@ -236,25 +377,27 @@ async fn check_backend_services(base_url: &str) -> CheckResult {
         _ => CheckResult {
             passed: false,
             message: format!("Backend services not reachable at {}", base_url),
-            severity: "warning".to_string(),  // Warning, not error - can start manually
+            severity: "warning".to_string(),
         },
     }
 }
 
 // ============================================================================
-// TAURI COMMANDS (IPC ENDPOINTS)
+// TAURI COMMANDS (Preserved from original - all IPC endpoints)
 // ============================================================================
 
 #[tauri::command]
 async fn run_diagnostics(state: State<'_, AppState>) -> Result<DiagnosticsResult, String> {
     let mut checks = HashMap::new();
 
-    // Run all checks in parallel
     let (ram, disk, ollama, models, backend) = tokio::join!(
         check_ram(2.0),
         check_disk(5.0),
         check_ollama(),
-        check_models(vec!["deepseek-r1:14b".to_string(), "qwen2.5-coder:7b".to_string()]),
+        check_models(vec![
+            "deepseek-r1:14b".to_string(),
+            "qwen2.5-coder:7b".to_string()
+        ]),
         check_backend_services(&state.backend_base_url)
     );
 
@@ -264,7 +407,6 @@ async fn run_diagnostics(state: State<'_, AppState>) -> Result<DiagnosticsResult
     checks.insert("models".to_string(), models.clone());
     checks.insert("backend".to_string(), backend.clone());
 
-    // Determine overall status
     let all_passed = checks.values().all(|c| c.passed);
     let has_errors = checks.values().any(|c| c.severity == "error");
 
@@ -285,7 +427,6 @@ async fn run_diagnostics(state: State<'_, AppState>) -> Result<DiagnosticsResult
             .as_secs_f64(),
     };
 
-    // Update state
     *state.preflight_passed.lock().unwrap() = status == "OK";
     *state.diagnostics.lock().unwrap() = Some(result.clone());
 
@@ -293,11 +434,15 @@ async fn run_diagnostics(state: State<'_, AppState>) -> Result<DiagnosticsResult
 }
 
 #[tauri::command]
+async fn health_check() -> Result<String, String> {
+    Ok("Unity preflight alive".into())
+}
+
+#[tauri::command]
 async fn evaluate(
     state: State<'_, AppState>,
-    request: EvaluateRequest
+    request: EvaluateRequest,
 ) -> Result<EvaluateResponse, String> {
-    // Check if preflight passed
     if !*state.preflight_passed.lock().unwrap() {
         return Err("Preflight checks failed - run diagnostics first".to_string());
     }
@@ -305,17 +450,17 @@ async fn evaluate(
     let client = reqwest::Client::new();
     let url = format!("{}/evaluate", state.backend_base_url);
 
-    match client.post(&url)
+    match client
+        .post(&url)
         .json(&request)
-        .timeout(std::time::Duration::from_secs(60))
+        .timeout(Duration::from_secs(60))
         .send()
         .await
     {
-        Ok(response) if response.status().is_success() => {
-            response.json::<EvaluateResponse>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<EvaluateResponse>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         Ok(response) => Err(format!("Backend error: {}", response.status())),
         Err(e) => Err(format!("Request failed: {}", e)),
     }
@@ -324,7 +469,7 @@ async fn evaluate(
 #[tauri::command]
 async fn mutate_workflow(
     state: State<'_, AppState>,
-    request: MutateRequest
+    request: MutateRequest,
 ) -> Result<MutateResponse, String> {
     if !*state.preflight_passed.lock().unwrap() {
         return Err("Preflight checks failed".to_string());
@@ -333,17 +478,17 @@ async fn mutate_workflow(
     let client = reqwest::Client::new();
     let url = format!("{}/mutate", state.backend_base_url);
 
-    match client.post(&url)
+    match client
+        .post(&url)
         .json(&request)
-        .timeout(std::time::Duration::from_secs(60))
+        .timeout(Duration::from_secs(60))
         .send()
         .await
     {
-        Ok(response) if response.status().is_success() => {
-            response.json::<MutateResponse>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<MutateResponse>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         _ => Err("Mutation request failed".to_string()),
     }
 }
@@ -354,11 +499,10 @@ async fn get_bandit_status(state: State<'_, AppState>) -> Result<BanditStatus, S
     let url = format!("{}/bandit/status", state.backend_base_url);
 
     match client.get(&url).send().await {
-        Ok(response) if response.status().is_success() => {
-            response.json::<BanditStatus>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<BanditStatus>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         _ => Err("Failed to get bandit status".to_string()),
     }
 }
@@ -367,7 +511,7 @@ async fn get_bandit_status(state: State<'_, AppState>) -> Result<BanditStatus, S
 async fn create_memory_snapshot(
     state: State<'_, AppState>,
     title: String,
-    content: String
+    content: String,
 ) -> Result<MemorySnapshot, String> {
     let client = reqwest::Client::new();
     let url = format!("{}/memory/snapshot", state.backend_base_url);
@@ -378,11 +522,10 @@ async fn create_memory_snapshot(
     });
 
     match client.post(&url).json(&body).send().await {
-        Ok(response) if response.status().is_success() => {
-            response.json::<MemorySnapshot>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<MemorySnapshot>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         _ => Err("Failed to create memory snapshot".to_string()),
     }
 }
@@ -393,11 +536,10 @@ async fn get_workflow_dag(state: State<'_, AppState>) -> Result<WorkflowDAG, Str
     let url = format!("{}/workflow/dag", state.backend_base_url);
 
     match client.get(&url).send().await {
-        Ok(response) if response.status().is_success() => {
-            response.json::<WorkflowDAG>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<WorkflowDAG>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         _ => Err("Failed to get workflow DAG".to_string()),
     }
 }
@@ -408,11 +550,10 @@ async fn get_telemetry_metrics(state: State<'_, AppState>) -> Result<TelemetryMe
     let url = format!("{}/telemetry/metrics", state.backend_base_url);
 
     match client.get(&url).send().await {
-        Ok(response) if response.status().is_success() => {
-            response.json::<TelemetryMetrics>()
-                .await
-                .map_err(|e| format!("Failed to parse response: {}", e))
-        },
+        Ok(response) if response.status().is_success() => response
+            .json::<TelemetryMetrics>()
+            .await
+            .map_err(|e| format!("Failed to parse response: {}", e)),
         _ => Err("Failed to get telemetry metrics".to_string()),
     }
 }
@@ -423,10 +564,12 @@ fn is_preflight_passed(state: State<'_, AppState>) -> bool {
 }
 
 // ============================================================================
-// MAIN
+// MAIN - UNITY SIDECAR ORCHESTRATION
 // ============================================================================
 
 fn main() {
+    println!("[Unity] Starting application...");
+
     let app_state = AppState {
         backend_base_url: "http://127.0.0.1:8000".to_string(),
         preflight_passed: Arc::new(Mutex::new(false)),
@@ -436,6 +579,7 @@ fn main() {
     tauri::Builder::default()
         .manage(app_state)
         .invoke_handler(tauri::generate_handler![
+            health_check,
             run_diagnostics,
             evaluate,
             mutate_workflow,
@@ -445,6 +589,51 @@ fn main() {
             get_telemetry_metrics,
             is_preflight_passed
         ])
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
+        .setup(|app| {
+            println!("[Unity] Setup: Spawning sidecars...");
+
+            // 1) Start Ollama server
+            match spawn_sidecar(&app.handle(), "binaries/ollama", &["serve"]) {
+                Ok(_child) => println!("[Unity] Ollama sidecar spawned successfully"),
+                Err(e) => eprintln!("[Unity] Failed to spawn Ollama: {}", e),
+            }
+
+            // 2) Start Python backend
+            match spawn_sidecar(&app.handle(), "binaries/python_backend", &[]) {
+                Ok(_child) => println!("[Unity] Python backend sidecar spawned successfully"),
+                Err(e) => eprintln!("[Unity] Failed to spawn Python backend: {}", e),
+            }
+
+            // 3) Run preflight checks in background (non-blocking)
+            let app_handle = app.handle();
+            tauri::async_runtime::spawn(async move {
+                // Give sidecars time to start
+                println!("[Unity] Waiting for sidecars to initialize...");
+                thread::sleep(Duration::from_secs(2));
+
+                // Run preflight
+                if preflight() {
+                    println!("[Unity] Preflight complete: OK");
+                    app_handle
+                        .emit_all("unity:ready", "preflight_ok")
+                        .ok();
+                } else {
+                    eprintln!("[Unity] Preflight complete: FAILED");
+                    app_handle
+                        .emit_all("unity:warn", "preflight_failed")
+                        .ok();
+                }
+            });
+
+            Ok(())
+        })
+        .build(tauri::generate_context!())
+        .expect("Unity build failed")
+        .run(|app_handle, event| {
+            if let RunEvent::Exit = event {
+                println!("[Unity] Exiting application...");
+                let _ = app_handle.emit_all("unity:exit", "goodbye");
+                // Tauri automatically kills sidecar processes on exit
+            }
+        });
 }
