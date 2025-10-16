@@ -16,7 +16,7 @@ use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
-use sysinfo::{System, SystemExt};
+use sysinfo::System;
 use tauri::{api::process::{Command, CommandEvent}, Manager, RunEvent, State};
 
 // ============================================================================
@@ -176,6 +176,10 @@ fn spawn_sidecar(
                     println!("[Unity][{}] terminated: {:?}", bin_name, payload);
                     break;
                 }
+                _ => {
+                    // Handle any other CommandEvent variants
+                    println!("[Unity][{}] unhandled event", bin_name);
+                }
             }
         }
 
@@ -313,7 +317,8 @@ async fn check_models(required_models: Vec<String>) -> CheckResult {
         Ok(response) if response.status().is_success() => {
             match response.json::<serde_json::Value>().await {
                 Ok(data) => {
-                    let models = data["models"].as_array().unwrap_or(&vec![]);
+                    let empty_vec = vec![];
+                    let models = data["models"].as_array().unwrap_or(&empty_vec);
                     let model_names: Vec<String> = models
                         .iter()
                         .filter_map(|m| m["name"].as_str())
