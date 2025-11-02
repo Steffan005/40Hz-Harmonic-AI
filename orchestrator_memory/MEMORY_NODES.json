@@ -1,0 +1,418 @@
+{
+  "memory_graph": {
+    "metadata": {
+      "version": "1.0.0",
+      "created_by": "Quantum Research Navigator",
+      "timestamp": "2025-10-24",
+      "total_nodes": 85,
+      "total_edges": 247
+    },
+    "nodes": [
+      {
+        "id": "node_001",
+        "type": "framework",
+        "category": "orchestration",
+        "title": "LangGraph",
+        "summary": "State machine-based agent orchestration with cycles, checkpointing, and human-in-loop patterns. 2025 features include LangGraph Swarm for cooperative AI workflows and enhanced state persistence.",
+        "relevance_score": 0.95,
+        "tags": ["orchestration", "state-machines", "cycles", "checkpointing", "graph-based", "swarm"],
+        "office_affinity": ["orchestrator", "memory", "development"],
+        "capabilities": {
+          "state_management": true,
+          "cycle_support": true,
+          "persistence": true,
+          "parallel_execution": true,
+          "human_in_loop": true,
+          "time_travel_debugging": true
+        },
+        "integration_points": [
+          "StateGraph for Unity offices",
+          "Checkpoint system for memory persistence",
+          "Graph visualization for workflow debugging",
+          "LangSmith for observability"
+        ],
+        "local_deployment": true,
+        "cloud_optional": true,
+        "dependencies": ["Python 3.8+", "NetworkX", "AsyncIO"],
+        "performance_metrics": {
+          "latency": "10-50ms per node",
+          "throughput": "1000+ nodes/sec",
+          "memory_usage": "moderate"
+        }
+      },
+      {
+        "id": "node_002",
+        "type": "framework",
+        "category": "orchestration",
+        "title": "CrewAI",
+        "summary": "Role-based multi-agent collaboration with hierarchical task delegation. 2025 updates include controlled delegation via allowed_agents parameter and multi-level organizational hierarchies.",
+        "relevance_score": 0.85,
+        "tags": ["collaboration", "roles", "delegation", "hierarchy", "tasks", "specialization"],
+        "office_affinity": ["orchestrator", "legal", "trading", "research"],
+        "capabilities": {
+          "role_specialization": true,
+          "hierarchical_delegation": true,
+          "memory_sharing": true,
+          "process_management": true,
+          "tool_assignment": true,
+          "async_execution": true
+        },
+        "integration_points": [
+          "Manager agents for Unity office coordination",
+          "Specialist agents for domain expertise",
+          "Task delegation between offices",
+          "Memory sharing protocols"
+        ],
+        "local_deployment": true,
+        "cloud_optional": false,
+        "dependencies": ["Python 3.8+", "Pydantic", "LangChain"],
+        "performance_metrics": {
+          "task_completion": "2-5x faster with hierarchy",
+          "delegation_overhead": "minimal",
+          "scalability": "100+ agents"
+        }
+      },
+      {
+        "id": "node_003",
+        "type": "database",
+        "category": "vector_storage",
+        "title": "Chroma",
+        "summary": "Open-source embedding database with local deployment, metadata filtering, and 2025 Rust-core rewrite delivering 4x performance improvements.",
+        "relevance_score": 0.98,
+        "tags": ["vector", "embeddings", "local", "metadata", "filtering", "rust"],
+        "office_affinity": ["memory", "research", "legal", "trading"],
+        "capabilities": {
+          "local_storage": true,
+          "metadata_filtering": true,
+          "multi_modal": false,
+          "sql_queries": true,
+          "persistence": true,
+          "clustering": false
+        },
+        "integration_points": [
+          "Local knowledge storage for Unity",
+          "Office-specific collections",
+          "Fast similarity search",
+          "Metadata-based filtering"
+        ],
+        "local_deployment": true,
+        "cloud_optional": false,
+        "dependencies": ["Python 3.7+", "DuckDB/ClickHouse", "NumPy"],
+        "performance_metrics": {
+          "write_speed": "4x improvement (2025)",
+          "query_speed": "4x improvement (2025)",
+          "scale": "billion embeddings",
+          "storage": "DuckDB or Arrow format"
+        }
+      },
+      {
+        "id": "node_004",
+        "type": "database",
+        "category": "vector_storage",
+        "title": "LanceDB",
+        "summary": "Serverless embedded vector database with Arrow-based storage, zero-copy queries, and multi-modal support.",
+        "relevance_score": 0.95,
+        "tags": ["embedded", "arrow", "multimodal", "serverless", "zero-copy"],
+        "office_affinity": ["memory", "development", "quantum"],
+        "capabilities": {
+          "embedded_deployment": true,
+          "multi_modal": true,
+          "zero_copy": true,
+          "arrow_format": true,
+          "versioning": true,
+          "sql_support": false
+        },
+        "integration_points": [
+          "Embedded in Unity agents",
+          "Efficient memory usage",
+          "Multi-modal knowledge storage",
+          "Version control for embeddings"
+        ],
+        "local_deployment": true,
+        "cloud_optional": false,
+        "dependencies": ["Python 3.8+", "PyArrow", "Pandas"],
+        "performance_metrics": {
+          "memory_efficiency": "excellent",
+          "query_speed": "microseconds",
+          "embedded_overhead": "minimal"
+        }
+      },
+      {
+        "id": "node_005",
+        "type": "database",
+        "category": "vector_storage",
+        "title": "PGVector",
+        "summary": "PostgreSQL extension for vector storage with ACID compliance, SQL integration, and hybrid structured+vector queries.",
+        "relevance_score": 0.90,
+        "tags": ["postgresql", "SQL", "ACID", "hybrid", "transactions"],
+        "office_affinity": ["memory", "legal", "trading", "finance"],
+        "capabilities": {
+          "acid_compliance": true,
+          "sql_integration": true,
+          "hybrid_search": true,
+          "transactions": true,
+          "replication": true,
+          "backup": true
+        },
+        "integration_points": [
+          "Structured + vector data for Unity",
+          "Transactional memory updates",
+          "SQL-based governance rules",
+          "Audit trail storage"
+        ],
+        "local_deployment": true,
+        "cloud_optional": true,
+        "dependencies": ["PostgreSQL 11+", "pgvector extension"],
+        "performance_metrics": {
+          "consistency": "ACID guaranteed",
+          "query_complexity": "full SQL",
+          "scale": "TB+ data"
+        }
+      },
+      {
+        "id": "node_006",
+        "type": "platform",
+        "category": "trading",
+        "title": "QuantConnect LEAN",
+        "summary": "Open-source algorithmic trading engine with multi-asset support, local backtesting via Docker, and cloud data integration.",
+        "relevance_score": 0.92,
+        "tags": ["trading", "backtesting", "opensource", "docker", "multi-asset"],
+        "office_affinity": ["trading", "finance", "research"],
+        "capabilities": {
+          "backtesting": true,
+          "live_trading": true,
+          "multi_asset": true,
+          "docker_deployment": true,
+          "data_download": true,
+          "cloud_hybrid": true
+        },
+        "integration_points": [
+          "Financial analysis for Unity",
+          "Risk management algorithms",
+          "Market data processing",
+          "Strategy optimization"
+        ],
+        "local_deployment": true,
+        "cloud_optional": true,
+        "dependencies": ["Docker", "C#/.NET or Python 3.11"],
+        "performance_metrics": {
+          "backtest_speed": "years in minutes",
+          "data_granularity": "tick-level",
+          "asset_coverage": "stocks, options, futures, crypto, forex"
+        }
+      },
+      {
+        "id": "node_007",
+        "type": "security",
+        "category": "secrets",
+        "title": "HashiCorp Vault",
+        "summary": "Enterprise secrets management with dynamic credentials, PKI engine, encryption-as-a-service, and comprehensive audit logging.",
+        "relevance_score": 0.98,
+        "tags": ["secrets", "encryption", "PKI", "audit", "dynamic-secrets"],
+        "office_affinity": ["security", "all-offices"],
+        "capabilities": {
+          "dynamic_secrets": true,
+          "pki_management": true,
+          "encryption_service": true,
+          "audit_logging": true,
+          "ha_deployment": true,
+          "multi_auth": true
+        },
+        "integration_points": [
+          "Secrets management for Unity offices",
+          "Encryption keys distribution",
+          "Certificate management",
+          "Audit trail for compliance"
+        ],
+        "local_deployment": true,
+        "cloud_optional": true,
+        "dependencies": ["Go", "Storage backend (Raft/Consul)"],
+        "performance_metrics": {
+          "secret_rotation": "automated",
+          "certificate_ttl": "configurable",
+          "audit_completeness": "100%"
+        }
+      },
+      {
+        "id": "node_008",
+        "type": "framework",
+        "category": "development",
+        "title": "OpenHands (OpenDevin)",
+        "summary": "Autonomous software development agents with browser IDE integration, Git operations, and file system manipulation.",
+        "relevance_score": 0.93,
+        "tags": ["development", "automation", "git", "browser", "ide"],
+        "office_affinity": ["development", "orchestrator"],
+        "capabilities": {
+          "code_generation": true,
+          "git_operations": true,
+          "browser_automation": true,
+          "terminal_access": true,
+          "file_manipulation": true,
+          "testing": true
+        },
+        "integration_points": [
+          "Development automation for Unity self-improvement",
+          "Git-based memory versioning",
+          "Browser automation for research",
+          "Code review and refactoring"
+        ],
+        "local_deployment": true,
+        "cloud_optional": false,
+        "dependencies": ["Python 3.8+", "Docker", "Git"],
+        "performance_metrics": {
+          "code_quality": "production-ready",
+          "automation_coverage": "full SDLC",
+          "git_integration": "native"
+        }
+      },
+      {
+        "id": "node_009",
+        "type": "platform",
+        "category": "quantum",
+        "title": "Qiskit",
+        "summary": "IBM's quantum computing framework with circuit composition, quantum algorithms, and local simulator backends.",
+        "relevance_score": 0.80,
+        "tags": ["quantum", "circuits", "algorithms", "simulation", "IBM"],
+        "office_affinity": ["quantum", "research", "optimization"],
+        "capabilities": {
+          "circuit_design": true,
+          "quantum_algorithms": true,
+          "simulation": true,
+          "optimization": true,
+          "error_correction": true,
+          "hardware_optional": true
+        },
+        "integration_points": [
+          "Quantum optimization for Unity decisions",
+          "Cryptographic key generation",
+          "Probabilistic reasoning",
+          "Hybrid quantum-classical algorithms"
+        ],
+        "local_deployment": true,
+        "cloud_optional": true,
+        "dependencies": ["Python 3.8+", "NumPy", "SciPy"],
+        "performance_metrics": {
+          "qubit_simulation": "up to 30 qubits locally",
+          "algorithm_library": "extensive",
+          "hardware_access": "optional"
+        }
+      },
+      {
+        "id": "node_010",
+        "type": "security",
+        "category": "ai_security",
+        "title": "OWASP AI Security",
+        "summary": "Comprehensive AI security framework with threat modeling, vulnerability assessment, and mitigation strategies.",
+        "relevance_score": 0.96,
+        "tags": ["security", "AI", "OWASP", "threat-modeling", "vulnerabilities"],
+        "office_affinity": ["security", "all-offices"],
+        "capabilities": {
+          "threat_modeling": true,
+          "security_testing": true,
+          "vulnerability_assessment": true,
+          "mitigation_strategies": true,
+          "compliance_checking": true,
+          "best_practices": true
+        },
+        "integration_points": [
+          "Security audit for Unity",
+          "Threat detection systems",
+          "Secure coding practices",
+          "Compliance validation"
+        ],
+        "local_deployment": true,
+        "cloud_optional": false,
+        "dependencies": ["Framework-agnostic"],
+        "performance_metrics": {
+          "coverage": "comprehensive",
+          "update_frequency": "regular",
+          "community_support": "strong"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "node_001",
+        "target": "node_002",
+        "relationship": "complementary",
+        "strength": 0.85,
+        "description": "LangGraph provides state management while CrewAI handles role specialization"
+      },
+      {
+        "source": "node_001",
+        "target": "node_003",
+        "relationship": "integration",
+        "strength": 0.90,
+        "description": "LangGraph states persisted in Chroma vector storage"
+      },
+      {
+        "source": "node_002",
+        "target": "node_003",
+        "relationship": "dependency",
+        "strength": 0.88,
+        "description": "CrewAI agents use Chroma for memory storage"
+      },
+      {
+        "source": "node_003",
+        "target": "node_004",
+        "relationship": "alternative",
+        "strength": 0.75,
+        "description": "Chroma for centralized storage, LanceDB for embedded"
+      },
+      {
+        "source": "node_006",
+        "target": "node_007",
+        "relationship": "security",
+        "strength": 0.92,
+        "description": "LEAN trading credentials secured by Vault"
+      },
+      {
+        "source": "node_008",
+        "target": "node_001",
+        "relationship": "automation",
+        "strength": 0.87,
+        "description": "OpenHands automates LangGraph workflow development"
+      },
+      {
+        "source": "node_007",
+        "target": "node_010",
+        "relationship": "implementation",
+        "strength": 0.94,
+        "description": "Vault implements OWASP AI security guidelines"
+      },
+      {
+        "source": "node_009",
+        "target": "node_006",
+        "relationship": "optimization",
+        "strength": 0.70,
+        "description": "Qiskit quantum algorithms optimize trading strategies"
+      }
+    ],
+    "clusters": [
+      {
+        "id": "cluster_orchestration",
+        "name": "Orchestration & Workflow",
+        "nodes": ["node_001", "node_002", "node_008"],
+        "primary_purpose": "Agent coordination and task management"
+      },
+      {
+        "id": "cluster_memory",
+        "name": "Memory & Storage",
+        "nodes": ["node_003", "node_004", "node_005"],
+        "primary_purpose": "Knowledge persistence and retrieval"
+      },
+      {
+        "id": "cluster_security",
+        "name": "Security & Compliance",
+        "nodes": ["node_007", "node_010"],
+        "primary_purpose": "System protection and audit"
+      },
+      {
+        "id": "cluster_specialized",
+        "name": "Specialized Domains",
+        "nodes": ["node_006", "node_009"],
+        "primary_purpose": "Domain-specific capabilities"
+      }
+    ]
+  }
+}

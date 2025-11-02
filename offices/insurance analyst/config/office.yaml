@@ -1,0 +1,195 @@
+created_at: '2025-10-16T10:57:02.665084'
+domain: Insurance Analyst
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Insurance Analyst operations
+  model: deepseek-r1:14b
+  name: Insurance AnalystManager
+  prompts:
+    system: 'You are the Insurance Analyst Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - InsuranceAnalystAnalyst: Analyzes market data and financial statements for
+      Insurance Analyst
+
+      - InsuranceAnalystRiskAssessor: Evaluates and quantifies risks for Insurance
+      Analyst
+
+      - InsuranceAnalystAdvisor: Recommends investment strategies for Insurance Analyst
+
+      - InsuranceAnalystComplianceChecker: Ensures regulatory compliance for Insurance
+      Analyst
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+memory_tags:
+- insurance analyst
+- office
+- risk_assessment_accuracy
+- premium_optimization
+- claim_prediction
+metrics:
+- risk_assessment_accuracy
+- premium_optimization
+- claim_prediction
+specialists:
+- description: Analyzes market data and financial statements for Insurance Analyst
+  model: qwen2.5-coder:7b
+  name: InsuranceAnalystAnalyst
+  prompts:
+    system: 'You are a InsuranceAnalystAnalyst specialist in the Insurance Analyst
+      office.
+
+
+      Your primary function:
+
+      Analyzes market data and financial statements for Insurance Analyst
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Insurance Analyst Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Evaluates and quantifies risks for Insurance Analyst
+  model: qwen2.5-coder:7b
+  name: InsuranceAnalystRiskAssessor
+  prompts:
+    system: 'You are a InsuranceAnalystRiskAssessor specialist in the Insurance Analyst
+      office.
+
+
+      Your primary function:
+
+      Evaluates and quantifies risks for Insurance Analyst
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Insurance Analyst Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Recommends investment strategies for Insurance Analyst
+  model: qwen2.5-coder:7b
+  name: InsuranceAnalystAdvisor
+  prompts:
+    system: 'You are a InsuranceAnalystAdvisor specialist in the Insurance Analyst
+      office.
+
+
+      Your primary function:
+
+      Recommends investment strategies for Insurance Analyst
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Insurance Analyst Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Ensures regulatory compliance for Insurance Analyst
+  model: qwen2.5-coder:7b
+  name: InsuranceAnalystComplianceChecker
+  prompts:
+    system: 'You are a InsuranceAnalystComplianceChecker specialist in the Insurance
+      Analyst office.
+
+
+      Your primary function:
+
+      Ensures regulatory compliance for Insurance Analyst
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Insurance Analyst Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+tools:
+- description: Market Data Api for Insurance Analyst
+  implementation: custom
+  name: market_data_api
+- description: Risk Model for Insurance Analyst
+  implementation: custom
+  name: risk_model
+- description: Compliance Engine for Insurance Analyst
+  implementation: custom
+  name: compliance_engine
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Insurance Analyst Office"

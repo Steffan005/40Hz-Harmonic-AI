@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StatusBar } from '../components/StatusBar';
 import { Controls } from '../components/Controls';
 import { Canvas } from '../components/Canvas';
+import QuantumBackground from '../components/quantum/QuantumBackground';
 import { api } from '../lib/api';
 
 export function Dashboard() {
@@ -97,8 +98,8 @@ export function Dashboard() {
 
   return (
     <div className="app-container">
-      {/* Background */}
-      <div className="app-background" />
+      {/* Quantum Fractal Background - 40Hz Consciousness */}
+      <QuantumBackground />
 
       {/* Header */}
       <div className="app-header">

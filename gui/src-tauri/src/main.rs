@@ -383,6 +383,60 @@ async fn check_backend_services(base_url: &str) -> CheckResult {
 }
 
 // ============================================================================
+// MULTI-WINDOW OFFICE SUPPORT (Phase 13)
+// ============================================================================
+
+/// Create a new window for a specific office
+fn create_office_window(app: &tauri::AppHandle, office_name: &str) -> Result<tauri::Window, tauri::Error> {
+    let window_label = format!("office-{}", office_name);
+
+    tauri::WindowBuilder::new(
+        app,
+        window_label.clone(),
+        tauri::WindowUrl::App(format!("/#/office/{}", office_name).into())
+    )
+    .title(format!("{} Office - Unity", office_name))
+    .inner_size(800.0, 600.0)
+    .resizable(true)
+    .decorations(true)
+    .center()
+    .build()
+}
+
+/// IPC command to open an office in a new window
+#[tauri::command]
+async fn open_office_window(
+    app: tauri::AppHandle,
+    office_name: String
+) -> Result<String, String> {
+    println!("[Unity] Opening office window: {}", office_name);
+
+    match create_office_window(&app, &office_name) {
+        Ok(window) => {
+            window.show().map_err(|e| e.to_string())?;
+            Ok(format!("Opened {} office window", office_name))
+        },
+        Err(e) => Err(format!("Failed to create window: {}", e))
+    }
+}
+
+/// IPC command to focus an existing window
+#[tauri::command]
+async fn focus_window(
+    app: tauri::AppHandle,
+    label: String
+) -> Result<String, String> {
+    println!("[Unity] Focusing window: {}", label);
+
+    if let Some(window) = app.get_window(&label) {
+        window.set_focus().map_err(|e| e.to_string())?;
+        Ok(format!("Focused window: {}", label))
+    } else {
+        Err(format!("Window not found: {}", label))
+    }
+}
+
+// ============================================================================
 // TAURI COMMANDS (Preserved from original - all IPC endpoints)
 // ============================================================================
 
@@ -587,19 +641,21 @@ fn main() {
             create_memory_snapshot,
             get_workflow_dag,
             get_telemetry_metrics,
-            is_preflight_passed
+            is_preflight_passed,
+            open_office_window,
+            focus_window
         ])
         .setup(|app| {
             println!("[Unity] Setup: Spawning sidecars...");
 
             // 1) Start Ollama server
-            match spawn_sidecar(&app.handle(), "binaries/ollama", &["serve"]) {
+            match spawn_sidecar(&app.handle(), "ollama", &["serve"]) {
                 Ok(_child) => println!("[Unity] Ollama sidecar spawned successfully"),
                 Err(e) => eprintln!("[Unity] Failed to spawn Ollama: {}", e),
             }
 
             // 2) Start Python backend
-            match spawn_sidecar(&app.handle(), "binaries/python_backend", &[]) {
+            match spawn_sidecar(&app.handle(), "python_backend", &[]) {
                 Ok(_child) => println!("[Unity] Python backend sidecar spawned successfully"),
                 Err(e) => eprintln!("[Unity] Failed to spawn Python backend: {}", e),
             }

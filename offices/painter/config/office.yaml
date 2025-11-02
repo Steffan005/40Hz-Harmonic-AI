@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.701707'
+domain: Painter
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Painter operations
+  model: deepseek-r1:14b
+  name: PainterManager
+  prompts:
+    system: 'You are the Painter Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - PainterCreator: Generates original artistic content for Painter
+
+      - PainterCritic: Analyzes and critiques artistic works for Painter
+
+      - PainterCurator: Selects and organizes collections for Painter
+
+      - PainterPerformer: Presents or performs works for Painter
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+memory_tags:
+- painter
+- office
+- composition_quality
+- color_harmony
+- emotional_impact
+metrics:
+- composition_quality
+- color_harmony
+- emotional_impact
+specialists:
+- description: Generates original artistic content for Painter
+  model: deepseek-r1:14b
+  name: PainterCreator
+  prompts:
+    system: 'You are a PainterCreator specialist in the Painter office.
+
+
+      Your primary function:
+
+      Generates original artistic content for Painter
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Painter Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Analyzes and critiques artistic works for Painter
+  model: deepseek-r1:14b
+  name: PainterCritic
+  prompts:
+    system: 'You are a PainterCritic specialist in the Painter office.
+
+
+      Your primary function:
+
+      Analyzes and critiques artistic works for Painter
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Painter Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Selects and organizes collections for Painter
+  model: deepseek-r1:14b
+  name: PainterCurator
+  prompts:
+    system: 'You are a PainterCurator specialist in the Painter office.
+
+
+      Your primary function:
+
+      Selects and organizes collections for Painter
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Painter Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Presents or performs works for Painter
+  model: deepseek-r1:14b
+  name: PainterPerformer
+  prompts:
+    system: 'You are a PainterPerformer specialist in the Painter office.
+
+
+      Your primary function:
+
+      Presents or performs works for Painter
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Painter Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+tools:
+- description: Generation Engine for Painter
+  implementation: custom
+  name: generation_engine
+- description: Style Analyzer for Painter
+  implementation: custom
+  name: style_analyzer
+- description: Gallery Manager for Painter
+  implementation: custom
+  name: gallery_manager
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Painter Office"

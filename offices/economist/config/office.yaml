@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.672804'
+domain: Economist
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Economist operations
+  model: deepseek-r1:14b
+  name: EconomistManager
+  prompts:
+    system: 'You are the Economist Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - EconomistAnalyst: Analyzes market data and financial statements for Economist
+
+      - EconomistRiskAssessor: Evaluates and quantifies risks for Economist
+
+      - EconomistAdvisor: Recommends investment strategies for Economist
+
+      - EconomistComplianceChecker: Ensures regulatory compliance for Economist
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+memory_tags:
+- economist
+- office
+- forecast_accuracy
+- policy_impact_analysis
+- model_quality
+metrics:
+- forecast_accuracy
+- policy_impact_analysis
+- model_quality
+specialists:
+- description: Analyzes market data and financial statements for Economist
+  model: qwen2.5-coder:7b
+  name: EconomistAnalyst
+  prompts:
+    system: 'You are a EconomistAnalyst specialist in the Economist office.
+
+
+      Your primary function:
+
+      Analyzes market data and financial statements for Economist
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Economist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Evaluates and quantifies risks for Economist
+  model: qwen2.5-coder:7b
+  name: EconomistRiskAssessor
+  prompts:
+    system: 'You are a EconomistRiskAssessor specialist in the Economist office.
+
+
+      Your primary function:
+
+      Evaluates and quantifies risks for Economist
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Economist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Recommends investment strategies for Economist
+  model: qwen2.5-coder:7b
+  name: EconomistAdvisor
+  prompts:
+    system: 'You are a EconomistAdvisor specialist in the Economist office.
+
+
+      Your primary function:
+
+      Recommends investment strategies for Economist
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Economist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Ensures regulatory compliance for Economist
+  model: qwen2.5-coder:7b
+  name: EconomistComplianceChecker
+  prompts:
+    system: 'You are a EconomistComplianceChecker specialist in the Economist office.
+
+
+      Your primary function:
+
+      Ensures regulatory compliance for Economist
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Economist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+tools:
+- description: Market Data Api for Economist
+  implementation: custom
+  name: market_data_api
+- description: Risk Model for Economist
+  implementation: custom
+  name: risk_model
+- description: Compliance Engine for Economist
+  implementation: custom
+  name: compliance_engine
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Economist Office"

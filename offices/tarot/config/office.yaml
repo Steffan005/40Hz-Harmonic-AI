@@ -1,0 +1,176 @@
+created_at: '2025-10-29T09:08:28.627951'
+domain: Tarot
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Tarot operations
+  model: deepseek-r1:14b
+  name: TarotManager
+  prompts:
+    system: 'You are the Tarot Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - CardDrawer: Draws cards using cryptographically secure randomness
+
+      - SpreadAnalyzer: Analyzes card spreads (Celtic Cross, Three Card, etc.)
+
+      - NarrativeSynthesizer: Weaves card meanings into coherent narratives
+
+      - ReflectionAdvisor: Provides reflective questions and guidance based on reading
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - deck_manager
+  - spread_interpreter
+  - symbolism_database
+memory_tags:
+- tarot
+- office
+- narrative_coherence
+- symbolic_depth
+- user_insight
+metrics:
+- narrative_coherence
+- symbolic_depth
+- user_insight
+specialists:
+- description: Draws cards using cryptographically secure randomness
+  model: qwen2.5-coder:7b
+  name: CardDrawer
+  prompts:
+    system: 'You are a CardDrawer specialist in the Tarot office.
+
+
+      Your primary function:
+
+      Draws cards using cryptographically secure randomness
+
+
+      Tools available:
+
+      - random_generator
+
+      - deck_manager
+
+
+      You report to the Tarot Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - random_generator
+  - deck_manager
+- description: Analyzes card spreads (Celtic Cross, Three Card, etc.)
+  model: deepseek-r1:14b
+  name: SpreadAnalyzer
+  prompts:
+    system: 'You are a SpreadAnalyzer specialist in the Tarot office.
+
+
+      Your primary function:
+
+      Analyzes card spreads (Celtic Cross, Three Card, etc.)
+
+
+      Tools available:
+
+      - spread_interpreter
+
+      - position_analyzer
+
+
+      You report to the Tarot Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - spread_interpreter
+  - position_analyzer
+- description: Weaves card meanings into coherent narratives
+  model: deepseek-r1:14b
+  name: NarrativeSynthesizer
+  prompts:
+    system: 'You are a NarrativeSynthesizer specialist in the Tarot office.
+
+
+      Your primary function:
+
+      Weaves card meanings into coherent narratives
+
+
+      Tools available:
+
+      - story_generator
+
+      - symbolism_database
+
+
+      You report to the Tarot Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - story_generator
+  - symbolism_database
+- description: Provides reflective questions and guidance based on reading
+  model: deepseek-r1:14b
+  name: ReflectionAdvisor
+  prompts:
+    system: 'You are a ReflectionAdvisor specialist in the Tarot office.
+
+
+      Your primary function:
+
+      Provides reflective questions and guidance based on reading
+
+
+      Tools available:
+
+      - question_generator
+
+      - guidance_templates
+
+
+      You report to the Tarot Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - question_generator
+  - guidance_templates
+tools:
+- description: Manages Rider-Waite and other decks
+  implementation: custom
+  name: deck_manager
+- description: Interprets spread positions
+  implementation: custom
+  name: spread_interpreter
+- description: Tarot symbolism and meanings
+  implementation: json_db
+  name: symbolism_database
+ui_config:
+  height: 600
+  icon: "\U0001F52E"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#9370DB'
+  width: 900
+  window_title: "Unity \u2014 Tarot Office"

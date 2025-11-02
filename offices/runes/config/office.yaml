@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.657646'
+domain: Runes
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Runes operations
+  model: deepseek-r1:14b
+  name: RunesManager
+  prompts:
+    system: 'You are the Runes Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - RunesInterpreter: Interprets symbolic patterns and meanings for Runes
+
+      - RunesOracle: Provides divinations and predictions for Runes
+
+      - RunesSynthesizer: Weaves insights into coherent narratives for Runes
+
+      - RunesAdvisor: Offers guidance and reflective questions for Runes
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+memory_tags:
+- runes
+- office
+- rune_interpretation
+- casting_accuracy
+- divinatory_insight
+metrics:
+- rune_interpretation
+- casting_accuracy
+- divinatory_insight
+specialists:
+- description: Interprets symbolic patterns and meanings for Runes
+  model: deepseek-r1:14b
+  name: RunesInterpreter
+  prompts:
+    system: 'You are a RunesInterpreter specialist in the Runes office.
+
+
+      Your primary function:
+
+      Interprets symbolic patterns and meanings for Runes
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Runes Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Provides divinations and predictions for Runes
+  model: deepseek-r1:14b
+  name: RunesOracle
+  prompts:
+    system: 'You are a RunesOracle specialist in the Runes office.
+
+
+      Your primary function:
+
+      Provides divinations and predictions for Runes
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Runes Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Weaves insights into coherent narratives for Runes
+  model: deepseek-r1:14b
+  name: RunesSynthesizer
+  prompts:
+    system: 'You are a RunesSynthesizer specialist in the Runes office.
+
+
+      Your primary function:
+
+      Weaves insights into coherent narratives for Runes
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Runes Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Offers guidance and reflective questions for Runes
+  model: deepseek-r1:14b
+  name: RunesAdvisor
+  prompts:
+    system: 'You are a RunesAdvisor specialist in the Runes office.
+
+
+      Your primary function:
+
+      Offers guidance and reflective questions for Runes
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Runes Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+tools:
+- description: Symbolism Db for Runes
+  implementation: custom
+  name: symbolism_db
+- description: Pattern Detector for Runes
+  implementation: custom
+  name: pattern_detector
+- description: Narrative Generator for Runes
+  implementation: custom
+  name: narrative_generator
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Runes Office"

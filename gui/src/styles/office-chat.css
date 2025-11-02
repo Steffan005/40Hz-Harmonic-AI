@@ -1,0 +1,220 @@
+/**
+ * OFFICE CHAT STYLES
+ * Individual chat interface for each specialized office
+ */
+
+.office-chat-container {
+  display: flex;
+  flex-direction: column;
+  /* CHANGED: Use flex: 1 instead of fixed heights to fill modal */
+  flex: 1;
+  gap: 1rem;
+}
+
+/* Messages Area */
+.office-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 12px;
+  /* REMOVED: min/max-height constraints - let it expand to fill available space */
+}
+
+.office-chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.office-chat-messages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.office-chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(155, 89, 182, 0.5);
+  border-radius: 4px;
+  transition: background 200ms ease;
+}
+
+.office-chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 89, 182, 0.8);
+}
+
+/* Individual Messages */
+.office-message {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(155, 89, 182, 0.15);
+  transition: all 200ms ease;
+}
+
+.office-message:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(155, 89, 182, 0.3);
+}
+
+.office-message.user {
+  background: rgba(100, 181, 246, 0.08);
+  border-color: rgba(100, 181, 246, 0.2);
+  margin-left: 2rem;
+}
+
+.office-message.assistant {
+  background: rgba(155, 89, 182, 0.08);
+  border-color: rgba(155, 89, 182, 0.2);
+  margin-right: 2rem;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.message-role {
+  font-weight: 600;
+  color: rgba(155, 89, 182, 1);
+}
+
+.office-message.user .message-role {
+  color: rgba(100, 181, 246, 1);
+}
+
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.message-content {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Thinking Animation */
+.thinking-dots {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.thinking-dots span {
+  display: inline-block;
+  animation: thinking-pulse 1.4s ease-in-out infinite;
+  color: var(--quantum-purple);
+}
+
+.thinking-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinking-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Input Area */
+.office-chat-input-area {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.office-chat-input {
+  flex: 1;
+  min-height: 60px;
+  max-height: 120px;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 200ms ease;
+}
+
+.office-chat-input:focus {
+  outline: none;
+  border-color: rgba(155, 89, 182, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.2);
+}
+
+.office-chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.office-chat-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Send Button */
+.office-send-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.6), rgba(100, 181, 246, 0.6));
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.office-send-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.8), rgba(100, 181, 246, 0.8));
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+}
+
+.office-send-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.office-send-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Quantum Breathing Effect */
+@keyframes office-chat-breathe {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.office-message {
+  animation: office-chat-breathe 2.5s ease-in-out infinite;
+}

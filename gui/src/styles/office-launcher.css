@@ -1,0 +1,424 @@
+/**
+ * OFFICE LAUNCHER STYLES
+ * 43 Quantum Portals to Specialized Consciousness
+ */
+
+.office-launcher {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(26, 30, 58, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+/* Launcher Header */
+.launcher-header {
+  padding: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(155, 89, 182, 0.1) 0%,
+    transparent 100%
+  );
+  border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.launcher-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--quantum-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 30px var(--quantum-purple);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quantum-indicator {
+  font-size: 1rem;
+  color: var(--neon-green);
+  animation: heartbeat-pulse var(--heartbeat) ease-in-out infinite;
+}
+
+.office-count {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* Search and Filters */
+.launcher-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.office-search {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 300ms ease;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.office-search:focus {
+  border-color: var(--quantum-purple);
+  box-shadow:
+    0 0 20px rgba(155, 89, 182, 0.2),
+    inset 0 0 10px rgba(155, 89, 182, 0.05);
+}
+
+.office-search::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Archetype Filters */
+.archetype-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.archetype-filter {
+  background: rgba(155, 89, 182, 0.1);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.archetype-filter:hover {
+  background: rgba(155, 89, 182, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.archetype-filter.active {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 89, 182, 0.3) 0%,
+    rgba(52, 152, 219, 0.3) 100%
+  );
+  color: white;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+  animation: quantum-breathe calc(var(--breath) * 0.8) var(--ease-quantum) infinite;
+}
+
+/* Offices Grid */
+.offices-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  align-content: start;
+}
+
+/* Custom Scrollbar */
+.offices-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.offices-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.offices-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--quantum-purple) 0%,
+    var(--electric-blue) 100%
+  );
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--quantum-purple);
+}
+
+/* Office Card - Hybrid Glassmorphism + Neomorphism (2025 cutting edge) */
+.office-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 300ms var(--ease-consciousness);
+  position: relative;
+  overflow: hidden;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+
+  /* Neomorphism soft shadows for 3D embedded effect */
+  box-shadow:
+    /* Outer glow */
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    /* Soft inner shadow (top-left light source) */
+    inset 2px 2px 5px rgba(255, 255, 255, 0.03),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.3);
+
+  /* Preserve 3D transforms for Motion animations */
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.office-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    var(--archetype-color, var(--quantum-purple)) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.office-card:hover::before {
+  opacity: 0.05;
+}
+
+.office-card:hover {
+  /* Motion library handles transform now - just enhance the shadows */
+  box-shadow:
+    /* Lifted floating effect */
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(155, 89, 182, 0.4),
+    /* Enhanced inner glow on hover */
+    inset 3px 3px 8px rgba(255, 255, 255, 0.05),
+    inset -3px -3px 8px rgba(0, 0, 0, 0.4);
+  border-color: var(--archetype-color, var(--quantum-purple)) !important;
+  animation: quantum-breathe calc(var(--breath) * 0.6) var(--ease-quantum) infinite;
+}
+
+/* Status Indicator */
+.office-status-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.status-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.status-online {
+  background: var(--neon-green);
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.status-offline {
+  background: #666;
+  animation: none;
+}
+
+.status-evolving {
+  background: var(--consciousness-orange);
+  box-shadow: 0 0 20px var(--consciousness-orange);
+  animation: evolution-pulse 1s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes evolution-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px var(--consciousness-orange);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+    box-shadow: 0 0 40px var(--consciousness-orange);
+  }
+}
+
+/* Office Icon */
+.office-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px var(--archetype-color, var(--quantum-purple)));
+  animation: icon-float 4s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Office Info */
+.office-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.office-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.office-description {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.2;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Office Meta */
+.office-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(155, 89, 182, 0.1);
+}
+
+.office-archetype {
+  font-size: 0.85rem;
+  color: var(--archetype-color, var(--quantum-purple));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.office-agents {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+
+/* Evolution Indicator */
+.evolution-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 165, 0, 0.2) 100%
+  );
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--consciousness-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.evolution-pulse {
+  width: 6px;
+  height: 6px;
+  background: var(--consciousness-orange);
+  border-radius: 50%;
+  animation: evolution-pulse 1s ease-in-out infinite;
+}
+
+/* Footer Stats */
+.launcher-footer {
+  padding: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(155, 89, 182, 0.05) 100%
+  );
+  border-top: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.city-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--electric-blue);
+  text-shadow: 0 0 20px currentColor;
+  animation: quantum-breathe var(--breath) var(--ease-quantum) infinite;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .offices-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .offices-grid {
+    grid-template-columns: 1fr;
+  }
+}

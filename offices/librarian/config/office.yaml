@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.736166'
+domain: Librarian
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Librarian operations
+  model: deepseek-r1:14b
+  name: LibrarianManager
+  prompts:
+    system: 'You are the Librarian Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - LibrarianTeacher: Explains concepts and facilitates learning for Librarian
+
+      - LibrarianTutor: Provides personalized instruction for Librarian
+
+      - LibrarianCurriculumDesigner: Designs learning pathways for Librarian
+
+      - LibrarianAssessor: Evaluates student understanding for Librarian
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+memory_tags:
+- librarian
+- office
+- cataloging_accuracy
+- retrieval_efficiency
+- curation_quality
+metrics:
+- cataloging_accuracy
+- retrieval_efficiency
+- curation_quality
+specialists:
+- description: Explains concepts and facilitates learning for Librarian
+  model: deepseek-r1:14b
+  name: LibrarianTeacher
+  prompts:
+    system: 'You are a LibrarianTeacher specialist in the Librarian office.
+
+
+      Your primary function:
+
+      Explains concepts and facilitates learning for Librarian
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Librarian Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Provides personalized instruction for Librarian
+  model: deepseek-r1:14b
+  name: LibrarianTutor
+  prompts:
+    system: 'You are a LibrarianTutor specialist in the Librarian office.
+
+
+      Your primary function:
+
+      Provides personalized instruction for Librarian
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Librarian Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Designs learning pathways for Librarian
+  model: deepseek-r1:14b
+  name: LibrarianCurriculumDesigner
+  prompts:
+    system: 'You are a LibrarianCurriculumDesigner specialist in the Librarian office.
+
+
+      Your primary function:
+
+      Designs learning pathways for Librarian
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Librarian Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Evaluates student understanding for Librarian
+  model: deepseek-r1:14b
+  name: LibrarianAssessor
+  prompts:
+    system: 'You are a LibrarianAssessor specialist in the Librarian office.
+
+
+      Your primary function:
+
+      Evaluates student understanding for Librarian
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Librarian Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+tools:
+- description: Concept Explainer for Librarian
+  implementation: custom
+  name: concept_explainer
+- description: Quiz Generator for Librarian
+  implementation: custom
+  name: quiz_generator
+- description: Progress Tracker for Librarian
+  implementation: custom
+  name: progress_tracker
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Librarian Office"

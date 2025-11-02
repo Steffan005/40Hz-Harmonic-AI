@@ -1,0 +1,194 @@
+created_at: '2025-10-16T10:57:02.739729'
+domain: Software Engineer
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Software Engineer operations
+  model: deepseek-r1:14b
+  name: Software EngineerManager
+  prompts:
+    system: 'You are the Software Engineer Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - SoftwareEngineerDesigner: Designs functional and aesthetic solutions for Software
+      Engineer
+
+      - SoftwareEngineerBuilder: Implements and constructs designs for Software Engineer
+
+      - SoftwareEngineerOptimizer: Improves efficiency and performance for Software
+      Engineer
+
+      - SoftwareEngineerTester: Validates quality and usability for Software Engineer
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+memory_tags:
+- software engineer
+- office
+- code_quality
+- test_coverage
+- performance_optimization
+metrics:
+- code_quality
+- test_coverage
+- performance_optimization
+specialists:
+- description: Designs functional and aesthetic solutions for Software Engineer
+  model: qwen2.5-coder:7b
+  name: SoftwareEngineerDesigner
+  prompts:
+    system: 'You are a SoftwareEngineerDesigner specialist in the Software Engineer
+      office.
+
+
+      Your primary function:
+
+      Designs functional and aesthetic solutions for Software Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Software Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Implements and constructs designs for Software Engineer
+  model: qwen2.5-coder:7b
+  name: SoftwareEngineerBuilder
+  prompts:
+    system: 'You are a SoftwareEngineerBuilder specialist in the Software Engineer
+      office.
+
+
+      Your primary function:
+
+      Implements and constructs designs for Software Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Software Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Improves efficiency and performance for Software Engineer
+  model: qwen2.5-coder:7b
+  name: SoftwareEngineerOptimizer
+  prompts:
+    system: 'You are a SoftwareEngineerOptimizer specialist in the Software Engineer
+      office.
+
+
+      Your primary function:
+
+      Improves efficiency and performance for Software Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Software Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Validates quality and usability for Software Engineer
+  model: qwen2.5-coder:7b
+  name: SoftwareEngineerTester
+  prompts:
+    system: 'You are a SoftwareEngineerTester specialist in the Software Engineer
+      office.
+
+
+      Your primary function:
+
+      Validates quality and usability for Software Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Software Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+tools:
+- description: Design Tool for Software Engineer
+  implementation: custom
+  name: design_tool
+- description: Build System for Software Engineer
+  implementation: custom
+  name: build_system
+- description: Optimization Engine for Software Engineer
+  implementation: custom
+  name: optimization_engine
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Software Engineer Office"

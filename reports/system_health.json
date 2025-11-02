@@ -1,0 +1,121 @@
+{
+  "disk": {
+    "total_gb": 926.4,
+    "used_gb": 11.2,
+    "available_gb": 253.1,
+    "percent_used": 4.2,
+    "warning_level": "safe",
+    "timestamp": "2025-10-17T17:42:47.961896"
+  },
+  "health": {
+    "cpu_percent": 15.9,
+    "memory_percent": 69.6,
+    "disk_io_mb_per_sec": 0.06,
+    "process_count": 678,
+    "top_processes": [
+      {
+        "memory_percent": 1.1761665344238281,
+        "cpu_percent": 0.0,
+        "pid": 642,
+        "name": "Finder"
+      },
+      {
+        "memory_percent": 1.1533737182617188,
+        "cpu_percent": 0.0,
+        "pid": 688,
+        "name": "corespotlightd"
+      },
+      {
+        "memory_percent": 1.2363433837890625,
+        "cpu_percent": 0.0,
+        "pid": 749,
+        "name": "Spotlight"
+      },
+      {
+        "memory_percent": 1.4447212219238281,
+        "cpu_percent": 0.0,
+        "pid": 824,
+        "name": "mediaanalysisd"
+      },
+      {
+        "memory_percent": 1.0003089904785156,
+        "cpu_percent": 0.0,
+        "pid": 867,
+        "name": "com.docker.backend"
+      }
+    ],
+    "temperature_estimate": "cool",
+    "timestamp": "2025-10-17T17:42:49.507654"
+  },
+  "cleanup_targets": [
+    {
+      "path": "/Users/steffanhaskins/.ollama/models",
+      "size_gb": 12.73,
+      "type": "model",
+      "safe_to_delete": false,
+      "reason": "Ollama LLM models (review with 'ollama list')"
+    },
+    {
+      "path": "/Users/steffanhaskins/Library/Caches",
+      "size_gb": 10.28,
+      "type": "cache",
+      "safe_to_delete": false,
+      "reason": "macOS application caches (use caution)"
+    },
+    {
+      "path": "/Users/steffanhaskins/Downloads",
+      "size_gb": 6.92,
+      "type": "downloads",
+      "safe_to_delete": false,
+      "reason": "Downloads folder (review for old files)"
+    },
+    {
+      "path": "__pycache__ directories",
+      "size_gb": 1.507,
+      "type": "pyc",
+      "safe_to_delete": true,
+      "reason": "Python bytecode caches (1507 directories)"
+    }
+  ],
+  "ollama_models": [
+    {
+      "name": "qwen2.5-coder:7b",
+      "id": "dae161e27b0e",
+      "size": "4.7",
+      "modified": "GB 38 hours ago"
+    },
+    {
+      "name": "deepseek-r1:14b",
+      "id": "c333b7232bdb",
+      "size": "9.0",
+      "modified": "GB 38 hours ago"
+    },
+    {
+      "name": "deepseek-v3.1:671b-cloud",
+      "id": "d3749919e45f",
+      "size": "-",
+      "modified": "10 days ago"
+    },
+    {
+      "name": "qwen3-coder:480b-cloud",
+      "id": "e30e45586389",
+      "size": "-",
+      "modified": "10 days ago"
+    }
+  ],
+  "recommended_deletions": [
+    {
+      "name": "deepseek-v3.1:671b-cloud",
+      "size": "-",
+      "reason": "Not used by Unity",
+      "command": "ollama rm deepseek-v3.1:671b-cloud"
+    },
+    {
+      "name": "qwen3-coder:480b-cloud",
+      "size": "-",
+      "reason": "Not used by Unity",
+      "command": "ollama rm qwen3-coder:480b-cloud"
+    }
+  ],
+  "timestamp": "2025-10-17T17:43:33.605787"
+}

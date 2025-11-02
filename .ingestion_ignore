@@ -1,0 +1,61 @@
+# Unity Memory System - Ingestion Ignore Patterns
+# Skip external libraries and build artifacts
+
+# Node modules (external JS libraries - not our code)
+node_modules/
+*/node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+*.min.js
+*.min.css
+*.map
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Binary and media files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.mp3
+*.wav
+*.mp4
+*.avi
+*.mov
+*.pdf
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.log
+/tmp/
+/temp/
+/cache/
+
+# Test coverage and reports
+coverage/
+.nyc_output/
+*.coverage
+htmlcov/
+
+# Documentation build outputs
+docs/_build/
+docs/site/
+
+# Keep only our actual code!

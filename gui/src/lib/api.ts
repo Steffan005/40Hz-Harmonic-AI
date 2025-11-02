@@ -3,6 +3,11 @@
 
 import { invoke } from '@tauri-apps/api/tauri';
 
+// Check if running in Tauri or browser
+const isTauri = () => {
+  return typeof window !== 'undefined' && '__TAURI__' in window;
+};
+
 export interface DiagnosticsResult {
   status: string;
   checks: Record<string, CheckResult>;
@@ -91,6 +96,10 @@ export const api = {
   },
 
   async isPreflightPassed(): Promise<boolean> {
+    if (!isTauri()) {
+      // In browser mode, assume preflight passed
+      return Promise.resolve(true);
+    }
     return invoke<boolean>('is_preflight_passed');
   },
 
@@ -115,6 +124,21 @@ export const api = {
   },
 
   async getTelemetryMetrics(): Promise<TelemetryMetrics> {
+    if (!isTauri()) {
+      // In browser mode, return simulated metrics
+      return Promise.resolve({
+        tokens_per_sec: 0,
+        delta_score: 2.5,
+        cache_hit_rate: 0.5,
+        robust_pct: 0.85,
+        memory_use_mb: 33,
+        module_status: {
+          orchestrator: 'online',
+          evolution: 'online',
+          telemetry: 'online'
+        }
+      });
+    }
     return invoke<TelemetryMetrics>('get_telemetry_metrics');
   },
 };

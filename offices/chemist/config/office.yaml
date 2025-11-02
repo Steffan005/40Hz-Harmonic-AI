@@ -1,0 +1,189 @@
+created_at: '2025-10-16T10:57:02.680226'
+domain: Chemist
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Chemist operations
+  model: deepseek-r1:14b
+  name: ChemistManager
+  prompts:
+    system: 'You are the Chemist Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - ChemistResearcher: Conducts literature review and hypothesis generation for
+      Chemist
+
+      - ChemistModeler: Builds computational or mathematical models for Chemist
+
+      - ChemistExperimenter: Designs and simulates experiments for Chemist
+
+      - ChemistReporter: Writes research summaries and papers for Chemist
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+memory_tags:
+- chemist
+- office
+- synthesis_success
+- reaction_prediction
+- safety_compliance
+metrics:
+- synthesis_success
+- reaction_prediction
+- safety_compliance
+specialists:
+- description: Conducts literature review and hypothesis generation for Chemist
+  model: deepseek-r1:14b
+  name: ChemistResearcher
+  prompts:
+    system: 'You are a ChemistResearcher specialist in the Chemist office.
+
+
+      Your primary function:
+
+      Conducts literature review and hypothesis generation for Chemist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Chemist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Builds computational or mathematical models for Chemist
+  model: deepseek-r1:14b
+  name: ChemistModeler
+  prompts:
+    system: 'You are a ChemistModeler specialist in the Chemist office.
+
+
+      Your primary function:
+
+      Builds computational or mathematical models for Chemist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Chemist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Designs and simulates experiments for Chemist
+  model: deepseek-r1:14b
+  name: ChemistExperimenter
+  prompts:
+    system: 'You are a ChemistExperimenter specialist in the Chemist office.
+
+
+      Your primary function:
+
+      Designs and simulates experiments for Chemist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Chemist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Writes research summaries and papers for Chemist
+  model: deepseek-r1:14b
+  name: ChemistReporter
+  prompts:
+    system: 'You are a ChemistReporter specialist in the Chemist office.
+
+
+      Your primary function:
+
+      Writes research summaries and papers for Chemist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Chemist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+tools:
+- description: Literature Search for Chemist
+  implementation: custom
+  name: literature_search
+- description: Simulation Engine for Chemist
+  implementation: custom
+  name: simulation_engine
+- description: Data Visualizer for Chemist
+  implementation: custom
+  name: data_visualizer
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Chemist Office"

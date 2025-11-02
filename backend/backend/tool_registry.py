@@ -1,0 +1,1 @@
+class ToolRegistry: \n    def __init__(self):\n        self.tools = {}\n    \n    def register_tool(self, tool_name: str, tool_instance):\n        self.tools[tool_name] = tool_instance\n    \n    def get_tool(self, tool_name: str):\n        return self.tools.get(tool_name)

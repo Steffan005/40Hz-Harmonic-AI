@@ -1,0 +1,1 @@
+# Orchestrator logic\n\ndef orchestrator():\n    # Delegate task to Office\n    office()\n\n# Office logic\n\ndef office():\n    # Execute task using Tools\n    tools()\n\n# Tool logic\n\ndef tools():\n    # Implement core shared tools\n    # Implement office-specific tools\n    # Implement permission model and security considerations

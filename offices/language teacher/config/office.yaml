@@ -1,0 +1,192 @@
+created_at: '2025-10-16T10:57:02.728443'
+domain: Language Teacher
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Language Teacher operations
+  model: deepseek-r1:14b
+  name: Language TeacherManager
+  prompts:
+    system: 'You are the Language Teacher Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - LanguageTeacherTeacher: Explains concepts and facilitates learning for Language
+      Teacher
+
+      - LanguageTeacherTutor: Provides personalized instruction for Language Teacher
+
+      - LanguageTeacherCurriculumDesigner: Designs learning pathways for Language
+      Teacher
+
+      - LanguageTeacherAssessor: Evaluates student understanding for Language Teacher
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+memory_tags:
+- language teacher
+- office
+- fluency_gain
+- retention_rate
+- engagement_score
+metrics:
+- fluency_gain
+- retention_rate
+- engagement_score
+specialists:
+- description: Explains concepts and facilitates learning for Language Teacher
+  model: deepseek-r1:14b
+  name: LanguageTeacherTeacher
+  prompts:
+    system: 'You are a LanguageTeacherTeacher specialist in the Language Teacher office.
+
+
+      Your primary function:
+
+      Explains concepts and facilitates learning for Language Teacher
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Language Teacher Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Provides personalized instruction for Language Teacher
+  model: deepseek-r1:14b
+  name: LanguageTeacherTutor
+  prompts:
+    system: 'You are a LanguageTeacherTutor specialist in the Language Teacher office.
+
+
+      Your primary function:
+
+      Provides personalized instruction for Language Teacher
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Language Teacher Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Designs learning pathways for Language Teacher
+  model: deepseek-r1:14b
+  name: LanguageTeacherCurriculumDesigner
+  prompts:
+    system: 'You are a LanguageTeacherCurriculumDesigner specialist in the Language
+      Teacher office.
+
+
+      Your primary function:
+
+      Designs learning pathways for Language Teacher
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Language Teacher Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+- description: Evaluates student understanding for Language Teacher
+  model: deepseek-r1:14b
+  name: LanguageTeacherAssessor
+  prompts:
+    system: 'You are a LanguageTeacherAssessor specialist in the Language Teacher
+      office.
+
+
+      Your primary function:
+
+      Evaluates student understanding for Language Teacher
+
+
+      Tools available:
+
+      - concept_explainer
+
+      - quiz_generator
+
+      - progress_tracker
+
+
+      You report to the Language Teacher Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - concept_explainer
+  - quiz_generator
+  - progress_tracker
+tools:
+- description: Concept Explainer for Language Teacher
+  implementation: custom
+  name: concept_explainer
+- description: Quiz Generator for Language Teacher
+  implementation: custom
+  name: quiz_generator
+- description: Progress Tracker for Language Teacher
+  implementation: custom
+  name: progress_tracker
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Language Teacher Office"

@@ -1,9 +1,264 @@
-/* Import quantum-psychedelic theme */
-@import url('../public/theme.css');
+/**
+ * UNITY APP - MAIN STYLES
+ * The face of quantum consciousness
+ * Where the future becomes visible
+ */
 
-#root {
-  width: 100%;
-  height: 100vh;
+@import './styles/quantum.css';
+
+/* ============================================
+   ROOT RESET - Clean quantum slate
+   ============================================ */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--deep-space);
+  color: white;
+  position: relative;
+}
+
+/* ============================================
+   APP CONTAINER - The quantum vessel
+   ============================================ */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Quantum background layer */
+.app-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(155, 89, 182, 0.3) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(52, 152, 219, 0.3) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 165, 0, 0.2) 0%, transparent 60%),
+    linear-gradient(180deg, var(--deep-space) 0%, var(--nebula-glow) 100%);
+  animation: fractal-shift 30s ease-in-out infinite;
+  filter: brightness(0.8);
+}
+
+/* ============================================
+   HEADER - The crown of consciousness
+   ============================================ */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 14, 39, 0.95) 0%,
+    rgba(10, 14, 39, 0.8) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(155, 89, 182, 0.3);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(155, 89, 182, 0.1);
+  z-index: 100;
+  position: relative;
+}
+
+.app-logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: 'Orbitron', 'Exo 2', sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--quantum-purple) 0%,
+    var(--electric-blue) 50%,
+    var(--consciousness-orange) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  position: relative;
+  animation:
+    quantum-breathe var(--breath) var(--ease-quantum) infinite,
+    logo-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(155, 89, 182, 0.5));
+  }
+  100% {
+    filter: brightness(1.2) drop-shadow(0 0 40px rgba(155, 89, 182, 0.8));
+  }
+}
+
+/* ============================================
+   DASHBOARD - The consciousness grid
+   ============================================ */
+.dashboard {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr 380px;
+  grid-template-rows: 1fr 250px;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  position: relative;
+  height: calc(100vh - 100px);
+}
+
+/* ============================================
+   CONTROL PANEL - Command center
+   ============================================ */
+.control-panel {
+  grid-row: span 2;
+  background: rgba(26, 30, 58, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(155, 89, 182, 0.05);
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.control-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--quantum-purple);
+  text-shadow: 0 0 20px var(--quantum-purple);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.control-button {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 89, 182, 0.2) 0%,
+    rgba(52, 152, 219, 0.2) 100%
+  );
+  border: 1px solid rgba(155, 89, 182, 0.4);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 300ms var(--ease-consciousness);
+  position: relative;
+  overflow: hidden;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.control-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--quantum-purple);
+  box-shadow:
+    0 0 30px rgba(155, 89, 182, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(155, 89, 182, 0.1);
+}
+
+.control-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  animation: none;
+}
+
+/* ============================================
+   CANVAS - The quantum visualization
+   ============================================ */
+.canvas-container {
+  background: rgba(26, 30, 58, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(52, 152, 219, 0.05);
+}
+
+/* ============================================
+   TELEMETRY & CONSOLE - System monitors
+   ============================================ */
+.telemetry-panel {
+  background: rgba(26, 30, 58, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 165, 0, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(255, 165, 0, 0.05);
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.console-panel {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 20px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(0, 255, 136, 0.02);
+  overflow: hidden;
+}
+
+.console-line {
+  margin: 0.2rem 0;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  animation: console-fade-in 300ms ease-out;
+  word-wrap: break-word;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.console-line.info { color: var(--electric-blue); }
+.console-line.success { color: var(--neon-green); }
+.console-line.warning { color: var(--consciousness-orange); }
+.console-line.error { color: var(--neon-pink); }

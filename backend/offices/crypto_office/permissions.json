@@ -1,0 +1,10 @@
+{
+  "permissions": [
+    "market_data",
+    "trading_apis",
+    "portfolio_analysis"
+  ],
+  "file_access": "financial",
+  "network_access": "crypto_exchanges_only",
+  "security_level": "maximum"
+}

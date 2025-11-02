@@ -14,6 +14,7 @@ from typing import Dict, Optional, Tuple
 import litellm
 
 from heuristics import HeuristicValidator
+from error_recovery import ErrorRecovery
 
 
 def _get_config_path(relative_path: str) -> Path:
@@ -188,6 +189,8 @@ class EvaluatorV2:
         """
         Use LLM to score output on rubric dimensions.
         Returns dict of {dimension: score (0-100)}.
+
+        Now with error recovery: 3 retries, exponential backoff, fallback scores.
         """
         prompt = f"""
 You are an expert evaluator. Score this output on these criteria (0-100 each):
@@ -212,7 +215,13 @@ Return ONLY valid JSON:
 }}
 """
 
-        try:
+        @ErrorRecovery.retry_llm_call(
+            max_retries=3,
+            base_delay=2.0,
+            fallback_response=None
+        )
+        def make_llm_call():
+            """Wrapped LLM call with retry logic."""
             response = litellm.completion(
                 model=self.llm_config["model"],
                 messages=[{"role": "user", "content": prompt}],
@@ -222,8 +231,15 @@ Return ONLY valid JSON:
                 max_tokens=self.llm_config["max_tokens"],
                 timeout=self.llm_config["timeout"]
             )
+            return response.choices[0].message.content
 
-            result_text = response.choices[0].message.content
+        try:
+            result_text = make_llm_call()
+
+            if result_text is None:
+                # Fallback returned after all retries
+                print("⚠️  LLM judge: All retries failed, using fallback scores")
+                return self._fallback_scores()
 
             # Extract JSON
             json_start = result_text.find("{")
@@ -233,10 +249,11 @@ Return ONLY valid JSON:
                 return scores
             else:
                 # Fallback if no JSON found
+                print("⚠️  LLM judge: No JSON in response, using fallback scores")
                 return self._fallback_scores()
 
         except Exception as e:
-            print(f"⚠️  LLM judge failed: {e}")
+            print(f"⚠️  LLM judge failed permanently: {e}")
             return self._fallback_scores()
 
     def _fallback_scores(self) -> Dict[str, float]:

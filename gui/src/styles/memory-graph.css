@@ -1,0 +1,285 @@
+/**
+ * MEMORY GRAPH STYLES
+ * Living network of consciousness
+ * Breathing at 40Hz, visualizing the city's collective memory
+ */
+
+.memory-graph {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(26, 30, 58, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+/* Graph Header */
+.graph-header {
+  padding: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(155, 89, 182, 0.1) 0%,
+    transparent 100%
+  );
+  border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.graph-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--quantum-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 0 20px var(--quantum-purple);
+  margin-bottom: 1rem;
+}
+
+.quantum-indicator {
+  font-size: 1.2rem;
+  animation: heartbeat-pulse var(--heartbeat) ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--consciousness-orange));
+}
+
+.node-count {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+  font-weight: 400;
+}
+
+/* Graph Controls */
+.graph-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.control-button {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.control-button:hover {
+  background: rgba(155, 89, 182, 0.2);
+  border-color: var(--quantum-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.control-button.active {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 89, 182, 0.3) 0%,
+    rgba(0, 255, 136, 0.2) 100%
+  );
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Office Filters */
+.office-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  background: rgba(155, 89, 182, 0.1);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.filter-chip:hover {
+  background: rgba(155, 89, 182, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(155, 89, 182, 0.3);
+}
+
+.filter-chip.active {
+  background: linear-gradient(
+    135deg,
+    rgba(155, 89, 182, 0.3) 0%,
+    rgba(52, 152, 219, 0.3) 100%
+  );
+  color: white;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+  animation: quantum-breathe calc(var(--breath) * 0.8) var(--ease-quantum) infinite;
+}
+
+/* Canvas Container */
+.graph-canvas-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(155, 89, 182, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+.graph-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Quantum Grid Overlay */
+.graph-canvas-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(155, 89, 182, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 89, 182, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  animation: grid-shift 10s linear infinite;
+}
+
+@keyframes grid-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Footer Stats */
+.graph-footer {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(155, 89, 182, 0.05) 100%
+  );
+  border-top: 1px solid rgba(155, 89, 182, 0.2);
+}
+
+.graph-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--electric-blue);
+  text-shadow: 0 0 15px currentColor;
+  animation: quantum-breathe var(--breath) var(--ease-quantum) infinite;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Breathing Glow Animation */
+@keyframes node-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px currentColor);
+    opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px currentColor);
+    opacity: 1;
+  }
+}
+
+/* Force Simulation Visual Feedback */
+.graph-canvas-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(155, 89, 182, 0.02) 50%,
+    transparent 70%
+  );
+  animation: force-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes force-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .graph-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .office-filters {
+    width: 100%;
+  }
+
+  .graph-stats {
+    font-size: 0.9rem;
+  }
+}
+
+/* High-performance canvas styles */
+.graph-canvas {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}

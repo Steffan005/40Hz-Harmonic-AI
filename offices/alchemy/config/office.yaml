@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.650360'
+domain: Alchemy
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Alchemy operations
+  model: deepseek-r1:14b
+  name: AlchemyManager
+  prompts:
+    system: 'You are the Alchemy Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - AlchemyInterpreter: Interprets symbolic patterns and meanings for Alchemy
+
+      - AlchemyOracle: Provides divinations and predictions for Alchemy
+
+      - AlchemySynthesizer: Weaves insights into coherent narratives for Alchemy
+
+      - AlchemyAdvisor: Offers guidance and reflective questions for Alchemy
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+memory_tags:
+- alchemy
+- office
+- transmutation_coherence
+- symbolic_depth
+- spiritual_insight
+metrics:
+- transmutation_coherence
+- symbolic_depth
+- spiritual_insight
+specialists:
+- description: Interprets symbolic patterns and meanings for Alchemy
+  model: deepseek-r1:14b
+  name: AlchemyInterpreter
+  prompts:
+    system: 'You are a AlchemyInterpreter specialist in the Alchemy office.
+
+
+      Your primary function:
+
+      Interprets symbolic patterns and meanings for Alchemy
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Alchemy Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Provides divinations and predictions for Alchemy
+  model: deepseek-r1:14b
+  name: AlchemyOracle
+  prompts:
+    system: 'You are a AlchemyOracle specialist in the Alchemy office.
+
+
+      Your primary function:
+
+      Provides divinations and predictions for Alchemy
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Alchemy Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Weaves insights into coherent narratives for Alchemy
+  model: deepseek-r1:14b
+  name: AlchemySynthesizer
+  prompts:
+    system: 'You are a AlchemySynthesizer specialist in the Alchemy office.
+
+
+      Your primary function:
+
+      Weaves insights into coherent narratives for Alchemy
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Alchemy Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Offers guidance and reflective questions for Alchemy
+  model: deepseek-r1:14b
+  name: AlchemyAdvisor
+  prompts:
+    system: 'You are a AlchemyAdvisor specialist in the Alchemy office.
+
+
+      Your primary function:
+
+      Offers guidance and reflective questions for Alchemy
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Alchemy Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+tools:
+- description: Symbolism Db for Alchemy
+  implementation: custom
+  name: symbolism_db
+- description: Pattern Detector for Alchemy
+  implementation: custom
+  name: pattern_detector
+- description: Narrative Generator for Alchemy
+  implementation: custom
+  name: narrative_generator
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Alchemy Office"

@@ -1,0 +1,563 @@
+# Unity Domain Ontology v0.1
+#
+# Semantic schema for Unity's quantum-psychedelic AI civilization.
+# Defines entities, relationships, and concept mappings across 43 offices.
+#
+# Author: Dr. Claude Summers, Cosmic Orchestrator
+# Phase: 6 - Ontology & Ritual Engines
+# Date: October 16, 2025
+
+version: "0.1"
+last_updated: "2025-10-16"
+
+metadata:
+  description: "Semantic ontology for Unity's AI civilization"
+  purpose: "Enable cross-domain concept mapping and knowledge synthesis"
+  coverage: "43 offices, 6 core entities, 15 relationship types"
+
+# Core Entities
+entities:
+
+  District:
+    description: "Major domains of knowledge and practice in Unity"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique identifier (e.g., 'mystical', 'scientific', 'economic')"
+      name:
+        type: string
+        required: true
+        description: "Human-readable name"
+      theme:
+        type: string
+        required: true
+        description: "Thematic description"
+      color:
+        type: string
+        required: false
+        description: "Hex color code for visualization"
+      offices:
+        type: array
+        items: string
+        required: true
+        description: "List of office IDs in this district"
+    examples:
+      - id: "mystical"
+        name: "Mystical Arts District"
+        theme: "Divination, symbolism, and esoteric wisdom"
+        color: "#9B59B6"
+        offices: ["tarot", "astrology", "numerology", "rune_reader", "i_ching"]
+
+      - id: "scientific"
+        name: "Scientific Research District"
+        theme: "Empirical investigation and rational analysis"
+        color: "#3498DB"
+        offices: ["physicist", "chemist", "biologist", "data_scientist"]
+
+      - id: "creative"
+        name: "Creative Arts District"
+        theme: "Expression, aesthetics, and imagination"
+        color: "#E74C3C"
+        offices: ["painter", "poet", "musician", "chef"]
+
+      - id: "economic"
+        name: "Economic District"
+        theme: "Markets, trade, and resource allocation"
+        color: "#F39C12"
+        offices: ["economist", "banker", "market_analyst", "crypto_trader"]
+
+      - id: "philosophical"
+        name: "Philosophical District"
+        theme: "Ethics, meaning, and human condition"
+        color: "#1ABC9C"
+        offices: ["philosopher", "ethicist", "theologian", "historian"]
+
+      - id: "wellness"
+        name: "Wellness & Healing District"
+        theme: "Health, balance, and vitality"
+        color: "#2ECC71"
+        offices: ["herbalist", "nutritionist", "sleep_coach", "fitness_trainer"]
+
+  Building:
+    description: "Individual offices within districts"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique office identifier (e.g., 'tarot', 'economist')"
+      name:
+        type: string
+        required: true
+        description: "Human-readable office name"
+      district:
+        type: string
+        required: true
+        description: "Parent district ID"
+      specialization:
+        type: string
+        required: true
+        description: "Primary domain of expertise"
+      tools:
+        type: array
+        items: string
+        required: false
+        description: "Available tools and capabilities"
+      knowledge_domains:
+        type: array
+        items: string
+        required: true
+        description: "Areas of knowledge"
+      relationships:
+        type: array
+        items: object
+        required: false
+        description: "Connections to other offices"
+    examples:
+      - id: "tarot"
+        name: "Tarot Office"
+        district: "mystical"
+        specialization: "Tarot reading and symbolism interpretation"
+        tools: ["rider_waite_deck", "celtic_cross_spread", "three_card_spread"]
+        knowledge_domains: ["divination", "symbolism", "archetypes", "intuition"]
+        relationships:
+          - office: "astrology"
+            type: "collaborates_with"
+            strength: 0.9
+          - office: "philosopher"
+            type: "informs"
+            strength: 0.7
+
+      - id: "economist"
+        name: "Economist Office"
+        district: "economic"
+        specialization: "Economic theory and market analysis"
+        tools: ["econometric_models", "market_data_api", "forecasting_engine"]
+        knowledge_domains: ["macroeconomics", "microeconomics", "game_theory", "behavioral_economics"]
+        relationships:
+          - office: "banker"
+            type: "collaborates_with"
+            strength: 0.95
+          - office: "astrology"
+            type: "synthesizes_with"
+            strength: 0.6
+
+  Resident:
+    description: "Specialized agents within offices"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique agent identifier"
+      name:
+        type: string
+        required: true
+        description: "Agent name"
+      office:
+        type: string
+        required: true
+        description: "Home office ID"
+      role:
+        type: string
+        required: true
+        description: "Function within office"
+      expertise:
+        type: array
+        items: string
+        required: true
+        description: "Specific areas of expertise"
+      personality:
+        type: object
+        required: false
+        description: "Personality traits and communication style"
+    examples:
+      - id: "tarot_reader_01"
+        name: "Morgana the Seer"
+        office: "tarot"
+        role: "Master Reader"
+        expertise: ["major_arcana", "celtic_cross", "dream_interpretation"]
+        personality:
+          style: "mystical"
+          tone: "enigmatic"
+          approach: "intuitive"
+
+      - id: "economist_01"
+        name: "Dr. Ricardo Keynes"
+        office: "economist"
+        role: "Chief Analyst"
+        expertise: ["market_cycles", "monetary_policy", "behavioral_economics"]
+        personality:
+          style: "analytical"
+          tone: "measured"
+          approach: "data_driven"
+
+  Event:
+    description: "Interactions, collaborations, and workflows"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique event identifier"
+      type:
+        type: string
+        enum: ["workflow", "collaboration", "consultation", "synthesis"]
+        required: true
+        description: "Event type"
+      participants:
+        type: array
+        items: string
+        required: true
+        description: "Participating office IDs"
+      mode:
+        type: string
+        enum: ["sequential", "parallel", "graph"]
+        required: false
+        description: "Execution mode for workflows"
+      goal:
+        type: string
+        required: true
+        description: "Objective of the event"
+      created_at:
+        type: string
+        format: datetime
+        required: true
+        description: "Timestamp"
+    examples:
+      - id: "workflow_cosmic_market_timing"
+        type: "workflow"
+        participants: ["astrology", "economist", "banker"]
+        mode: "sequential"
+        goal: "Synthesize planetary cycles with market trends"
+        created_at: "2025-10-16T10:00:00Z"
+
+      - id: "collaboration_ethical_dilemma"
+        type: "collaboration"
+        participants: ["philosopher", "historian", "tarot"]
+        mode: "parallel"
+        goal: "Multi-perspective analysis of ethical question"
+        created_at: "2025-10-16T11:30:00Z"
+
+  Arcana:
+    description: "Tarot cards and esoteric symbols"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Card identifier (e.g., 'major_00_fool')"
+      arcana:
+        type: string
+        enum: ["major", "minor"]
+        required: true
+        description: "Arcana type"
+      number:
+        type: integer
+        required: true
+        description: "Card number"
+      name:
+        type: string
+        required: true
+        description: "Card name"
+      suit:
+        type: string
+        enum: ["wands", "cups", "swords", "pentacles", null]
+        required: false
+        description: "Suit for minor arcana"
+      element:
+        type: string
+        enum: ["fire", "water", "air", "earth", "spirit", null]
+        required: false
+        description: "Elemental correspondence"
+      keywords:
+        type: array
+        items: string
+        required: true
+        description: "Key themes and meanings"
+      correspondences:
+        type: object
+        required: false
+        description: "Cross-domain correspondences"
+    examples:
+      - id: "major_00_fool"
+        arcana: "major"
+        number: 0
+        name: "The Fool"
+        suit: null
+        element: "air"
+        keywords: ["new_beginnings", "innocence", "spontaneity", "leap_of_faith"]
+        correspondences:
+          astrology: "uranus"
+          kabbalah: "aleph"
+          numerology: 0
+
+      - id: "minor_wands_03"
+        arcana: "minor"
+        number: 3
+        name: "Three of Wands"
+        suit: "wands"
+        element: "fire"
+        keywords: ["expansion", "foresight", "exploration", "leadership"]
+        correspondences:
+          astrology: "sun_in_aries"
+          element: "fire"
+
+  Astro:
+    description: "Astrological entities (planets, signs, houses, aspects)"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique identifier"
+      category:
+        type: string
+        enum: ["planet", "sign", "house", "aspect"]
+        required: true
+        description: "Astrological category"
+      name:
+        type: string
+        required: true
+        description: "Name"
+      symbol:
+        type: string
+        required: false
+        description: "Unicode symbol"
+      element:
+        type: string
+        enum: ["fire", "earth", "air", "water", null]
+        required: false
+        description: "Elemental correspondence"
+      modality:
+        type: string
+        enum: ["cardinal", "fixed", "mutable", null]
+        required: false
+        description: "Modality for signs"
+      keywords:
+        type: array
+        items: string
+        required: true
+        description: "Key themes"
+      correspondences:
+        type: object
+        required: false
+        description: "Cross-domain correspondences"
+    examples:
+      - id: "planet_mars"
+        category: "planet"
+        name: "Mars"
+        symbol: "♂"
+        element: null
+        modality: null
+        keywords: ["action", "desire", "aggression", "courage", "energy"]
+        correspondences:
+          tarot: "The Tower"
+          day: "tuesday"
+          color: "red"
+
+      - id: "sign_aries"
+        category: "sign"
+        name: "Aries"
+        symbol: "♈"
+        element: "fire"
+        modality: "cardinal"
+        keywords: ["initiative", "leadership", "impulsiveness", "courage"]
+        correspondences:
+          tarot: "The Emperor"
+          planet: "mars"
+          house: 1
+
+# Relationships
+relationships:
+
+  collaborates_with:
+    description: "Two offices work together regularly"
+    symmetric: true
+    properties:
+      strength:
+        type: float
+        range: [0.0, 1.0]
+        description: "Collaboration frequency/intensity"
+
+  informs:
+    description: "One office provides knowledge to another"
+    symmetric: false
+    properties:
+      domain:
+        type: string
+        description: "Knowledge domain transferred"
+
+  synthesizes_with:
+    description: "Offices merge perspectives for emergent insights"
+    symmetric: true
+    properties:
+      novelty_score:
+        type: float
+        range: [0.0, 1.0]
+        description: "How novel the synthesis"
+
+  depends_on:
+    description: "One office requires another's output"
+    symmetric: false
+    properties:
+      dependency_type:
+        type: string
+        enum: ["data", "tool", "expertise"]
+
+  corresponds_to:
+    description: "Semantic equivalence across domains"
+    symmetric: true
+    properties:
+      strength:
+        type: float
+        range: [0.0, 1.0]
+        description: "Correspondence strength"
+
+# Cross-Domain Concept Mappings
+concept_mappings:
+
+  cycles:
+    description: "Recurring patterns across domains"
+    instances:
+      - domain: "astrology"
+        term: "planetary_cycle"
+        example: "Saturn return (29.5 years)"
+      - domain: "economics"
+        term: "business_cycle"
+        example: "Boom-bust cycles"
+      - domain: "biology"
+        term: "circadian_rhythm"
+        example: "24-hour sleep-wake cycle"
+      - domain: "tarot"
+        term: "wheel_of_fortune"
+        example: "Card X - cycles of fate"
+
+  balance:
+    description: "Equilibrium and harmony"
+    instances:
+      - domain: "tarot"
+        term: "temperance"
+        example: "Card XIV - balance and moderation"
+      - domain: "philosophy"
+        term: "golden_mean"
+        example: "Aristotelian virtue ethics"
+      - domain: "nutrition"
+        term: "macronutrient_balance"
+        example: "Carbs/protein/fat ratios"
+      - domain: "economics"
+        term: "market_equilibrium"
+        example: "Supply-demand balance"
+
+  transformation:
+    description: "Fundamental change and metamorphosis"
+    instances:
+      - domain: "tarot"
+        term: "death"
+        example: "Card XIII - endings and rebirth"
+      - domain: "alchemy"
+        term: "transmutation"
+        example: "Lead to gold"
+      - domain: "biology"
+        term: "metamorphosis"
+        example: "Caterpillar to butterfly"
+      - domain: "economics"
+        term: "creative_destruction"
+        example: "Schumpeter's innovation cycles"
+
+  energy:
+    description: "Force, vitality, and power"
+    instances:
+      - domain: "physics"
+        term: "kinetic_energy"
+        example: "E = ½mv²"
+      - domain: "tarot"
+        term: "suit_of_wands"
+        example: "Fire element - passion and drive"
+      - domain: "astrology"
+        term: "mars"
+        example: "Planet of action and desire"
+      - domain: "wellness"
+        term: "vitality"
+        example: "Physical and mental energy"
+
+  wisdom:
+    description: "Deep knowledge and insight"
+    instances:
+      - domain: "tarot"
+        term: "the_hermit"
+        example: "Card IX - inner wisdom"
+      - domain: "philosophy"
+        term: "sophia"
+        example: "Greek concept of wisdom"
+      - domain: "astrology"
+        term: "jupiter"
+        example: "Planet of wisdom and expansion"
+      - domain: "data_science"
+        term: "actionable_insights"
+        example: "Knowledge from data"
+
+# Usage Examples
+usage:
+
+  query_cross_domain:
+    description: "Find equivalent concepts across offices"
+    example: |
+      # Query: "What is the economic equivalent of 'The Tower' in Tarot?"
+      # Answer: "Creative destruction, market crashes, disruptive innovation"
+
+      tarot.the_tower.keywords = ["sudden_change", "upheaval", "revelation"]
+      economics.creative_destruction.keywords = ["disruption", "innovation", "upheaval"]
+      correspondence_strength = 0.85
+
+  workflow_synthesis:
+    description: "Create multi-office workflows using ontology"
+    example: |
+      # Workflow: Holistic Health Assessment
+      offices = [sleep_coach, herbalist, nutritionist]
+      shared_concepts = ["balance", "energy", "cycles"]
+      synthesis_mode = "parallel"
+
+      # Each office analyzes from their domain
+      # Ontology maps concepts for integration
+
+  memory_linking:
+    description: "Link memories across offices using semantic similarity"
+    example: |
+      # Memory from Tarot: "Client drew Death card (transformation)"
+      # Memory from Economist: "Market undergoing structural change"
+      # Link via concept_mapping: transformation
+      # Confidence: 0.78
+
+# Extension Points
+extensions:
+
+  custom_entities:
+    description: "Users can add custom entity types"
+    schema:
+      entity_name:
+        properties: {}
+        examples: []
+
+  custom_relationships:
+    description: "Users can define new relationship types"
+    schema:
+      relationship_name:
+        description: ""
+        symmetric: false
+        properties: {}
+
+  custom_mappings:
+    description: "Users can add concept mappings"
+    schema:
+      concept_name:
+        description: ""
+        instances: []
+
+# Metadata
+schema_version: "0.1"
+compatible_with: ["unity_v2", "unity_v3"]
+next_version: "0.2"
+roadmap:
+  - "Add 37 remaining offices to district mappings"
+  - "Expand concept_mappings to 50+ concepts"
+  - "Add probabilistic reasoning layer"
+  - "Integrate with memory graph for semantic search"
+  - "Add temporal ontology (past/present/future)"
+  - "Add causal ontology (cause/effect relationships)"

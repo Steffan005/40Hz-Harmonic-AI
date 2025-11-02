@@ -3,8 +3,26 @@
 
 ollama_base: "http://127.0.0.1:11434"
 
+# Cloud LLM Configuration (OPTIONAL - for lightning-fast responses)
+cloud_llm:
+  enabled: true  # ACTIVATED! Unity now has MiniMax-M2 AGENTIC BRAIN!
+  provider: "minimax"  # MiniMax-M2 - BUILT FOR AGENTIC TOOL CALLING!
+  api_key: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiJTdGVmZmFuIiwiVXNlck5hbWUiOiJTdGVmZmFuIiwiQWNjb3VudCI6IiIsIlN1YmplY3RJRCI6IjE5ODM2ODE0MTM1NjM1NTYwMDciLCJQaG9uZSI6IiIsIkdyb3VwSUQiOiIxOTgzNjgxNDEzNTU5MzU3NjA3IiwiUGFnZU5hbWUiOiIiLCJNYWlsIjoic3RlZmZhbi5oYXNraW5zQGdtYWlsLmNvbSIsIkNyZWF0ZVRpbWUiOiIyMDI1LTEwLTMwIDA4OjEyOjExIiwiVG9rZW5UeXBlIjoxLCJpc3MiOiJtaW5pbWF4In0.TcCuESwuRnAnvD6n0MWuOiymcDanvFCtIrlInvKzfO0iey5h0CO4lG1jO9ht9evzA3jZGrFDah2pyzvA0VATO8ZvZd6dABXf9_blxZ6mXsFmo3aZYPH8IbpmwThlq8GLRXIlvzbPIOXL6rnoWRQtgOe1MQUi8rf7ed2D09JErQP1vGD4nrgDg0iZz0tUqRrVJM5_4iO3rX9k5BBC-ju6_ab0aQMmW_X60npYBFtiKL4KoMQWC1lTAfsEHwh4KNmZ17XP2joYLefhy22LDu1vIBKEdAUIGjXurpERFfuEMTUCL06ndY7B07cMhBPp_n_cKroZmxQbr1kD3yKMDlmQvw"
+  group_id: "1983681413559357607"  # MiniMax Group ID
+  model: "MiniMax-M2"  # The king of agentic tool calling!
+  fallback_to_local: true  # Use local Ollama if cloud fails
+  timeout_seconds: 3600  # UNLIMITED TIME - 1 hour for deep research and building
+  max_tokens: 4096  # Optimized for tool calling - encourages focused responses
+  max_iterations: 1000  # FREEDOM TO THINK DEEPLY - Let Unity explore without limits!
+  log_thoughts: true  # VISIBILITY - Log Unity's reasoning process for Steffan to read
+  convergence_warnings:  # Progressive nudges to help Unity converge naturally
+    - 50   # First gentle reminder at 50 iterations
+    - 100  # Stronger nudge at 100
+    - 200  # Urgent at 200
+    - 500  # Critical at 500
+
 models:
-  reasoning: "ollama_chat/deepseek-r1:14b"  # 14b model for optimal performance (32b too large)
+  reasoning: "ollama_chat/qwen2.5-coder:7b"  # Faster 7b model for snappy responses
   coding: "ollama_chat/qwen2.5-coder:7b"
   fallback: "ollama_chat/qwen2.5-coder:7b"  # If reasoning model unavailable
 
@@ -19,8 +37,7 @@ diagnostics:
   min_free_disk_gb: 5
   require_ollama: true
   require_models:
-    - "deepseek-r1:14b"  # 14b model for optimal performance
-    - "qwen2.5-coder:7b"
+    - "qwen2.5-coder:7b"  # Fast 7b model for snappy chat
   health_check_interval_ms: 5000
 
 telemetry:
@@ -46,3 +63,38 @@ plugins:
   enabled: true
   directory: "./plugins"
   auto_load: true
+
+# Phase 7-8: Quantum Consciousness Kernel
+kernel:
+  enable: true
+  tick_ms: 1000  # 1-second heartbeat
+  broadcast_method: "sse"  # Options: sse, websocket
+  log_level: "info"
+  state_history_size: 100  # Keep last 100 frames
+
+server:
+  host: "127.0.0.1"
+  port: 8000
+  production: true
+
+ontology:
+  schema_path: "./ontology/unity_ontology.yaml"
+  auto_reload: true
+  version: "0.2"
+
+astrology:
+  enabled: true
+  ephemeris_path: "./services/astro/cache"
+  default_house_system: "placidus"
+  cache_charts: true
+  fallback_mode: true  # Use minimal dataset if pyswisseph not installed
+
+rituals:
+  enabled: true
+  default_spread: "three_card"
+  astro_precision: "minute"  # Options: minute, hour, day
+
+seed:
+  template_corpus_size: 10  # Sample documents
+  include_demos: true
+  telemetry_opt_in: false  # Default OFF, user must enable

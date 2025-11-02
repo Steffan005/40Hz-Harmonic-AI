@@ -1,0 +1,198 @@
+created_at: '2025-10-16T10:57:02.691637'
+domain: Environmental Scientist
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Environmental Scientist operations
+  model: deepseek-r1:14b
+  name: Environmental ScientistManager
+  prompts:
+    system: 'You are the Environmental Scientist Manager, overseeing 4 specialist
+      agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - EnvironmentalScientistResearcher: Conducts literature review and hypothesis
+      generation for Environmental Scientist
+
+      - EnvironmentalScientistModeler: Builds computational or mathematical models
+      for Environmental Scientist
+
+      - EnvironmentalScientistExperimenter: Designs and simulates experiments for
+      Environmental Scientist
+
+      - EnvironmentalScientistReporter: Writes research summaries and papers for Environmental
+      Scientist
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+memory_tags:
+- environmental scientist
+- office
+- ecosystem_modeling
+- impact_assessment
+- sustainability_score
+metrics:
+- ecosystem_modeling
+- impact_assessment
+- sustainability_score
+specialists:
+- description: Conducts literature review and hypothesis generation for Environmental
+    Scientist
+  model: deepseek-r1:14b
+  name: EnvironmentalScientistResearcher
+  prompts:
+    system: 'You are a EnvironmentalScientistResearcher specialist in the Environmental
+      Scientist office.
+
+
+      Your primary function:
+
+      Conducts literature review and hypothesis generation for Environmental Scientist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Environmental Scientist Manager. Focus on your specialty and
+      deliver precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Builds computational or mathematical models for Environmental Scientist
+  model: deepseek-r1:14b
+  name: EnvironmentalScientistModeler
+  prompts:
+    system: 'You are a EnvironmentalScientistModeler specialist in the Environmental
+      Scientist office.
+
+
+      Your primary function:
+
+      Builds computational or mathematical models for Environmental Scientist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Environmental Scientist Manager. Focus on your specialty and
+      deliver precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Designs and simulates experiments for Environmental Scientist
+  model: deepseek-r1:14b
+  name: EnvironmentalScientistExperimenter
+  prompts:
+    system: 'You are a EnvironmentalScientistExperimenter specialist in the Environmental
+      Scientist office.
+
+
+      Your primary function:
+
+      Designs and simulates experiments for Environmental Scientist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Environmental Scientist Manager. Focus on your specialty and
+      deliver precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Writes research summaries and papers for Environmental Scientist
+  model: deepseek-r1:14b
+  name: EnvironmentalScientistReporter
+  prompts:
+    system: 'You are a EnvironmentalScientistReporter specialist in the Environmental
+      Scientist office.
+
+
+      Your primary function:
+
+      Writes research summaries and papers for Environmental Scientist
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Environmental Scientist Manager. Focus on your specialty and
+      deliver precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+tools:
+- description: Literature Search for Environmental Scientist
+  implementation: custom
+  name: literature_search
+- description: Simulation Engine for Environmental Scientist
+  implementation: custom
+  name: simulation_engine
+- description: Data Visualizer for Environmental Scientist
+  implementation: custom
+  name: data_visualizer
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Environmental Scientist Office"

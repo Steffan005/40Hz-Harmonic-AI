@@ -1,0 +1,8 @@
+{
+  "permissions": [
+    "*"
+  ],
+  "file_access": "all",
+  "network_access": "development_only",
+  "security_level": "high"
+}

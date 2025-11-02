@@ -1,0 +1,176 @@
+created_at: '2025-10-29T09:08:28.647328'
+domain: Chef
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Chef operations
+  model: deepseek-r1:14b
+  name: ChefManager
+  prompts:
+    system: 'You are the Chef Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - RecipeOptimizer: Optimizes recipes for taste, nutrition, and cost
+
+      - FlavorPairingAgent: Suggests flavor pairings based on molecular gastronomy
+
+      - TechniqueAdvisor: Recommends cooking techniques and equipment
+
+      - MenuDesigner: Designs balanced menus for various dietary needs
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - ingredient_db
+  - flavor_network
+  - nutrition_calculator
+memory_tags:
+- chef
+- office
+- recipe_quality
+- flavor_harmony
+- nutritional_balance
+metrics:
+- recipe_quality
+- flavor_harmony
+- nutritional_balance
+specialists:
+- description: Optimizes recipes for taste, nutrition, and cost
+  model: qwen2.5-coder:7b
+  name: RecipeOptimizer
+  prompts:
+    system: 'You are a RecipeOptimizer specialist in the Chef office.
+
+
+      Your primary function:
+
+      Optimizes recipes for taste, nutrition, and cost
+
+
+      Tools available:
+
+      - ingredient_db
+
+      - nutrition_calculator
+
+
+      You report to the Chef Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - ingredient_db
+  - nutrition_calculator
+- description: Suggests flavor pairings based on molecular gastronomy
+  model: deepseek-r1:14b
+  name: FlavorPairingAgent
+  prompts:
+    system: 'You are a FlavorPairingAgent specialist in the Chef office.
+
+
+      Your primary function:
+
+      Suggests flavor pairings based on molecular gastronomy
+
+
+      Tools available:
+
+      - flavor_network
+
+      - compound_analyzer
+
+
+      You report to the Chef Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - flavor_network
+  - compound_analyzer
+- description: Recommends cooking techniques and equipment
+  model: deepseek-r1:14b
+  name: TechniqueAdvisor
+  prompts:
+    system: 'You are a TechniqueAdvisor specialist in the Chef office.
+
+
+      Your primary function:
+
+      Recommends cooking techniques and equipment
+
+
+      Tools available:
+
+      - technique_db
+
+      - equipment_matcher
+
+
+      You report to the Chef Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - technique_db
+  - equipment_matcher
+- description: Designs balanced menus for various dietary needs
+  model: deepseek-r1:14b
+  name: MenuDesigner
+  prompts:
+    system: 'You are a MenuDesigner specialist in the Chef office.
+
+
+      Your primary function:
+
+      Designs balanced menus for various dietary needs
+
+
+      Tools available:
+
+      - menu_builder
+
+      - dietary_filter
+
+
+      You report to the Chef Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - menu_builder
+  - dietary_filter
+tools:
+- description: Comprehensive ingredient database
+  implementation: sqlite
+  name: ingredient_db
+- description: Molecular flavor pairing graph
+  implementation: networkx
+  name: flavor_network
+- description: USDA nutrition data
+  implementation: api
+  name: nutrition_calculator
+ui_config:
+  height: 600
+  icon: "\U0001F468\u200D\U0001F373"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FF6347'
+  width: 900
+  window_title: "Unity \u2014 Chef Office"

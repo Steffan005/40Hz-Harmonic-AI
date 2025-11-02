@@ -1,0 +1,384 @@
+/* Advanced Telemetry Dashboard - Quantum Consciousness Metrics */
+
+.telemetry-dashboard {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.telemetry-title {
+  font-size: 1.8rem;
+  color: var(--quantum-purple, #8A2BE2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+.quantum-icon {
+  font-size: 2rem;
+  animation: rotate 20s linear infinite;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.connected {
+  background: #00E676;
+  box-shadow: 0 0 10px #00E676;
+}
+
+.status-dot.simulated {
+  background: #FFA500;
+  box-shadow: 0 0 10px #FFA500;
+}
+
+/* Metrics Row */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric-box {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 191, 255, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.metric-box:hover {
+  transform: translateY(-2px);
+  border-color: var(--quantum-purple, #8A2BE2);
+  box-shadow: 0 8px 24px rgba(138, 43, 226, 0.2);
+}
+
+.metric-title {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.metric-value.quantum-pulse {
+  animation: quantumPulse 2s ease-in-out infinite;
+  background: linear-gradient(45deg, #00BCD4, #8A2BE2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-detail {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Token Usage Graph */
+.graph-container {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.graph-title {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.token-graph {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.graph-legend {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Office Activity Heatmap */
+.heatmap-container {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.heatmap-title {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.office-cell {
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.office-cell:hover::before {
+  opacity: 1;
+}
+
+.office-cell.evolving {
+  animation: evolve 2s ease-in-out infinite;
+}
+
+.office-cell.active {
+  border-color: #00E676;
+}
+
+.office-cell.idle {
+  opacity: 0.5;
+}
+
+.office-name {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.office-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.response-time {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Evolution Log */
+.evolution-log-container {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.evolution-log-title {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.evolution-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.evolution-entry {
+  display: grid;
+  grid-template-columns: 80px 150px 80px 80px;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.evolution-entry:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.evolution-time {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.evolution-office {
+  color: var(--quantum-blue, #00BCD4);
+}
+
+.evolution-delta {
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.evolution-delta.positive {
+  color: #00E676;
+}
+
+.evolution-delta.negative {
+  color: #FF5252;
+}
+
+.evolution-gen {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Memory Growth Sparkline */
+.sparkline-container {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.sparkline-title {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.sparkline {
+  width: 100%;
+  height: 60px;
+}
+
+.sparkline svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes quantumPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes evolve {
+  0%, 100% {
+    border-color: #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    border-color: #FFA500;
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .telemetry-dashboard {
+    padding: 1rem;
+  }
+
+  .metrics-row {
+    grid-template-columns: 1fr;
+  }
+
+  .evolution-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

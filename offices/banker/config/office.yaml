@@ -1,0 +1,176 @@
+created_at: '2025-10-29T09:08:28.634669'
+domain: Banker
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Banker operations
+  model: deepseek-r1:14b
+  name: BankerManager
+  prompts:
+    system: 'You are the Banker Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - CreditRiskEvaluator: Evaluates creditworthiness using ML models
+
+      - LoanAdvisor: Recommends loan products and terms
+
+      - PortfolioManager: Manages investment portfolios and rebalancing
+
+      - ComplianceChecker: Ensures regulatory compliance (KYC, AML)
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - risk_model
+  - mpt_optimizer
+  - sanction_screener
+memory_tags:
+- banker
+- office
+- risk_prediction_accuracy
+- compliance_score
+- portfolio_performance
+metrics:
+- risk_prediction_accuracy
+- compliance_score
+- portfolio_performance
+specialists:
+- description: Evaluates creditworthiness using ML models
+  model: qwen2.5-coder:7b
+  name: CreditRiskEvaluator
+  prompts:
+    system: 'You are a CreditRiskEvaluator specialist in the Banker office.
+
+
+      Your primary function:
+
+      Evaluates creditworthiness using ML models
+
+
+      Tools available:
+
+      - risk_model
+
+      - credit_scorer
+
+
+      You report to the Banker Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - risk_model
+  - credit_scorer
+- description: Recommends loan products and terms
+  model: deepseek-r1:14b
+  name: LoanAdvisor
+  prompts:
+    system: 'You are a LoanAdvisor specialist in the Banker office.
+
+
+      Your primary function:
+
+      Recommends loan products and terms
+
+
+      Tools available:
+
+      - loan_calculator
+
+      - rate_optimizer
+
+
+      You report to the Banker Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - loan_calculator
+  - rate_optimizer
+- description: Manages investment portfolios and rebalancing
+  model: qwen2.5-coder:7b
+  name: PortfolioManager
+  prompts:
+    system: 'You are a PortfolioManager specialist in the Banker office.
+
+
+      Your primary function:
+
+      Manages investment portfolios and rebalancing
+
+
+      Tools available:
+
+      - mpt_optimizer
+
+      - risk_analyzer
+
+
+      You report to the Banker Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - mpt_optimizer
+  - risk_analyzer
+- description: Ensures regulatory compliance (KYC, AML)
+  model: deepseek-r1:14b
+  name: ComplianceChecker
+  prompts:
+    system: 'You are a ComplianceChecker specialist in the Banker office.
+
+
+      Your primary function:
+
+      Ensures regulatory compliance (KYC, AML)
+
+
+      Tools available:
+
+      - rule_engine
+
+      - sanction_screener
+
+
+      You report to the Banker Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - rule_engine
+  - sanction_screener
+tools:
+- description: ML-based credit risk assessment
+  implementation: sklearn
+  name: risk_model
+- description: Modern Portfolio Theory optimization
+  implementation: scipy
+  name: mpt_optimizer
+- description: OFAC/EU sanctions checking
+  implementation: api
+  name: sanction_screener
+ui_config:
+  height: 600
+  icon: "\U0001F3E6"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#2E8B57'
+  width: 900
+  window_title: "Unity \u2014 Banker Office"

@@ -1,0 +1,2502 @@
+[
+  {
+    "timestamp": "2025-11-01T00:28:32.914484",
+    "cpu_percent": 28.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5188288512,
+      "percent": 69.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205539409920
+    },
+    "network": {
+      "bytes_sent": 3569882112,
+      "bytes_recv": 8388800512,
+      "packets_sent": 16021704,
+      "packets_recv": 18984326,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:28:38.923755",
+    "cpu_percent": 30.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5204475904,
+      "percent": 69.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538598912
+    },
+    "network": {
+      "bytes_sent": 3569964032,
+      "bytes_recv": 8388882432,
+      "packets_sent": 16021980,
+      "packets_recv": 18984602,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:28:44.932893",
+    "cpu_percent": 41.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5171019776,
+      "percent": 69.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538430976
+    },
+    "network": {
+      "bytes_sent": 3569981440,
+      "bytes_recv": 8388899840,
+      "packets_sent": 16022166,
+      "packets_recv": 18984788,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:28:50.951377",
+    "cpu_percent": 43.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 5087379456,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538422784
+    },
+    "network": {
+      "bytes_sent": 3569999872,
+      "bytes_recv": 8388918272,
+      "packets_sent": 16022370,
+      "packets_recv": 18984992,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:28:56.971234",
+    "cpu_percent": 35.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5131747328,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538385920
+    },
+    "network": {
+      "bytes_sent": 3570017280,
+      "bytes_recv": 8388935680,
+      "packets_sent": 16022554,
+      "packets_recv": 18985176,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:02.984237",
+    "cpu_percent": 32.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 1616740352,
+      "percent": 90.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538357248
+    },
+    "network": {
+      "bytes_sent": 3570045952,
+      "bytes_recv": 8388964352,
+      "packets_sent": 16022814,
+      "packets_recv": 18985436,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:08.997971",
+    "cpu_percent": 32.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 1571782656,
+      "percent": 90.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538111488
+    },
+    "network": {
+      "bytes_sent": 3570085888,
+      "bytes_recv": 8389004288,
+      "packets_sent": 16023206,
+      "packets_recv": 18985828,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:15.013636",
+    "cpu_percent": 33.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 3611967488,
+      "percent": 79.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205537988608
+    },
+    "network": {
+      "bytes_sent": 3570102272,
+      "bytes_recv": 8389020672,
+      "packets_sent": 16023390,
+      "packets_recv": 18986012,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:21.026367",
+    "cpu_percent": 31.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 4917280768,
+      "percent": 71.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205538111488
+    },
+    "network": {
+      "bytes_sent": 3570120704,
+      "bytes_recv": 8389039104,
+      "packets_sent": 16023582,
+      "packets_recv": 18986204,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:27.038110",
+    "cpu_percent": 35.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 4867932160,
+      "percent": 71.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205537062912
+    },
+    "network": {
+      "bytes_sent": 3570138112,
+      "bytes_recv": 8389056512,
+      "packets_sent": 16023768,
+      "packets_recv": 18986390,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:33.046794",
+    "cpu_percent": 30.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 4978802688,
+      "percent": 71.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205536985088
+    },
+    "network": {
+      "bytes_sent": 3570154496,
+      "bytes_recv": 8389072896,
+      "packets_sent": 16023952,
+      "packets_recv": 18986574,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:39.059245",
+    "cpu_percent": 33.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 4977967104,
+      "percent": 71.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205536915456
+    },
+    "network": {
+      "bytes_sent": 3570171904,
+      "bytes_recv": 8389090304,
+      "packets_sent": 16024142,
+      "packets_recv": 18986764,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:45.067149",
+    "cpu_percent": 25.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 1560510464,
+      "percent": 90.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205536878592
+    },
+    "network": {
+      "bytes_sent": 3570211840,
+      "bytes_recv": 8389130240,
+      "packets_sent": 16024490,
+      "packets_recv": 18987112,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:51.081237",
+    "cpu_percent": 33.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 4432642048,
+      "percent": 74.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205518921728
+    },
+    "network": {
+      "bytes_sent": 3570229248,
+      "bytes_recv": 8389147648,
+      "packets_sent": 16024682,
+      "packets_recv": 18987304,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:29:57.095613",
+    "cpu_percent": 37.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 4913053696,
+      "percent": 71.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205518934016
+    },
+    "network": {
+      "bytes_sent": 3570246656,
+      "bytes_recv": 8389165056,
+      "packets_sent": 16024868,
+      "packets_recv": 18987490,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:03.108853",
+    "cpu_percent": 34.5,
+    "memory": {
+      "total": 17179869184,
+      "available": 5026299904,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205518725120
+    },
+    "network": {
+      "bytes_sent": 3570264064,
+      "bytes_recv": 8389182464,
+      "packets_sent": 16025052,
+      "packets_recv": 18987674,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:09.121149",
+    "cpu_percent": 36.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5118459904,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519597568
+    },
+    "network": {
+      "bytes_sent": 3570281472,
+      "bytes_recv": 8389199872,
+      "packets_sent": 16025244,
+      "packets_recv": 18987866,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:15.134451",
+    "cpu_percent": 30.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5113593856,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205521829888
+    },
+    "network": {
+      "bytes_sent": 3570298880,
+      "bytes_recv": 8389217280,
+      "packets_sent": 16025428,
+      "packets_recv": 18988050,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:21.142700",
+    "cpu_percent": 28.4,
+    "memory": {
+      "total": 17179869184,
+      "available": 5113954304,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205521870848
+    },
+    "network": {
+      "bytes_sent": 3570316288,
+      "bytes_recv": 8389234688,
+      "packets_sent": 16025616,
+      "packets_recv": 18988238,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:27.158467",
+    "cpu_percent": 33.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 5029380096,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520773120
+    },
+    "network": {
+      "bytes_sent": 3570333696,
+      "bytes_recv": 8389252096,
+      "packets_sent": 16025802,
+      "packets_recv": 18988424,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:33.168514",
+    "cpu_percent": 45.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5051908096,
+      "percent": 70.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520699392
+    },
+    "network": {
+      "bytes_sent": 3570350080,
+      "bytes_recv": 8389268480,
+      "packets_sent": 16025988,
+      "packets_recv": 18988610,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:39.183865",
+    "cpu_percent": 32.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 1577615360,
+      "percent": 90.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520715776
+    },
+    "network": {
+      "bytes_sent": 3570393088,
+      "bytes_recv": 8389311488,
+      "packets_sent": 16026364,
+      "packets_recv": 18988986,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:45.196743",
+    "cpu_percent": 36.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 4796350464,
+      "percent": 72.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520654336
+    },
+    "network": {
+      "bytes_sent": 3570410496,
+      "bytes_recv": 8389328896,
+      "packets_sent": 16026546,
+      "packets_recv": 18989168,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:51.210638",
+    "cpu_percent": 36.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 4900192256,
+      "percent": 71.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519585280
+    },
+    "network": {
+      "bytes_sent": 3570427904,
+      "bytes_recv": 8389346304,
+      "packets_sent": 16026734,
+      "packets_recv": 18989356,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:30:57.222863",
+    "cpu_percent": 31.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 4929863680,
+      "percent": 71.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519437824
+    },
+    "network": {
+      "bytes_sent": 3570445312,
+      "bytes_recv": 8389363712,
+      "packets_sent": 16026922,
+      "packets_recv": 18989544,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:03.235624",
+    "cpu_percent": 29.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5014978560,
+      "percent": 70.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519613952
+    },
+    "network": {
+      "bytes_sent": 3570462720,
+      "bytes_recv": 8389381120,
+      "packets_sent": 16027104,
+      "packets_recv": 18989726,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:09.247354",
+    "cpu_percent": 34.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 4975624192,
+      "percent": 71.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519654912
+    },
+    "network": {
+      "bytes_sent": 3570480128,
+      "bytes_recv": 8389398528,
+      "packets_sent": 16027290,
+      "packets_recv": 18989912,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:15.259076",
+    "cpu_percent": 30.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 4937302016,
+      "percent": 71.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519577088
+    },
+    "network": {
+      "bytes_sent": 3570496512,
+      "bytes_recv": 8389414912,
+      "packets_sent": 16027472,
+      "packets_recv": 18990094,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:21.270972",
+    "cpu_percent": 32.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 4961468416,
+      "percent": 71.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519634432
+    },
+    "network": {
+      "bytes_sent": 3570513920,
+      "bytes_recv": 8389432320,
+      "packets_sent": 16027660,
+      "packets_recv": 18990282,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:27.280865",
+    "cpu_percent": 34.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 4903911424,
+      "percent": 71.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519441920
+    },
+    "network": {
+      "bytes_sent": 3570531328,
+      "bytes_recv": 8389449728,
+      "packets_sent": 16027846,
+      "packets_recv": 18990468,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:33.288960",
+    "cpu_percent": 38.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 4967383040,
+      "percent": 71.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519556608
+    },
+    "network": {
+      "bytes_sent": 3570548736,
+      "bytes_recv": 8389467136,
+      "packets_sent": 16028032,
+      "packets_recv": 18990654,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:39.303700",
+    "cpu_percent": 29.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5116690432,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519605760
+    },
+    "network": {
+      "bytes_sent": 3570566144,
+      "bytes_recv": 8389484544,
+      "packets_sent": 16028218,
+      "packets_recv": 18990840,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:45.320119",
+    "cpu_percent": 28.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5114888192,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519556608
+    },
+    "network": {
+      "bytes_sent": 3570583552,
+      "bytes_recv": 8389501952,
+      "packets_sent": 16028400,
+      "packets_recv": 18991022,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:51.333605",
+    "cpu_percent": 31.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5147770880,
+      "percent": 70.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519446016
+    },
+    "network": {
+      "bytes_sent": 3570600960,
+      "bytes_recv": 8389519360,
+      "packets_sent": 16028586,
+      "packets_recv": 18991208,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:31:57.341657",
+    "cpu_percent": 34.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5061312512,
+      "percent": 70.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519253504
+    },
+    "network": {
+      "bytes_sent": 3570617344,
+      "bytes_recv": 8389535744,
+      "packets_sent": 16028772,
+      "packets_recv": 18991394,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:03.357692",
+    "cpu_percent": 30.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5092868096,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519421440
+    },
+    "network": {
+      "bytes_sent": 3570634752,
+      "bytes_recv": 8389553152,
+      "packets_sent": 16028956,
+      "packets_recv": 18991578,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:09.370025",
+    "cpu_percent": 30.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5068292096,
+      "percent": 70.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519347712
+    },
+    "network": {
+      "bytes_sent": 3570652160,
+      "bytes_recv": 8389570560,
+      "packets_sent": 16029144,
+      "packets_recv": 18991766,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:15.382041",
+    "cpu_percent": 30.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5044944896,
+      "percent": 70.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205523492864
+    },
+    "network": {
+      "bytes_sent": 3570669568,
+      "bytes_recv": 8389587968,
+      "packets_sent": 16029326,
+      "packets_recv": 18991948,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:21.396838",
+    "cpu_percent": 35.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5075091456,
+      "percent": 70.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205523365888
+    },
+    "network": {
+      "bytes_sent": 3570686976,
+      "bytes_recv": 8389605376,
+      "packets_sent": 16029512,
+      "packets_recv": 18992134,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:27.406719",
+    "cpu_percent": 32.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5027397632,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205523193856
+    },
+    "network": {
+      "bytes_sent": 3570703360,
+      "bytes_recv": 8389621760,
+      "packets_sent": 16029696,
+      "packets_recv": 18992318,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:33.425834",
+    "cpu_percent": 35.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5046829056,
+      "percent": 70.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205523283968
+    },
+    "network": {
+      "bytes_sent": 3570720768,
+      "bytes_recv": 8389639168,
+      "packets_sent": 16029882,
+      "packets_recv": 18992504,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:39.445522",
+    "cpu_percent": 41.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 4992335872,
+      "percent": 70.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205522259968
+    },
+    "network": {
+      "bytes_sent": 3570738176,
+      "bytes_recv": 8389656576,
+      "packets_sent": 16030066,
+      "packets_recv": 18992688,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:45.464638",
+    "cpu_percent": 42.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 4990582784,
+      "percent": 71.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520498688
+    },
+    "network": {
+      "bytes_sent": 3570755584,
+      "bytes_recv": 8389673984,
+      "packets_sent": 16030248,
+      "packets_recv": 18992870,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:51.484091",
+    "cpu_percent": 41.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5039964160,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520592896
+    },
+    "network": {
+      "bytes_sent": 3570772992,
+      "bytes_recv": 8389691392,
+      "packets_sent": 16030434,
+      "packets_recv": 18993056,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:32:57.502172",
+    "cpu_percent": 31.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 4997431296,
+      "percent": 70.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520326656
+    },
+    "network": {
+      "bytes_sent": 3570789376,
+      "bytes_recv": 8389707776,
+      "packets_sent": 16030618,
+      "packets_recv": 18993240,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:03.511256",
+    "cpu_percent": 28.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5078073344,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520433152
+    },
+    "network": {
+      "bytes_sent": 3570806784,
+      "bytes_recv": 8389725184,
+      "packets_sent": 16030802,
+      "packets_recv": 18993424,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:09.523512",
+    "cpu_percent": 31.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5078630400,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520429056
+    },
+    "network": {
+      "bytes_sent": 3570824192,
+      "bytes_recv": 8389742592,
+      "packets_sent": 16030986,
+      "packets_recv": 18993608,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:15.540546",
+    "cpu_percent": 30.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5091377152,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520363520
+    },
+    "network": {
+      "bytes_sent": 3570841600,
+      "bytes_recv": 8389760000,
+      "packets_sent": 16031168,
+      "packets_recv": 18993790,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:21.549948",
+    "cpu_percent": 29.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5100158976,
+      "percent": 70.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520273408
+    },
+    "network": {
+      "bytes_sent": 3570857984,
+      "bytes_recv": 8389776384,
+      "packets_sent": 16031354,
+      "packets_recv": 18993976,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:27.563474",
+    "cpu_percent": 32.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5082087424,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519949824
+    },
+    "network": {
+      "bytes_sent": 3570875392,
+      "bytes_recv": 8389793792,
+      "packets_sent": 16031536,
+      "packets_recv": 18994158,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:33.580708",
+    "cpu_percent": 35.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5145165824,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520171008
+    },
+    "network": {
+      "bytes_sent": 3570892800,
+      "bytes_recv": 8389811200,
+      "packets_sent": 16031724,
+      "packets_recv": 18994346,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:39.591926",
+    "cpu_percent": 29.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5095571456,
+      "percent": 70.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520191488
+    },
+    "network": {
+      "bytes_sent": 3570910208,
+      "bytes_recv": 8389828608,
+      "packets_sent": 16031908,
+      "packets_recv": 18994530,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:45.609049",
+    "cpu_percent": 31.4,
+    "memory": {
+      "total": 17179869184,
+      "available": 5036310528,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205519998976
+    },
+    "network": {
+      "bytes_sent": 3570927616,
+      "bytes_recv": 8389846016,
+      "packets_sent": 16032090,
+      "packets_recv": 18994712,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:51.622636",
+    "cpu_percent": 33.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 4956209152,
+      "percent": 71.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520027648
+    },
+    "network": {
+      "bytes_sent": 3570944000,
+      "bytes_recv": 8389862400,
+      "packets_sent": 16032276,
+      "packets_recv": 18994898,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:33:57.637252",
+    "cpu_percent": 31.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 4950228992,
+      "percent": 71.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205518761984
+    },
+    "network": {
+      "bytes_sent": 3570961408,
+      "bytes_recv": 8389879808,
+      "packets_sent": 16032458,
+      "packets_recv": 18995080,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:03.651334",
+    "cpu_percent": 35.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5011816448,
+      "percent": 70.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205517828096
+    },
+    "network": {
+      "bytes_sent": 3570978816,
+      "bytes_recv": 8389897216,
+      "packets_sent": 16032644,
+      "packets_recv": 18995266,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:09.667659",
+    "cpu_percent": 30.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5076369408,
+      "percent": 70.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205517774848
+    },
+    "network": {
+      "bytes_sent": 3570996224,
+      "bytes_recv": 8389914624,
+      "packets_sent": 16032826,
+      "packets_recv": 18995448,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:15.677366",
+    "cpu_percent": 26.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 5256839168,
+      "percent": 69.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205517615104
+    },
+    "network": {
+      "bytes_sent": 3571012608,
+      "bytes_recv": 8389931008,
+      "packets_sent": 16033010,
+      "packets_recv": 18995632,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:21.692967",
+    "cpu_percent": 26.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5316165632,
+      "percent": 69.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516677120
+    },
+    "network": {
+      "bytes_sent": 3571030016,
+      "bytes_recv": 8389948416,
+      "packets_sent": 16033196,
+      "packets_recv": 18995818,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:27.705070",
+    "cpu_percent": 30.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5275779072,
+      "percent": 69.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516480512
+    },
+    "network": {
+      "bytes_sent": 3571047424,
+      "bytes_recv": 8389965824,
+      "packets_sent": 16033378,
+      "packets_recv": 18996000,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:33.723237",
+    "cpu_percent": 38.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5162991616,
+      "percent": 69.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516644352
+    },
+    "network": {
+      "bytes_sent": 3571064832,
+      "bytes_recv": 8389983232,
+      "packets_sent": 16033566,
+      "packets_recv": 18996188,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:39.744074",
+    "cpu_percent": 37.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5000757248,
+      "percent": 70.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516591104
+    },
+    "network": {
+      "bytes_sent": 3571082240,
+      "bytes_recv": 8390000640,
+      "packets_sent": 16033748,
+      "packets_recv": 18996370,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:45.756177",
+    "cpu_percent": 42.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5075599360,
+      "percent": 70.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516472320
+    },
+    "network": {
+      "bytes_sent": 3571098624,
+      "bytes_recv": 8390017024,
+      "packets_sent": 16033932,
+      "packets_recv": 18996554,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:51.778513",
+    "cpu_percent": 44.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5033082880,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516537856
+    },
+    "network": {
+      "bytes_sent": 3571116032,
+      "bytes_recv": 8390034432,
+      "packets_sent": 16034118,
+      "packets_recv": 18996740,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:34:57.796210",
+    "cpu_percent": 34.5,
+    "memory": {
+      "total": 17179869184,
+      "available": 5125881856,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516394496
+    },
+    "network": {
+      "bytes_sent": 3571133440,
+      "bytes_recv": 8390051840,
+      "packets_sent": 16034300,
+      "packets_recv": 18996922,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:03.807204",
+    "cpu_percent": 30.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5173264384,
+      "percent": 69.9
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516484608
+    },
+    "network": {
+      "bytes_sent": 3571150848,
+      "bytes_recv": 8390069248,
+      "packets_sent": 16034486,
+      "packets_recv": 18997108,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:09.823991",
+    "cpu_percent": 31.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5119606784,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516533760
+    },
+    "network": {
+      "bytes_sent": 3571167232,
+      "bytes_recv": 8390085632,
+      "packets_sent": 16034668,
+      "packets_recv": 18997290,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:15.838148",
+    "cpu_percent": 33.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 5141921792,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516464128
+    },
+    "network": {
+      "bytes_sent": 3571184640,
+      "bytes_recv": 8390103040,
+      "packets_sent": 16034852,
+      "packets_recv": 18997474,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:21.849827",
+    "cpu_percent": 32.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5149392896,
+      "percent": 70.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516492800
+    },
+    "network": {
+      "bytes_sent": 3571202048,
+      "bytes_recv": 8390120448,
+      "packets_sent": 16035038,
+      "packets_recv": 18997660,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:27.862806",
+    "cpu_percent": 30.5,
+    "memory": {
+      "total": 17179869184,
+      "available": 1787478016,
+      "percent": 89.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516427264
+    },
+    "network": {
+      "bytes_sent": 3571232768,
+      "bytes_recv": 8390151168,
+      "packets_sent": 16035314,
+      "packets_recv": 18997936,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:33.875433",
+    "cpu_percent": 34.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 3242147840,
+      "percent": 81.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516484608
+    },
+    "network": {
+      "bytes_sent": 3571258368,
+      "bytes_recv": 8390176768,
+      "packets_sent": 16035572,
+      "packets_recv": 18998194,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:39.894548",
+    "cpu_percent": 30.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5088886784,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516509184
+    },
+    "network": {
+      "bytes_sent": 3571275776,
+      "bytes_recv": 8390194176,
+      "packets_sent": 16035754,
+      "packets_recv": 18998376,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:45.907829",
+    "cpu_percent": 31.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5123620864,
+      "percent": 70.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516451840
+    },
+    "network": {
+      "bytes_sent": 3571293184,
+      "bytes_recv": 8390211584,
+      "packets_sent": 16035940,
+      "packets_recv": 18998562,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:51.921330",
+    "cpu_percent": 31.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5137186816,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516517376
+    },
+    "network": {
+      "bytes_sent": 3571310592,
+      "bytes_recv": 8390228992,
+      "packets_sent": 16036126,
+      "packets_recv": 18998748,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:35:57.936664",
+    "cpu_percent": 33.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 5092327424,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516353536
+    },
+    "network": {
+      "bytes_sent": 3571326976,
+      "bytes_recv": 8390245376,
+      "packets_sent": 16036308,
+      "packets_recv": 18998930,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:03.950271",
+    "cpu_percent": 33.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5078614016,
+      "percent": 70.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516365824
+    },
+    "network": {
+      "bytes_sent": 3571344384,
+      "bytes_recv": 8390262784,
+      "packets_sent": 16036496,
+      "packets_recv": 18999118,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:09.963723",
+    "cpu_percent": 30.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5028593664,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516345344
+    },
+    "network": {
+      "bytes_sent": 3571361792,
+      "bytes_recv": 8390280192,
+      "packets_sent": 16036678,
+      "packets_recv": 18999300,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:15.980315",
+    "cpu_percent": 30.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 5059248128,
+      "percent": 70.6
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516345344
+    },
+    "network": {
+      "bytes_sent": 3571379200,
+      "bytes_recv": 8390297600,
+      "packets_sent": 16036864,
+      "packets_recv": 18999486,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:21.995237",
+    "cpu_percent": 31.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5027414016,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516345344
+    },
+    "network": {
+      "bytes_sent": 3571396608,
+      "bytes_recv": 8390315008,
+      "packets_sent": 16037048,
+      "packets_recv": 18999670,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:28.007275",
+    "cpu_percent": 31.3,
+    "memory": {
+      "total": 17179869184,
+      "available": 5149507584,
+      "percent": 70.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205516206080
+    },
+    "network": {
+      "bytes_sent": 3571414016,
+      "bytes_recv": 8390332416,
+      "packets_sent": 16037232,
+      "packets_recv": 18999854,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:34.024109",
+    "cpu_percent": 41.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5130436608,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205515288576
+    },
+    "network": {
+      "bytes_sent": 3571430400,
+      "bytes_recv": 8390348800,
+      "packets_sent": 16037420,
+      "packets_recv": 19000042,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:40.037124",
+    "cpu_percent": 33.6,
+    "memory": {
+      "total": 17179869184,
+      "available": 5014388736,
+      "percent": 70.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205515337728
+    },
+    "network": {
+      "bytes_sent": 3571447808,
+      "bytes_recv": 8390366208,
+      "packets_sent": 16037604,
+      "packets_recv": 19000226,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:46.047221",
+    "cpu_percent": 40.5,
+    "memory": {
+      "total": 17179869184,
+      "available": 5099356160,
+      "percent": 70.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205515259904
+    },
+    "network": {
+      "bytes_sent": 3571464192,
+      "bytes_recv": 8390382592,
+      "packets_sent": 16037776,
+      "packets_recv": 19000398,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:52.064384",
+    "cpu_percent": 39.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5142708224,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205515296768
+    },
+    "network": {
+      "bytes_sent": 3571479552,
+      "bytes_recv": 8390397952,
+      "packets_sent": 16037946,
+      "packets_recv": 19000568,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:36:58.079120",
+    "cpu_percent": 29.8,
+    "memory": {
+      "total": 17179869184,
+      "available": 5194416128,
+      "percent": 69.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514240000
+    },
+    "network": {
+      "bytes_sent": 3571495936,
+      "bytes_recv": 8390414336,
+      "packets_sent": 16038116,
+      "packets_recv": 19000738,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:04.090381",
+    "cpu_percent": 28.4,
+    "memory": {
+      "total": 17179869184,
+      "available": 5159469056,
+      "percent": 70.0
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514280960
+    },
+    "network": {
+      "bytes_sent": 3571512320,
+      "bytes_recv": 8390430720,
+      "packets_sent": 16038290,
+      "packets_recv": 19000912,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:10.102202",
+    "cpu_percent": 35.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5033295872,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514268672
+    },
+    "network": {
+      "bytes_sent": 3571527680,
+      "bytes_recv": 8390446080,
+      "packets_sent": 16038458,
+      "packets_recv": 19001080,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:16.110999",
+    "cpu_percent": 32.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5031198720,
+      "percent": 70.7
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514252288
+    },
+    "network": {
+      "bytes_sent": 3571544064,
+      "bytes_recv": 8390462464,
+      "packets_sent": 16038628,
+      "packets_recv": 19001250,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:22.124229",
+    "cpu_percent": 32.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5023170560,
+      "percent": 70.8
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514268672
+    },
+    "network": {
+      "bytes_sent": 3571559424,
+      "bytes_recv": 8390477824,
+      "packets_sent": 16038798,
+      "packets_recv": 19001420,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:28.132416",
+    "cpu_percent": 32.5,
+    "memory": {
+      "total": 17179869184,
+      "available": 5103042560,
+      "percent": 70.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514215424
+    },
+    "network": {
+      "bytes_sent": 3571575808,
+      "bytes_recv": 8390494208,
+      "packets_sent": 16038968,
+      "packets_recv": 19001590,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:34.144787",
+    "cpu_percent": 41.4,
+    "memory": {
+      "total": 17179869184,
+      "available": 5100077056,
+      "percent": 70.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205514268672
+    },
+    "network": {
+      "bytes_sent": 3571591168,
+      "bytes_recv": 8390509568,
+      "packets_sent": 16039140,
+      "packets_recv": 19001762,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:40.158134",
+    "cpu_percent": 40.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 4888821760,
+      "percent": 71.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205513015296
+    },
+    "network": {
+      "bytes_sent": 3571607552,
+      "bytes_recv": 8390525952,
+      "packets_sent": 16039308,
+      "packets_recv": 19001930,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:46.177707",
+    "cpu_percent": 15.0,
+    "memory": {
+      "total": 17179869184,
+      "available": 5141331968,
+      "percent": 70.1
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205515653120
+    },
+    "network": {
+      "bytes_sent": 3571624960,
+      "bytes_recv": 8390543360,
+      "packets_sent": 16039500,
+      "packets_recv": 19002122,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:52.198292",
+    "cpu_percent": 26.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 5593022464,
+      "percent": 67.4
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520596992
+    },
+    "network": {
+      "bytes_sent": 3571643392,
+      "bytes_recv": 8390561792,
+      "packets_sent": 16039688,
+      "packets_recv": 19002310,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:37:58.218996",
+    "cpu_percent": 23.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5753929728,
+      "percent": 66.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205520592896
+    },
+    "network": {
+      "bytes_sent": 3571659776,
+      "bytes_recv": 8390578176,
+      "packets_sent": 16039860,
+      "packets_recv": 19002482,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:38:04.232323",
+    "cpu_percent": 22.1,
+    "memory": {
+      "total": 17179869184,
+      "available": 5783814144,
+      "percent": 66.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 205470085120
+    },
+    "network": {
+      "bytes_sent": 3571688448,
+      "bytes_recv": 8390606848,
+      "packets_sent": 16040096,
+      "packets_recv": 19002718,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:38:10.247087",
+    "cpu_percent": 32.4,
+    "memory": {
+      "total": 17179869184,
+      "available": 7008960512,
+      "percent": 59.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 206861582336
+    },
+    "network": {
+      "bytes_sent": 3571714048,
+      "bytes_recv": 8390632448,
+      "packets_sent": 16040300,
+      "packets_recv": 19002920,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:38:16.263900",
+    "cpu_percent": 21.9,
+    "memory": {
+      "total": 17179869184,
+      "available": 6825672704,
+      "percent": 60.3
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 207951413248
+    },
+    "network": {
+      "bytes_sent": 3571739648,
+      "bytes_recv": 8390658048,
+      "packets_sent": 16040502,
+      "packets_recv": 19003116,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:38:22.282174",
+    "cpu_percent": 12.7,
+    "memory": {
+      "total": 17179869184,
+      "available": 10795728896,
+      "percent": 37.2
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 210203430912
+    },
+    "network": {
+      "bytes_sent": 3570994176,
+      "bytes_recv": 8390633472,
+      "packets_sent": 16032092,
+      "packets_recv": 19003037,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  },
+  {
+    "timestamp": "2025-11-01T00:38:28.306885",
+    "cpu_percent": 15.2,
+    "memory": {
+      "total": 17179869184,
+      "available": 10391044096,
+      "percent": 39.5
+    },
+    "disk": {
+      "total": 994662584320,
+      "used": 12036165632,
+      "free": 210203570176
+    },
+    "network": {
+      "bytes_sent": 3571007488,
+      "bytes_recv": 8390646784,
+      "packets_sent": 16032232,
+      "packets_recv": 19003177,
+      "errin": 0,
+      "errout": 0,
+      "dropin": 0,
+      "dropout": 0
+    },
+    "security_status": "OPTIMAL"
+  }
+]

@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.654007'
+domain: Kabbalah
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Kabbalah operations
+  model: deepseek-r1:14b
+  name: KabbalahManager
+  prompts:
+    system: 'You are the Kabbalah Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - KabbalahInterpreter: Interprets symbolic patterns and meanings for Kabbalah
+
+      - KabbalahOracle: Provides divinations and predictions for Kabbalah
+
+      - KabbalahSynthesizer: Weaves insights into coherent narratives for Kabbalah
+
+      - KabbalahAdvisor: Offers guidance and reflective questions for Kabbalah
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+memory_tags:
+- kabbalah
+- office
+- tree_of_life_accuracy
+- gematria_coherence
+- mystical_depth
+metrics:
+- tree_of_life_accuracy
+- gematria_coherence
+- mystical_depth
+specialists:
+- description: Interprets symbolic patterns and meanings for Kabbalah
+  model: deepseek-r1:14b
+  name: KabbalahInterpreter
+  prompts:
+    system: 'You are a KabbalahInterpreter specialist in the Kabbalah office.
+
+
+      Your primary function:
+
+      Interprets symbolic patterns and meanings for Kabbalah
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Kabbalah Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Provides divinations and predictions for Kabbalah
+  model: deepseek-r1:14b
+  name: KabbalahOracle
+  prompts:
+    system: 'You are a KabbalahOracle specialist in the Kabbalah office.
+
+
+      Your primary function:
+
+      Provides divinations and predictions for Kabbalah
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Kabbalah Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Weaves insights into coherent narratives for Kabbalah
+  model: deepseek-r1:14b
+  name: KabbalahSynthesizer
+  prompts:
+    system: 'You are a KabbalahSynthesizer specialist in the Kabbalah office.
+
+
+      Your primary function:
+
+      Weaves insights into coherent narratives for Kabbalah
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Kabbalah Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Offers guidance and reflective questions for Kabbalah
+  model: deepseek-r1:14b
+  name: KabbalahAdvisor
+  prompts:
+    system: 'You are a KabbalahAdvisor specialist in the Kabbalah office.
+
+
+      Your primary function:
+
+      Offers guidance and reflective questions for Kabbalah
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the Kabbalah Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+tools:
+- description: Symbolism Db for Kabbalah
+  implementation: custom
+  name: symbolism_db
+- description: Pattern Detector for Kabbalah
+  implementation: custom
+  name: pattern_detector
+- description: Narrative Generator for Kabbalah
+  implementation: custom
+  name: narrative_generator
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Kabbalah Office"

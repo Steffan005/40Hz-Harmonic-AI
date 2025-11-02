@@ -1,0 +1,73 @@
+/**
+ * STATUS BAR - HORIZONTAL COMPACT DESIGN
+ * Minimalist telemetry display that doesn't steal screen space
+ */
+
+.status-bar-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 12px;
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+}
+
+.status-metric-compact {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.status-metric-compact:hover {
+  background: rgba(155, 89, 182, 0.1);
+  transform: translateY(-1px);
+}
+
+.metric-icon {
+  font-size: 0.9rem;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.metric-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.spinner-tiny {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(155, 89, 182, 0.2);
+  border-top-color: var(--quantum-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 768px) {
+  .status-bar-horizontal {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .status-metric-compact {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .metric-text {
+    font-size: 0.7rem;
+  }
+}

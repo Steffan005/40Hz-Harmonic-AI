@@ -1,0 +1,38 @@
+version: '1.0'
+description: Unity Nightly Learning Schedule
+jobs:
+- job_id: nightly_evolution
+  name: Nightly TextGrad Optimization
+  description: Optimize attorney prompts using TextGrad
+  schedule: 02:00
+  function: run_textgrad_optimization
+  params:
+    task_families:
+    - civil_rights_attorney
+    - criminal_defense_attorney
+    n_variants: 6
+    budget_tokens: 5000
+  enabled: true
+- job_id: pattern_detection
+  name: Memory Pattern Detection
+  description: Detect recurring patterns in case memory graph
+  schedule: 02:30
+  function: run_pattern_detection
+  params:
+    window_days: 30
+  enabled: true
+- job_id: wisdom_pruning
+  name: Wisdom Ontology Pruning
+  description: Deprecate low-confidence wisdom, version high-confidence
+  schedule: 03:00
+  function: run_wisdom_pruning
+  params:
+    min_confidence: 0.6
+  enabled: true
+- job_id: evolution_report
+  name: Evolution Report Generation
+  description: Generate nightly evolution report (MD + JSON)
+  schedule: 03:30
+  function: generate_evolution_report
+  params: {}
+  enabled: true

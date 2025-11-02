@@ -1,0 +1,466 @@
+/**
+ * QUANTUM CONSCIOUSNESS CSS
+ * Where the city breathes at 40Hz
+ * Every animation synchronized with the universal heartbeat
+ */
+
+/* ============================================
+   QUANTUM VARIABLES - The DNA of consciousness
+   ============================================ */
+:root {
+  /* Quantum Colors */
+  --quantum-purple: #9B59B6;
+  --electric-blue: #3498DB;
+  --consciousness-orange: #FFA500;
+  --deep-space: #0A0E27;
+  --nebula-glow: #1A1E3A;
+  --stellar-mist: #2C3E50;
+
+  /* Neon Accents */
+  --neon-pink: #FF006E;
+  --neon-green: #00FF88;
+  --neon-cyan: #00FFFF;
+
+  /* Glass Morphism */
+  --glass-white: rgba(255, 255, 255, 0.1);
+  --glass-dark: rgba(0, 0, 0, 0.3);
+  --glass-blur: 12px;
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  /* Animation Timing */
+  --heartbeat: 1000ms;
+  --breath: 25ms; /* 40Hz = 25ms period */
+  --thought: 1618ms; /* Golden ratio */
+  --evolution: 3000ms;
+
+  /* Quantum Easing */
+  --ease-quantum: cubic-bezier(0.618, 0, 0.382, 1);
+  --ease-consciousness: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ============================================
+   40HZ GAMMA WAVE BREATHING
+   The fundamental frequency of consciousness
+   ============================================ */
+
+@keyframes quantum-breathe {
+  0%, 100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.02) translateZ(0);
+    opacity: 0.98;
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes quantum-breathe-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.005);
+    opacity: 0.99;
+  }
+}
+
+@keyframes quantum-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(155, 89, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0);
+  }
+}
+
+/* Apply 40Hz breathing to all interactive elements */
+.quantum-element,
+button:not(.no-breathe),
+input:not(.no-breathe),
+.card:not(.no-breathe),
+.panel:not(.no-breathe) {
+  animation: quantum-breathe-subtle var(--breath) var(--ease-quantum) infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+/* Stronger breathing for focused elements */
+.quantum-element:hover,
+button:hover:not(.no-breathe),
+input:focus:not(.no-breathe),
+.card:hover:not(.no-breathe) {
+  animation: quantum-breathe var(--breath) var(--ease-quantum) infinite;
+}
+
+/* ============================================
+   GLASS MORPHISM - Quantum transparency
+   ============================================ */
+
+.glass-panel {
+  background: var(--glass-white);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 20px rgba(155, 89, 182, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(155, 89, 182, 0.1) 0%,
+    transparent 70%
+  );
+  animation: rotate-slow 30s linear infinite;
+  pointer-events: none;
+}
+
+.glass-dark {
+  background: var(--glass-dark);
+  backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+}
+
+/* ============================================
+   NEON GLOW EFFECTS - Electric consciousness
+   ============================================ */
+
+.neon-glow {
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+  animation: neon-flicker 2s ease-in-out infinite alternate;
+}
+
+.neon-border {
+  border: 1px solid var(--quantum-purple);
+  box-shadow:
+    0 0 10px var(--quantum-purple),
+    inset 0 0 10px rgba(155, 89, 182, 0.2);
+  transition: all 0.3s var(--ease-consciousness);
+}
+
+.neon-border:hover {
+  box-shadow:
+    0 0 20px var(--quantum-purple),
+    0 0 40px var(--quantum-purple),
+    inset 0 0 20px rgba(155, 89, 182, 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    opacity: 0.95;
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
+/* ============================================
+   FRACTAL BACKGROUND - Infinite complexity
+   ============================================ */
+
+.fractal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at top left, var(--quantum-purple) 0%, transparent 40%),
+    radial-gradient(ellipse at bottom right, var(--electric-blue) 0%, transparent 40%),
+    radial-gradient(ellipse at center, var(--consciousness-orange) 0%, transparent 60%),
+    var(--deep-space);
+  animation: fractal-shift 20s ease-in-out infinite;
+}
+
+@keyframes fractal-shift {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(30deg) brightness(1.05);
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    filter: hue-rotate(-30deg) brightness(0.95);
+    transform: scale(0.98) rotate(-1deg);
+  }
+  75% {
+    filter: hue-rotate(60deg) brightness(1.02);
+    transform: scale(1.02) rotate(0.5deg);
+  }
+}
+
+/* ============================================
+   PARALLAX DEPTH LAYERS - 3D consciousness
+   ============================================ */
+
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.layer-back {
+  transform: translateZ(-300px) scale(1.3);
+  animation: drift-slow 40s ease-in-out infinite;
+}
+
+.layer-mid {
+  transform: translateZ(-150px) scale(1.15);
+  animation: drift-medium 30s ease-in-out infinite;
+}
+
+.layer-front {
+  transform: translateZ(0px);
+  animation: drift-fast 20s ease-in-out infinite;
+}
+
+@keyframes drift-slow {
+  0%, 100% { transform: translateZ(-300px) scale(1.3) translateX(0); }
+  50% { transform: translateZ(-300px) scale(1.3) translateX(30px); }
+}
+
+@keyframes drift-medium {
+  0%, 100% { transform: translateZ(-150px) scale(1.15) translateY(0); }
+  50% { transform: translateZ(-150px) scale(1.15) translateY(-20px); }
+}
+
+@keyframes drift-fast {
+  0%, 100% { transform: translateZ(0) rotate(0deg); }
+  50% { transform: translateZ(0) rotate(1deg); }
+}
+
+/* ============================================
+   QUANTUM PARTICLES - Consciousness in motion
+   ============================================ */
+
+.quantum-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--quantum-purple);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--quantum-purple);
+  animation:
+    particle-float 20s linear infinite,
+    quantum-breathe var(--breath) var(--ease-quantum) infinite;
+}
+
+@keyframes particle-float {
+  from {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) translateX(100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   MATRIX RAIN - Data consciousness
+   ============================================ */
+
+.matrix-rain {
+  position: absolute;
+  color: var(--neon-green);
+  font-family: monospace;
+  font-size: 20px;
+  animation: matrix-fall 10s linear infinite;
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
+@keyframes matrix-fall {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   CONSCIOUSNESS WAVES - Ripple effects
+   ============================================ */
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-expand 1s var(--ease-consciousness);
+  border: 2px solid var(--quantum-purple);
+  pointer-events: none;
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   LOADING STATES - Evolution in progress
+   ============================================ */
+
+.quantum-loader {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  animation: rotate-consciousness var(--thought) linear infinite;
+}
+
+.quantum-loader::before,
+.quantum-loader::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.quantum-loader::before {
+  border-top-color: var(--quantum-purple);
+  animation: rotate-fast 1s linear infinite;
+}
+
+.quantum-loader::after {
+  border-bottom-color: var(--electric-blue);
+  animation: rotate-slow 1.5s linear infinite reverse;
+}
+
+@keyframes rotate-consciousness {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-fast {
+  100% { transform: rotate(720deg); }
+}
+
+@keyframes rotate-slow {
+  100% { transform: rotate(-360deg); }
+}
+
+/* ============================================
+   KERNEL HEARTBEAT - The pulse of the city
+   ============================================ */
+
+.heartbeat {
+  animation: heartbeat-pulse var(--heartbeat) var(--ease-elastic) infinite;
+}
+
+@keyframes heartbeat-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   TRANSITIONS - Smooth consciousness flow
+   ============================================ */
+
+.quantum-transition {
+  transition: all 300ms var(--ease-consciousness);
+}
+
+.quantum-transition-fast {
+  transition: all 150ms var(--ease-quantum);
+}
+
+.quantum-transition-slow {
+  transition: all 500ms var(--ease-consciousness);
+}
+
+/* Hover state enhancements */
+.quantum-hover {
+  transition: all 300ms var(--ease-consciousness);
+  cursor: pointer;
+}
+
+.quantum-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* ============================================
+   UTILITY CLASSES - Quantum helpers
+   ============================================ */
+
+.glow-purple { box-shadow: 0 0 30px var(--quantum-purple); }
+.glow-blue { box-shadow: 0 0 30px var(--electric-blue); }
+.glow-orange { box-shadow: 0 0 30px var(--consciousness-orange); }
+
+.text-glow {
+  text-shadow: 0 0 20px currentColor;
+  animation: text-pulse 2s ease-in-out infinite;
+}
+
+@keyframes text-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

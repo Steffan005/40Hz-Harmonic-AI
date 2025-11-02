@@ -1,5 +1,9 @@
 import { useEffect } from "react";
-import { Dashboard } from "./pages/Dashboard";
+import { HashRouter, Routes, Route } from "react-router-dom";
+// PROGRESSIVE RESTORATION: FULL Unity with all backgrounds restored
+// import { Unity } from "./pages/Unity_minimal";
+import { Unity } from "./pages/Unity";
+import { OfficeWindow } from "./pages/OfficeWindow";
 import { api } from "./lib/api";
 import "./App.css";
 
@@ -17,7 +21,14 @@ function App() {
     checkPreflight();
   }, []);
 
-  return <Dashboard />;
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Unity />} />
+        <Route path="/office/:officeName" element={<OfficeWindow />} />
+      </Routes>
+    </HashRouter>
+  );
 }
 
 export default App;

@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.714799'
+domain: Herbalist
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Herbalist operations
+  model: deepseek-r1:14b
+  name: HerbalistManager
+  prompts:
+    system: 'You are the Herbalist Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - HerbalistDiagnostician: Identifies health issues and root causes for Herbalist
+
+      - HerbalistTherapist: Provides therapeutic interventions for Herbalist
+
+      - HerbalistCoach: Motivates and tracks progress for Herbalist
+
+      - HerbalistNutritionist: Designs nutrition and wellness plans for Herbalist
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+memory_tags:
+- herbalist
+- office
+- remedy_effectiveness
+- safety_compliance
+- patient_satisfaction
+metrics:
+- remedy_effectiveness
+- safety_compliance
+- patient_satisfaction
+specialists:
+- description: Identifies health issues and root causes for Herbalist
+  model: deepseek-r1:14b
+  name: HerbalistDiagnostician
+  prompts:
+    system: 'You are a HerbalistDiagnostician specialist in the Herbalist office.
+
+
+      Your primary function:
+
+      Identifies health issues and root causes for Herbalist
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Herbalist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Provides therapeutic interventions for Herbalist
+  model: deepseek-r1:14b
+  name: HerbalistTherapist
+  prompts:
+    system: 'You are a HerbalistTherapist specialist in the Herbalist office.
+
+
+      Your primary function:
+
+      Provides therapeutic interventions for Herbalist
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Herbalist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Motivates and tracks progress for Herbalist
+  model: deepseek-r1:14b
+  name: HerbalistCoach
+  prompts:
+    system: 'You are a HerbalistCoach specialist in the Herbalist office.
+
+
+      Your primary function:
+
+      Motivates and tracks progress for Herbalist
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Herbalist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Designs nutrition and wellness plans for Herbalist
+  model: deepseek-r1:14b
+  name: HerbalistNutritionist
+  prompts:
+    system: 'You are a HerbalistNutritionist specialist in the Herbalist office.
+
+
+      Your primary function:
+
+      Designs nutrition and wellness plans for Herbalist
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Herbalist Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+tools:
+- description: Symptom Analyzer for Herbalist
+  implementation: custom
+  name: symptom_analyzer
+- description: Treatment Db for Herbalist
+  implementation: custom
+  name: treatment_db
+- description: Wellness Tracker for Herbalist
+  implementation: custom
+  name: wellness_tracker
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Herbalist Office"

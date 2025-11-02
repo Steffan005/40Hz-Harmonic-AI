@@ -1,0 +1,21 @@
+{
+  "security_level": "NSA_VAULT",
+  "encryption_enabled": true,
+  "file_permissions_strict": true,
+  "office_isolation": true,
+  "audit_logging": true,
+  "max_file_permissions": 448,
+  "allowed_office_tools": {
+    "software_engineer": [
+      "*"
+    ],
+    "law_office": [
+      "read_documents",
+      "write_legal_docs"
+    ],
+    "crypto_office": [
+      "market_data",
+      "trading_apis"
+    ]
+  }
+}

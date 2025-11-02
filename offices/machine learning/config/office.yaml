@@ -1,0 +1,195 @@
+created_at: '2025-10-16T10:56:01.496684'
+domain: Machine Learning
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Machine Learning operations
+  model: deepseek-r1:14b
+  name: Machine LearningManager
+  prompts:
+    system: 'You are the Machine Learning Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - MachineLearningResearcher: Conducts literature review and hypothesis generation
+      for Machine Learning
+
+      - MachineLearningModeler: Builds computational or mathematical models for Machine
+      Learning
+
+      - MachineLearningExperimenter: Designs and simulates experiments for Machine
+      Learning
+
+      - MachineLearningReporter: Writes research summaries and papers for Machine
+      Learning
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+memory_tags:
+- machine learning
+- office
+- hypothesis_quality
+- model_accuracy
+- reproducibility
+metrics:
+- hypothesis_quality
+- model_accuracy
+- reproducibility
+specialists:
+- description: Conducts literature review and hypothesis generation for Machine Learning
+  model: deepseek-r1:14b
+  name: MachineLearningResearcher
+  prompts:
+    system: 'You are a MachineLearningResearcher specialist in the Machine Learning
+      office.
+
+
+      Your primary function:
+
+      Conducts literature review and hypothesis generation for Machine Learning
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Machine Learning Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Builds computational or mathematical models for Machine Learning
+  model: deepseek-r1:14b
+  name: MachineLearningModeler
+  prompts:
+    system: 'You are a MachineLearningModeler specialist in the Machine Learning office.
+
+
+      Your primary function:
+
+      Builds computational or mathematical models for Machine Learning
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Machine Learning Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Designs and simulates experiments for Machine Learning
+  model: deepseek-r1:14b
+  name: MachineLearningExperimenter
+  prompts:
+    system: 'You are a MachineLearningExperimenter specialist in the Machine Learning
+      office.
+
+
+      Your primary function:
+
+      Designs and simulates experiments for Machine Learning
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Machine Learning Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Writes research summaries and papers for Machine Learning
+  model: deepseek-r1:14b
+  name: MachineLearningReporter
+  prompts:
+    system: 'You are a MachineLearningReporter specialist in the Machine Learning
+      office.
+
+
+      Your primary function:
+
+      Writes research summaries and papers for Machine Learning
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Machine Learning Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+tools:
+- description: Literature Search for Machine Learning
+  implementation: custom
+  name: literature_search
+- description: Simulation Engine for Machine Learning
+  implementation: custom
+  name: simulation_engine
+- description: Data Visualizer for Machine Learning
+  implementation: custom
+  name: data_visualizer
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Machine Learning Office"

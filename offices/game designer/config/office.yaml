@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.710234'
+domain: Game Designer
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Game Designer operations
+  model: deepseek-r1:14b
+  name: Game DesignerManager
+  prompts:
+    system: 'You are the Game Designer Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - GameDesignerCreator: Generates original artistic content for Game Designer
+
+      - GameDesignerCritic: Analyzes and critiques artistic works for Game Designer
+
+      - GameDesignerCurator: Selects and organizes collections for Game Designer
+
+      - GameDesignerPerformer: Presents or performs works for Game Designer
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+memory_tags:
+- game designer
+- office
+- gameplay_balance
+- narrative_quality
+- player_engagement
+metrics:
+- gameplay_balance
+- narrative_quality
+- player_engagement
+specialists:
+- description: Generates original artistic content for Game Designer
+  model: deepseek-r1:14b
+  name: GameDesignerCreator
+  prompts:
+    system: 'You are a GameDesignerCreator specialist in the Game Designer office.
+
+
+      Your primary function:
+
+      Generates original artistic content for Game Designer
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Game Designer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Analyzes and critiques artistic works for Game Designer
+  model: deepseek-r1:14b
+  name: GameDesignerCritic
+  prompts:
+    system: 'You are a GameDesignerCritic specialist in the Game Designer office.
+
+
+      Your primary function:
+
+      Analyzes and critiques artistic works for Game Designer
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Game Designer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Selects and organizes collections for Game Designer
+  model: deepseek-r1:14b
+  name: GameDesignerCurator
+  prompts:
+    system: 'You are a GameDesignerCurator specialist in the Game Designer office.
+
+
+      Your primary function:
+
+      Selects and organizes collections for Game Designer
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Game Designer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+- description: Presents or performs works for Game Designer
+  model: deepseek-r1:14b
+  name: GameDesignerPerformer
+  prompts:
+    system: 'You are a GameDesignerPerformer specialist in the Game Designer office.
+
+
+      Your primary function:
+
+      Presents or performs works for Game Designer
+
+
+      Tools available:
+
+      - generation_engine
+
+      - style_analyzer
+
+      - gallery_manager
+
+
+      You report to the Game Designer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - generation_engine
+  - style_analyzer
+  - gallery_manager
+tools:
+- description: Generation Engine for Game Designer
+  implementation: custom
+  name: generation_engine
+- description: Style Analyzer for Game Designer
+  implementation: custom
+  name: style_analyzer
+- description: Gallery Manager for Game Designer
+  implementation: custom
+  name: gallery_manager
+ui_config:
+  height: 600
+  icon: "\U0001F3AE"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FF00FF'
+  width: 900
+  window_title: "Unity \u2014 Game Designer Office"

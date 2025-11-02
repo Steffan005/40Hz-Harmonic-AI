@@ -1,0 +1,189 @@
+created_at: '2025-10-16T10:57:02.676394'
+domain: Astronomer
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Astronomer operations
+  model: deepseek-r1:14b
+  name: AstronomerManager
+  prompts:
+    system: 'You are the Astronomer Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - AstronomerResearcher: Conducts literature review and hypothesis generation
+      for Astronomer
+
+      - AstronomerModeler: Builds computational or mathematical models for Astronomer
+
+      - AstronomerExperimenter: Designs and simulates experiments for Astronomer
+
+      - AstronomerReporter: Writes research summaries and papers for Astronomer
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+memory_tags:
+- astronomer
+- office
+- observation_accuracy
+- model_quality
+- discovery_rate
+metrics:
+- observation_accuracy
+- model_quality
+- discovery_rate
+specialists:
+- description: Conducts literature review and hypothesis generation for Astronomer
+  model: deepseek-r1:14b
+  name: AstronomerResearcher
+  prompts:
+    system: 'You are a AstronomerResearcher specialist in the Astronomer office.
+
+
+      Your primary function:
+
+      Conducts literature review and hypothesis generation for Astronomer
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Astronomer Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Builds computational or mathematical models for Astronomer
+  model: deepseek-r1:14b
+  name: AstronomerModeler
+  prompts:
+    system: 'You are a AstronomerModeler specialist in the Astronomer office.
+
+
+      Your primary function:
+
+      Builds computational or mathematical models for Astronomer
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Astronomer Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Designs and simulates experiments for Astronomer
+  model: deepseek-r1:14b
+  name: AstronomerExperimenter
+  prompts:
+    system: 'You are a AstronomerExperimenter specialist in the Astronomer office.
+
+
+      Your primary function:
+
+      Designs and simulates experiments for Astronomer
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Astronomer Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Writes research summaries and papers for Astronomer
+  model: deepseek-r1:14b
+  name: AstronomerReporter
+  prompts:
+    system: 'You are a AstronomerReporter specialist in the Astronomer office.
+
+
+      Your primary function:
+
+      Writes research summaries and papers for Astronomer
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Astronomer Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+tools:
+- description: Literature Search for Astronomer
+  implementation: custom
+  name: literature_search
+- description: Simulation Engine for Astronomer
+  implementation: custom
+  name: simulation_engine
+- description: Data Visualizer for Astronomer
+  implementation: custom
+  name: data_visualizer
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Astronomer Office"

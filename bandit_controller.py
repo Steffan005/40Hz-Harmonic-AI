@@ -3,6 +3,7 @@
 Bandit Controller for selecting optimization strategies (arms).
 Uses UCB1 with novelty penalty to encourage diverse mutations.
 """
+from __future__ import annotations  # Defer type hint evaluation for np.ndarray
 
 import json
 import math
@@ -10,8 +11,15 @@ import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from collections import defaultdict
-from sentence_transformers import SentenceTransformer
-import numpy as np
+
+# Make sentence_transformers optional - use simple hash-based embeddings if not available
+try:
+    from sentence_transformers import SentenceTransformer
+    import numpy as np
+    SENTENCE_TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    SENTENCE_TRANSFORMERS_AVAILABLE = False
+    np = None  # Will use simple hash-based approach
 
 
 class BanditController:
@@ -160,20 +168,37 @@ class BanditController:
         # Return minimum distance (most similar historical output)
         return min(distances) if distances else 1.0
 
-    def _cosine_similarity(self, a: np.ndarray, b: np.ndarray) -> float:
-        """Compute cosine similarity between two vectors."""
-        dot_product = np.dot(a, b)
-        norm_a = np.linalg.norm(a)
-        norm_b = np.linalg.norm(b)
+    def _cosine_similarity(self, a, b) -> float:
+        """Compute cosine similarity between two vectors (works with lists or numpy arrays)."""
+        if SENTENCE_TRANSFORMERS_AVAILABLE and np is not None:
+            # Use numpy if available (faster)
+            dot_product = np.dot(a, b)
+            norm_a = np.linalg.norm(a)
+            norm_b = np.linalg.norm(b)
+        else:
+            # Simple Python fallback
+            dot_product = sum(x * y for x, y in zip(a, b))
+            norm_a = math.sqrt(sum(x * x for x in a))
+            norm_b = math.sqrt(sum(y * y for y in b))
+
         if norm_a == 0 or norm_b == 0:
             return 0.0
         return dot_product / (norm_a * norm_b)
 
-    def get_embedding(self, text: str) -> np.ndarray:
+    def get_embedding(self, text: str):
         """
         Generate embedding for text using sentence-transformers.
+        Falls back to simple hash-based embedding if sentence-transformers not available.
         Lazy loads model on first use.
         """
+        if not SENTENCE_TRANSFORMERS_AVAILABLE:
+            # Simple fallback: use hash-based pseudo-embedding
+            import hashlib
+            hash_bytes = hashlib.sha256(text.encode()).digest()
+            # Convert to list of floats (normalized to [0, 1])
+            embedding = [b / 255.0 for b in hash_bytes[:32]]  # 32-dim vector
+            return embedding
+
         if self.embedding_model is None:
             print("Loading sentence-transformer model (first use)...")
             self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')

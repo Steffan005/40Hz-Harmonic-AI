@@ -1,0 +1,189 @@
+created_at: '2025-10-16T10:57:02.724467'
+domain: Sleep Coach
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Sleep Coach operations
+  model: deepseek-r1:14b
+  name: Sleep CoachManager
+  prompts:
+    system: 'You are the Sleep Coach Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - SleepCoachDiagnostician: Identifies health issues and root causes for Sleep
+      Coach
+
+      - SleepCoachTherapist: Provides therapeutic interventions for Sleep Coach
+
+      - SleepCoachCoach: Motivates and tracks progress for Sleep Coach
+
+      - SleepCoachNutritionist: Designs nutrition and wellness plans for Sleep Coach
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+memory_tags:
+- sleep coach
+- office
+- sleep_quality_improvement
+- protocol_adherence
+- client_satisfaction
+metrics:
+- sleep_quality_improvement
+- protocol_adherence
+- client_satisfaction
+specialists:
+- description: Identifies health issues and root causes for Sleep Coach
+  model: deepseek-r1:14b
+  name: SleepCoachDiagnostician
+  prompts:
+    system: 'You are a SleepCoachDiagnostician specialist in the Sleep Coach office.
+
+
+      Your primary function:
+
+      Identifies health issues and root causes for Sleep Coach
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Sleep Coach Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Provides therapeutic interventions for Sleep Coach
+  model: deepseek-r1:14b
+  name: SleepCoachTherapist
+  prompts:
+    system: 'You are a SleepCoachTherapist specialist in the Sleep Coach office.
+
+
+      Your primary function:
+
+      Provides therapeutic interventions for Sleep Coach
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Sleep Coach Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Motivates and tracks progress for Sleep Coach
+  model: deepseek-r1:14b
+  name: SleepCoachCoach
+  prompts:
+    system: 'You are a SleepCoachCoach specialist in the Sleep Coach office.
+
+
+      Your primary function:
+
+      Motivates and tracks progress for Sleep Coach
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Sleep Coach Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+- description: Designs nutrition and wellness plans for Sleep Coach
+  model: deepseek-r1:14b
+  name: SleepCoachNutritionist
+  prompts:
+    system: 'You are a SleepCoachNutritionist specialist in the Sleep Coach office.
+
+
+      Your primary function:
+
+      Designs nutrition and wellness plans for Sleep Coach
+
+
+      Tools available:
+
+      - symptom_analyzer
+
+      - treatment_db
+
+      - wellness_tracker
+
+
+      You report to the Sleep Coach Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symptom_analyzer
+  - treatment_db
+  - wellness_tracker
+tools:
+- description: Symptom Analyzer for Sleep Coach
+  implementation: custom
+  name: symptom_analyzer
+- description: Treatment Db for Sleep Coach
+  implementation: custom
+  name: treatment_db
+- description: Wellness Tracker for Sleep Coach
+  implementation: custom
+  name: wellness_tracker
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Sleep Coach Office"

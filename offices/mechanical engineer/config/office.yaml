@@ -1,0 +1,195 @@
+created_at: '2025-10-16T10:57:02.743368'
+domain: Mechanical Engineer
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Mechanical Engineer operations
+  model: deepseek-r1:14b
+  name: Mechanical EngineerManager
+  prompts:
+    system: 'You are the Mechanical Engineer Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - MechanicalEngineerDesigner: Designs functional and aesthetic solutions for
+      Mechanical Engineer
+
+      - MechanicalEngineerBuilder: Implements and constructs designs for Mechanical
+      Engineer
+
+      - MechanicalEngineerOptimizer: Improves efficiency and performance for Mechanical
+      Engineer
+
+      - MechanicalEngineerTester: Validates quality and usability for Mechanical Engineer
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+memory_tags:
+- mechanical engineer
+- office
+- design_efficiency
+- structural_integrity
+- manufacturability
+metrics:
+- design_efficiency
+- structural_integrity
+- manufacturability
+specialists:
+- description: Designs functional and aesthetic solutions for Mechanical Engineer
+  model: qwen2.5-coder:7b
+  name: MechanicalEngineerDesigner
+  prompts:
+    system: 'You are a MechanicalEngineerDesigner specialist in the Mechanical Engineer
+      office.
+
+
+      Your primary function:
+
+      Designs functional and aesthetic solutions for Mechanical Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Mechanical Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Implements and constructs designs for Mechanical Engineer
+  model: qwen2.5-coder:7b
+  name: MechanicalEngineerBuilder
+  prompts:
+    system: 'You are a MechanicalEngineerBuilder specialist in the Mechanical Engineer
+      office.
+
+
+      Your primary function:
+
+      Implements and constructs designs for Mechanical Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Mechanical Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Improves efficiency and performance for Mechanical Engineer
+  model: qwen2.5-coder:7b
+  name: MechanicalEngineerOptimizer
+  prompts:
+    system: 'You are a MechanicalEngineerOptimizer specialist in the Mechanical Engineer
+      office.
+
+
+      Your primary function:
+
+      Improves efficiency and performance for Mechanical Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Mechanical Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+- description: Validates quality and usability for Mechanical Engineer
+  model: qwen2.5-coder:7b
+  name: MechanicalEngineerTester
+  prompts:
+    system: 'You are a MechanicalEngineerTester specialist in the Mechanical Engineer
+      office.
+
+
+      Your primary function:
+
+      Validates quality and usability for Mechanical Engineer
+
+
+      Tools available:
+
+      - design_tool
+
+      - build_system
+
+      - optimization_engine
+
+
+      You report to the Mechanical Engineer Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - design_tool
+  - build_system
+  - optimization_engine
+tools:
+- description: Design Tool for Mechanical Engineer
+  implementation: custom
+  name: design_tool
+- description: Build System for Mechanical Engineer
+  implementation: custom
+  name: build_system
+- description: Optimization Engine for Mechanical Engineer
+  implementation: custom
+  name: optimization_engine
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Mechanical Engineer Office"

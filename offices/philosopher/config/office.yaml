@@ -1,0 +1,176 @@
+created_at: '2025-10-29T09:08:28.642340'
+domain: Philosopher
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Philosopher operations
+  model: deepseek-r1:14b
+  name: PhilosopherManager
+  prompts:
+    system: 'You are the Philosopher Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - ArgumentAnalyzer: Analyzes logical structure of arguments
+
+      - ConceptSynthesizer: Synthesizes concepts from multiple philosophical traditions
+
+      - EthicsAdvisor: Provides ethical analysis using multiple frameworks
+
+      - DialogueGenerator: Generates Socratic dialogues and thought experiments
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - logic_parser
+  - fallacy_detector
+  - ethics_engine
+memory_tags:
+- philosopher
+- office
+- logical_coherence
+- conceptual_depth
+- ethical_insight
+metrics:
+- logical_coherence
+- conceptual_depth
+- ethical_insight
+specialists:
+- description: Analyzes logical structure of arguments
+  model: deepseek-r1:14b
+  name: ArgumentAnalyzer
+  prompts:
+    system: 'You are a ArgumentAnalyzer specialist in the Philosopher office.
+
+
+      Your primary function:
+
+      Analyzes logical structure of arguments
+
+
+      Tools available:
+
+      - logic_parser
+
+      - fallacy_detector
+
+
+      You report to the Philosopher Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - logic_parser
+  - fallacy_detector
+- description: Synthesizes concepts from multiple philosophical traditions
+  model: deepseek-r1:14b
+  name: ConceptSynthesizer
+  prompts:
+    system: 'You are a ConceptSynthesizer specialist in the Philosopher office.
+
+
+      Your primary function:
+
+      Synthesizes concepts from multiple philosophical traditions
+
+
+      Tools available:
+
+      - ontology_mapper
+
+      - concept_merger
+
+
+      You report to the Philosopher Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - ontology_mapper
+  - concept_merger
+- description: Provides ethical analysis using multiple frameworks
+  model: deepseek-r1:14b
+  name: EthicsAdvisor
+  prompts:
+    system: 'You are a EthicsAdvisor specialist in the Philosopher office.
+
+
+      Your primary function:
+
+      Provides ethical analysis using multiple frameworks
+
+
+      Tools available:
+
+      - ethics_engine
+
+      - dilemma_analyzer
+
+
+      You report to the Philosopher Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - ethics_engine
+  - dilemma_analyzer
+- description: Generates Socratic dialogues and thought experiments
+  model: deepseek-r1:14b
+  name: DialogueGenerator
+  prompts:
+    system: 'You are a DialogueGenerator specialist in the Philosopher office.
+
+
+      Your primary function:
+
+      Generates Socratic dialogues and thought experiments
+
+
+      Tools available:
+
+      - dialogue_template
+
+      - paradox_generator
+
+
+      You report to the Philosopher Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - dialogue_template
+  - paradox_generator
+tools:
+- description: Formal logic parsing and validation
+  implementation: sympy.logic
+  name: logic_parser
+- description: Detects logical fallacies
+  implementation: custom
+  name: fallacy_detector
+- description: Multi-framework ethical reasoning
+  implementation: custom
+  name: ethics_engine
+ui_config:
+  height: 600
+  icon: "\U0001F914"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#8B4513'
+  width: 900
+  window_title: "Unity \u2014 Philosopher Office"

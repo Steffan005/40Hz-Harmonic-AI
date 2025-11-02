@@ -1,0 +1,10 @@
+{
+  "permissions": [
+    "read_documents",
+    "write_legal_docs",
+    "legal_research"
+  ],
+  "file_access": "documents",
+  "network_access": "restricted",
+  "security_level": "maximum"
+}

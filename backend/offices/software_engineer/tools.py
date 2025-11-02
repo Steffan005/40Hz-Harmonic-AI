@@ -1,0 +1,1 @@
+class ReadFileTool:\n    def execute(self, requesting_office, file_path):\n        # Check if the requesting office has permission to read the file\n        if not self._has_permission(requesting_office, file_path):\n            raise PermissionError(f

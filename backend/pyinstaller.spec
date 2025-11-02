@@ -24,6 +24,12 @@ a = Analysis(
         ('../stop_rules.py', '.'),
         # Bundle config files (CRITICAL for runtime)
         ('../configs', 'configs'),
+        # Bundle tiktoken encodings (CRITICAL for LLM tokenization)
+        # Note: Adjust path if venv is in different location
+        ('../../venv/lib/python3.11/site-packages/tiktoken', 'tiktoken'),
+        ('../../venv/lib/python3.11/site-packages/tiktoken_ext', 'tiktoken_ext'),
+        # Bundle litellm package with tokenizers and config files (CRITICAL)
+        ('../../venv/lib/python3.11/site-packages/litellm', 'litellm'),
     ],
     hiddenimports=[
         # Flask web framework
@@ -33,6 +39,12 @@ a = Analysis(
         'psutil',
         # LLM integration (CRITICAL)
         'litellm',
+        # Tokenization (CRITICAL for LLM)
+        'tiktoken',
+        'tiktoken_ext',
+        'tiktoken_ext.openai_public',
+        'tiktoken.load',
+        'tiktoken.registry',
         # YAML config parsing (CRITICAL)
         'yaml',
         'pyyaml',
@@ -53,8 +65,12 @@ a = Analysis(
         'matplotlib',
         'numpy',
         'pandas',
-        'tkinter',
+        'torch',
+        'sentence_transformers',
+        'datasets',
         'PIL',
+        'Pillow',
+        'tkinter',
     ],
     win_no_prefer_redirects=False,
     win_private_assemblies=False,

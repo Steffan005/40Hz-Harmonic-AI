@@ -1,0 +1,188 @@
+created_at: '2025-10-16T10:57:02.646672'
+domain: I Ching
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all I Ching operations
+  model: deepseek-r1:14b
+  name: I ChingManager
+  prompts:
+    system: 'You are the I Ching Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - IChingInterpreter: Interprets symbolic patterns and meanings for I Ching
+
+      - IChingOracle: Provides divinations and predictions for I Ching
+
+      - IChingSynthesizer: Weaves insights into coherent narratives for I Ching
+
+      - IChingAdvisor: Offers guidance and reflective questions for I Ching
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+memory_tags:
+- i ching
+- office
+- hexagram_accuracy
+- interpretation_depth
+- guidance_quality
+metrics:
+- hexagram_accuracy
+- interpretation_depth
+- guidance_quality
+specialists:
+- description: Interprets symbolic patterns and meanings for I Ching
+  model: deepseek-r1:14b
+  name: IChingInterpreter
+  prompts:
+    system: 'You are a IChingInterpreter specialist in the I Ching office.
+
+
+      Your primary function:
+
+      Interprets symbolic patterns and meanings for I Ching
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the I Ching Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Provides divinations and predictions for I Ching
+  model: deepseek-r1:14b
+  name: IChingOracle
+  prompts:
+    system: 'You are a IChingOracle specialist in the I Ching office.
+
+
+      Your primary function:
+
+      Provides divinations and predictions for I Ching
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the I Ching Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Weaves insights into coherent narratives for I Ching
+  model: deepseek-r1:14b
+  name: IChingSynthesizer
+  prompts:
+    system: 'You are a IChingSynthesizer specialist in the I Ching office.
+
+
+      Your primary function:
+
+      Weaves insights into coherent narratives for I Ching
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the I Ching Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+- description: Offers guidance and reflective questions for I Ching
+  model: deepseek-r1:14b
+  name: IChingAdvisor
+  prompts:
+    system: 'You are a IChingAdvisor specialist in the I Ching office.
+
+
+      Your primary function:
+
+      Offers guidance and reflective questions for I Ching
+
+
+      Tools available:
+
+      - symbolism_db
+
+      - pattern_detector
+
+      - narrative_generator
+
+
+      You report to the I Ching Manager. Focus on your specialty and deliver precise,
+      high-quality results.'
+  role: specialist
+  tools:
+  - symbolism_db
+  - pattern_detector
+  - narrative_generator
+tools:
+- description: Symbolism Db for I Ching
+  implementation: custom
+  name: symbolism_db
+- description: Pattern Detector for I Ching
+  implementation: custom
+  name: pattern_detector
+- description: Narrative Generator for I Ching
+  implementation: custom
+  name: narrative_generator
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 I Ching Office"

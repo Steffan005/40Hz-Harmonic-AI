@@ -1,0 +1,40 @@
+{
+  "firewall_rules": {
+    "inbound_blocked": true,
+    "outbound_restricted": true,
+    "whitelist_ips": [
+      "127.0.0.1"
+    ],
+    "blacklist_ips": [],
+    "allowed_ports": [
+      8000,
+      8080,
+      3000
+    ],
+    "blocked_ports": [
+      22,
+      23,
+      21,
+      25,
+      53,
+      135,
+      139,
+      445
+    ]
+  },
+  "ssl_tls": {
+    "require_https": true,
+    "min_version": "TLSv1.3",
+    "certificate_validation": true
+  },
+  "intrusion_detection": {
+    "failed_login_attempts": 5,
+    "suspicious_activity_threshold": 10,
+    "auto_block_duration": 3600
+  },
+  "performance_optimization": {
+    "connection_pooling": true,
+    "keep_alive_timeout": 30,
+    "max_connections_per_ip": 10
+  }
+}

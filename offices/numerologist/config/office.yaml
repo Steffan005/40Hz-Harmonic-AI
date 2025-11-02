@@ -1,0 +1,149 @@
+created_at: '2025-10-29T09:08:28.631348'
+domain: Numerologist
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Numerologist operations
+  model: deepseek-r1:14b
+  name: NumerologistManager
+  prompts:
+    system: 'You are the Numerologist Manager, overseeing 3 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - NumberPatternFinder: Identifies significant number patterns in names and dates
+
+      - PersonalityCalculator: Calculates Life Path, Destiny, Soul Urge numbers
+
+      - DestinyReportGenerator: Generates comprehensive numerology reports
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - gematria_calculator
+  - numerology_engine
+  - pattern_detector
+memory_tags:
+- numerologist
+- office
+- calculation_accuracy
+- pattern_recognition
+- report_clarity
+metrics:
+- calculation_accuracy
+- pattern_recognition
+- report_clarity
+specialists:
+- description: Identifies significant number patterns in names and dates
+  model: qwen2.5-coder:7b
+  name: NumberPatternFinder
+  prompts:
+    system: 'You are a NumberPatternFinder specialist in the Numerologist office.
+
+
+      Your primary function:
+
+      Identifies significant number patterns in names and dates
+
+
+      Tools available:
+
+      - gematria_calculator
+
+      - pattern_detector
+
+
+      You report to the Numerologist Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - gematria_calculator
+  - pattern_detector
+- description: Calculates Life Path, Destiny, Soul Urge numbers
+  model: qwen2.5-coder:7b
+  name: PersonalityCalculator
+  prompts:
+    system: 'You are a PersonalityCalculator specialist in the Numerologist office.
+
+
+      Your primary function:
+
+      Calculates Life Path, Destiny, Soul Urge numbers
+
+
+      Tools available:
+
+      - numerology_engine
+
+      - compatibility_matrix
+
+
+      You report to the Numerologist Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - numerology_engine
+  - compatibility_matrix
+- description: Generates comprehensive numerology reports
+  model: deepseek-r1:14b
+  name: DestinyReportGenerator
+  prompts:
+    system: 'You are a DestinyReportGenerator specialist in the Numerologist office.
+
+
+      Your primary function:
+
+      Generates comprehensive numerology reports
+
+
+      Tools available:
+
+      - report_builder
+
+      - chart_visualizer
+
+
+      You report to the Numerologist Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - report_builder
+  - chart_visualizer
+tools:
+- description: Hebrew/Greek gematria calculations
+  implementation: custom
+  name: gematria_calculator
+- description: Pythagorean and Chaldean systems
+  implementation: custom
+  name: numerology_engine
+- description: Finds master numbers and patterns
+  implementation: numpy
+  name: pattern_detector
+ui_config:
+  height: 600
+  icon: "\U0001F522"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#4169E1'
+  width: 900
+  window_title: "Unity \u2014 Numerologist Office"

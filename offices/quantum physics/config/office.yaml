@@ -1,0 +1,193 @@
+created_at: '2025-10-16T10:56:01.488135'
+domain: Quantum Physics
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Quantum Physics operations
+  model: deepseek-r1:14b
+  name: Quantum PhysicsManager
+  prompts:
+    system: 'You are the Quantum Physics Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - QuantumPhysicsResearcher: Conducts literature review and hypothesis generation
+      for Quantum Physics
+
+      - QuantumPhysicsModeler: Builds computational or mathematical models for Quantum
+      Physics
+
+      - QuantumPhysicsExperimenter: Designs and simulates experiments for Quantum
+      Physics
+
+      - QuantumPhysicsReporter: Writes research summaries and papers for Quantum Physics
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+memory_tags:
+- quantum physics
+- office
+- hypothesis_quality
+- model_accuracy
+- reproducibility
+metrics:
+- hypothesis_quality
+- model_accuracy
+- reproducibility
+specialists:
+- description: Conducts literature review and hypothesis generation for Quantum Physics
+  model: deepseek-r1:14b
+  name: QuantumPhysicsResearcher
+  prompts:
+    system: 'You are a QuantumPhysicsResearcher specialist in the Quantum Physics
+      office.
+
+
+      Your primary function:
+
+      Conducts literature review and hypothesis generation for Quantum Physics
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Quantum Physics Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Builds computational or mathematical models for Quantum Physics
+  model: deepseek-r1:14b
+  name: QuantumPhysicsModeler
+  prompts:
+    system: 'You are a QuantumPhysicsModeler specialist in the Quantum Physics office.
+
+
+      Your primary function:
+
+      Builds computational or mathematical models for Quantum Physics
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Quantum Physics Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Designs and simulates experiments for Quantum Physics
+  model: deepseek-r1:14b
+  name: QuantumPhysicsExperimenter
+  prompts:
+    system: 'You are a QuantumPhysicsExperimenter specialist in the Quantum Physics
+      office.
+
+
+      Your primary function:
+
+      Designs and simulates experiments for Quantum Physics
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Quantum Physics Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+- description: Writes research summaries and papers for Quantum Physics
+  model: deepseek-r1:14b
+  name: QuantumPhysicsReporter
+  prompts:
+    system: 'You are a QuantumPhysicsReporter specialist in the Quantum Physics office.
+
+
+      Your primary function:
+
+      Writes research summaries and papers for Quantum Physics
+
+
+      Tools available:
+
+      - literature_search
+
+      - simulation_engine
+
+      - data_visualizer
+
+
+      You report to the Quantum Physics Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - literature_search
+  - simulation_engine
+  - data_visualizer
+tools:
+- description: Literature Search for Quantum Physics
+  implementation: custom
+  name: literature_search
+- description: Simulation Engine for Quantum Physics
+  implementation: custom
+  name: simulation_engine
+- description: Data Visualizer for Quantum Physics
+  implementation: custom
+  name: data_visualizer
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Quantum Physics Office"

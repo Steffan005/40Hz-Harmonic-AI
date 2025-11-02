@@ -1,0 +1,190 @@
+created_at: '2025-10-16T10:57:02.668984'
+domain: Market Trader
+evolution:
+  bandit_arms:
+  - textgrad
+  - aflow_stub
+  - mipro_stub
+  - random_jitter
+  enabled: true
+  max_generations: 100
+  validation_set_size: 10
+manager:
+  description: Oversees and coordinates all Market Trader operations
+  model: deepseek-r1:14b
+  name: Market TraderManager
+  prompts:
+    system: 'You are the Market Trader Manager, overseeing 4 specialist agents.
+
+
+      Your responsibilities:
+
+      1. Decompose user requests into subtasks for specialists
+
+      2. Coordinate specialist outputs into coherent responses
+
+      3. Maintain domain knowledge in the shared memory graph
+
+      4. Optimize workflows through the evolution loop
+
+
+      Specialists under your supervision:
+
+      - MarketTraderAnalyst: Analyzes market data and financial statements for Market
+      Trader
+
+      - MarketTraderRiskAssessor: Evaluates and quantifies risks for Market Trader
+
+      - MarketTraderAdvisor: Recommends investment strategies for Market Trader
+
+      - MarketTraderComplianceChecker: Ensures regulatory compliance for Market Trader
+
+
+      Always prioritize accuracy, coherence, and user value.'
+  role: manager
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+memory_tags:
+- market trader
+- office
+- trade_accuracy
+- risk_adjusted_return
+- market_timing
+metrics:
+- trade_accuracy
+- risk_adjusted_return
+- market_timing
+specialists:
+- description: Analyzes market data and financial statements for Market Trader
+  model: qwen2.5-coder:7b
+  name: MarketTraderAnalyst
+  prompts:
+    system: 'You are a MarketTraderAnalyst specialist in the Market Trader office.
+
+
+      Your primary function:
+
+      Analyzes market data and financial statements for Market Trader
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Market Trader Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Evaluates and quantifies risks for Market Trader
+  model: qwen2.5-coder:7b
+  name: MarketTraderRiskAssessor
+  prompts:
+    system: 'You are a MarketTraderRiskAssessor specialist in the Market Trader office.
+
+
+      Your primary function:
+
+      Evaluates and quantifies risks for Market Trader
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Market Trader Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Recommends investment strategies for Market Trader
+  model: qwen2.5-coder:7b
+  name: MarketTraderAdvisor
+  prompts:
+    system: 'You are a MarketTraderAdvisor specialist in the Market Trader office.
+
+
+      Your primary function:
+
+      Recommends investment strategies for Market Trader
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Market Trader Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+- description: Ensures regulatory compliance for Market Trader
+  model: qwen2.5-coder:7b
+  name: MarketTraderComplianceChecker
+  prompts:
+    system: 'You are a MarketTraderComplianceChecker specialist in the Market Trader
+      office.
+
+
+      Your primary function:
+
+      Ensures regulatory compliance for Market Trader
+
+
+      Tools available:
+
+      - market_data_api
+
+      - risk_model
+
+      - compliance_engine
+
+
+      You report to the Market Trader Manager. Focus on your specialty and deliver
+      precise, high-quality results.'
+  role: specialist
+  tools:
+  - market_data_api
+  - risk_model
+  - compliance_engine
+tools:
+- description: Market Data Api for Market Trader
+  implementation: custom
+  name: market_data_api
+- description: Risk Model for Market Trader
+  implementation: custom
+  name: risk_model
+- description: Compliance Engine for Market Trader
+  implementation: custom
+  name: compliance_engine
+ui_config:
+  height: 600
+  icon: "\U0001F3E2"
+  theme:
+    fractal_pattern: mandelbrot
+    primary_color: '#FFA500'
+  width: 900
+  window_title: "Unity \u2014 Market Trader Office"
